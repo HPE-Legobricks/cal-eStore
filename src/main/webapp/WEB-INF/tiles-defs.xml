@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="preSignInLayout" template="/tiles/preSignInLayout.jsp">
+        <put-attribute name="title" value="CALeStore" />
+        <put-attribute name="header" value="/tiles/header.jsp" />
+        <put-attribute name="menu" value=" " />
+        <put-attribute name="body" value=" " />
+        <put-attribute name="footer" value="/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="login.form" extends="preSignInLayout">
+        <put-attribute name="title" value="Sign In" />
+        <put-attribute name="body" value="/views/login.jsp" />
+    </definition>
+
+</tiles-definitions>
