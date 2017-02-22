@@ -1,8 +1,5 @@
 package com.hpe.calEStore.dao.entity;
 
-// default package
-// Generated Feb 15, 2017 5:41:54 PM by Hibernate Tools 3.4.0.CR1
-
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -24,6 +21,9 @@ public class OrderStatus implements java.io.Serializable {
 	private PurchaseOrder purchaseOrder;
 	private Status status;
 
+	public OrderStatus() {
+		// Do nothing... Hibernate needs this mandatory
+	}
 
 	public OrderStatus(OrderStatusId id, PurchaseOrder purchaseOrder,
 			Status status) {

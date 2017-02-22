@@ -61,6 +61,14 @@ public abstract class AbstractDAO<PK extends Serializable, T> {
         getSession().persist(entity);
     }
  
+    
+    /**
+     * @param entity
+     */
+    public void save(T entity) {
+        getSession().save(entity);
+    }
+ 
     /**
      * @param entity
      */

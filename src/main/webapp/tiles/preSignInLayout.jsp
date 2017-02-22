@@ -11,7 +11,10 @@
 <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/uswds.min.css">
+
+
 <style>
+
 html, body {
     width: 100%;
     height: 100%;
@@ -73,7 +76,7 @@ html, body {
 <div class="clear"></div>
 <!-- Logo image place --> 
 <!-- Logo image ends here --> 
-    <div class="container"><img src="images/logo.png" class="img-responsive img-center" alt="Placeholder image"> </div>
+    <div class="container"><img src="<%=request.getContextPath()%>/images/logo.png" class="img-responsive img-center" alt="Placeholder image"> </div>
 <!--Login Form strat-->
 <div class="container">
   <div class="row">
@@ -86,6 +89,6 @@ html, body {
 <footer class="container-fluid text-center">
   <p>(800) CALL-GOVT | <a href="javascript:void(0);">info@agency.gov</a></p>
 </footer>
-<script src="js/uswds.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/uswds.min.js"></script>
 </body>
 </html>

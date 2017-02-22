@@ -1,8 +1,5 @@
 package com.hpe.calEStore.dao.entity;
 
-// default package
-// Generated Feb 15, 2017 5:41:54 PM by Hibernate Tools 3.4.0.CR1
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,8 +37,11 @@ public class Product implements java.io.Serializable {
 	private String isPublishedInd;
 	private Date publishedDate;
 	private Set<ProductOrder> productOrders = new HashSet<ProductOrder>(0);
-	private ProductAspect productAspect;
+	private Set<ProductAspect> productAspects = new HashSet<ProductAspect>(0);
 
+	public Product() {
+		// Do nothing... Hibernate needs this mandatory
+	}
 
 	public Product(Category category, Brand brand, String productName,
 			String productDesc, String productType, float msrpPerUnit,
@@ -62,7 +61,7 @@ public class Product implements java.io.Serializable {
 			String productDesc, String productType, String imgPath,
 			float msrpPerUnit, Float discPercent, float pricePerUnit,
 			Integer rating, String isPublishedInd, Date publishedDate,
-			Set<ProductOrder> productOrders, ProductAspect productAspect) {
+			Set<ProductOrder> productOrders, Set<ProductAspect> productAspects) {
 		this.category = category;
 		this.brand = brand;
 		this.productName = productName;
@@ -76,7 +75,7 @@ public class Product implements java.io.Serializable {
 		this.isPublishedInd = isPublishedInd;
 		this.publishedDate = publishedDate;
 		this.productOrders = productOrders;
-		this.productAspect = productAspect;
+		this.productAspects = productAspects;
 	}
 
 	@Id
@@ -210,13 +209,13 @@ public class Product implements java.io.Serializable {
 		this.productOrders = productOrders;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "product")
-	public ProductAspect getProductAspect() {
-		return this.productAspect;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	public Set<ProductAspect> getProductAspects() {
+		return this.productAspects;
 	}
 
-	public void setProductAspect(ProductAspect productAspect) {
-		this.productAspect = productAspect;
+	public void setProductAspects(Set<ProductAspect> productAspects) {
+		this.productAspects = productAspects;
 	}
 
 }

@@ -1,8 +1,5 @@
 package com.hpe.calEStore.dao.entity;
 
-// default package
-// Generated Feb 15, 2017 5:41:54 PM by Hibernate Tools 3.4.0.CR1
-
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -27,6 +24,9 @@ public class Status implements java.io.Serializable {
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
 	private Set<PurchaseOrder> purchaseOrders = new HashSet<PurchaseOrder>(0);
 
+	public Status() {
+		// Do nothing... Hibernate needs this mandatory
+	}
 
 	public Status(String statusName, String isCnclAllowedInd) {
 		this.statusName = statusName;

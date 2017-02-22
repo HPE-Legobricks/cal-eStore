@@ -1,8 +1,5 @@
 package com.hpe.calEStore.dao.entity;
 
-// default package
-// Generated Feb 15, 2017 5:41:54 PM by Hibernate Tools 3.4.0.CR1
-
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -17,6 +14,9 @@ public class OrderStatusId implements java.io.Serializable {
 	private int statusId;
 	private Date lastModifiedTm;
 
+	public OrderStatusId() {
+		// Do nothing... Hibernate needs this mandatory
+	}
 
 	public OrderStatusId(int orderId, int statusId, Date lastModifiedTm) {
 		this.orderId = orderId;
@@ -51,6 +51,23 @@ public class OrderStatusId implements java.io.Serializable {
 		this.lastModifiedTm = lastModifiedTm;
 	}
 
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof OrderStatusId))
+			return false;
+		OrderStatusId castOther = (OrderStatusId) other;
+
+		return (this.getOrderId() == castOther.getOrderId())
+				&& (this.getStatusId() == castOther.getStatusId())
+				&& ((this.getLastModifiedTm() == castOther.getLastModifiedTm()) || (this
+						.getLastModifiedTm() != null
+						&& castOther.getLastModifiedTm() != null && this
+						.getLastModifiedTm().equals(
+								castOther.getLastModifiedTm())));
+	}
 
 	public int hashCode() {
 		int result = 17;
