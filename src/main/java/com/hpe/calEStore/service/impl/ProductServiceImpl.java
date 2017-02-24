@@ -71,4 +71,9 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.compareProducts(productIds);
 	}
 
+	@Override
+	public List<Product> getDetailsByProductId(List<Integer> productIds) {
+		// TODO Auto-generated method stub
+		return prodDao.getDetailsByProductId(productIds);
+	}
 }

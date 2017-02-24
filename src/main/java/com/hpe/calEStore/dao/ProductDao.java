@@ -24,14 +24,15 @@ public interface ProductDao {
 	List<Product> getAllProductsByRating(int value);
 
 	List<Product> getAllProductsByCategory(int category);
-	
-	List<Product> getAllProducts(String productTypeCode,String OrderBy);
+
+	List<Product> getAllProducts(String productTypeCode, String OrderBy);
 
 	ProductCompareDM compareProducts(int[] productIds);
-	
-	void  publishProducts(List<Integer> productIds);
+
+	void publishProducts(List<Integer> productIds);
 
 	List<Product> getUnpublishedProductsByProductType(String productType);
-	
+
+	List<Product> getDetailsByProductId(List<Integer> productIds);
 
 }

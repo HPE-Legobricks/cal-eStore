@@ -28,13 +28,14 @@ public interface ProductService {
 	List<Product> getAllProductsByRating(int value);
 
 	List<Product> getAllProductsByCategory(int category);
-	
-	List<Product> getAllProducts(String productTypeCode,String OrderBy);
-    
-	void  publishProducts(List<Integer> productIds);
-	
+
+	List<Product> getAllProducts(String productTypeCode, String OrderBy);
+
+	void publishProducts(List<Integer> productIds);
+
 	List<Product> getUnpublishedProductsByProductType(String productType);
-	
+
 	ProductCompareDM compareProducts(int[] productIds);
 
+	List<Product> getDetailsByProductId(List<Integer> productIds);
 }

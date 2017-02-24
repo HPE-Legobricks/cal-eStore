@@ -267,4 +267,18 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public List<Product> getDetailsByProductId(List<Integer> productIds) {
+		// TODO Auto-generated method stub
+
+		List<Product> productDetails = createEntityCriteria()
+				.add(Restrictions.in("productId", productIds))
+				.addOrder(Order.desc("publishedDate")).list();
+
+		return productDetails;
+
+	}
+
 }

@@ -82,9 +82,10 @@ public class ProductDaoImplTest {
 			e.printStackTrace();
 		}
 	}
+
 	@Rollback(false)
 	@Test
-	public void compareProductsListTest() {
+	public void publishProductsListTest() {
 		try {
 
 			List<Integer> listOfProducts = new ArrayList<Integer>();
@@ -134,4 +135,23 @@ public class ProductDaoImplTest {
 
 	}
 
+	@Rollback(false)
+	@Test
+	public void productDetails() {
+		try {
+
+			List<Integer> listOfProducts = new ArrayList<Integer>();
+			listOfProducts.add(4);
+			listOfProducts.add(5);
+			listOfProducts.add(6);
+			listOfProducts.add(7);
+			listOfProducts.add(13);
+
+			productDao.getDetailsByProductId(listOfProducts);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
