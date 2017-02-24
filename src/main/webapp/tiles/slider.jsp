@@ -7,13 +7,13 @@
 			<div
 				style="filter: alpha(opacity = 70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 			<div
-				style="position: absolute; display: block; background: url('full-width-slider.slider/img/loading.gif') no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				style="position: absolute; display: block; background: url('img/loading.gif') no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 		</div>
 		<div data-u="slides"
 			style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 200px; overflow: hidden;">
 			<a data-u="any" href="#" style="display: none">Full Width Slider</a>
 			<div>
-				<img data-u="image" src="full-width-slider.slider/img/red.jpg" />
+				<img data-u="image" src="img/red.jpg" />
 				<div
 					style="position: absolute; top: 30px; left: 30px; width: 480px; height: 120px; z-index: 0; font-size: 50px; color: #ffffff; line-height: 60px;">TOUCH
 					SWIPE SLIDER</div>
@@ -23,10 +23,10 @@
 					photo, picture</div>
 			</div>
 			<div>
-				<img data-u="image" src="full-width-slider.slider/img/purple.jpg" />
+				<img data-u="image" src="img/purple.jpg" />
 			</div>
 			<div>
-				<img data-u="image" src="full-width-slider.slider/img/blue.jpg" />
+				<img data-u="image" src="img/blue.jpg" />
 			</div>
 		</div>
 		<!-- Bullet Navigator -->
