@@ -3,13 +3,14 @@
  */
 package com.hpe.calEStore.service.impl;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Map;
 
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hpe.calEStore.dao.OrderDAO;
-
+import com.hpe.calEStore.dao.entity.PurchaseOrder;
 import com.hpe.calEStore.dao.entity.UserProfile;
 import com.hpe.calEStore.service.OrderService;
 
@@ -34,6 +35,19 @@ public class OrderServiceImpl implements OrderService {
 	public String getUserDepartmentName(String emailId) {
 		// TODO Auto-generated method stub
 		return orderDAO.getUserDepartmentName(emailId);
+	}
+
+	@Override
+	public List<PurchaseOrder> getAllOrdersWithStatus(String emailId) {
+		// TODO Auto-generated method stub
+		return orderDAO.getAllOrdersWithStatus(emailId);
+	}
+
+	@Override
+	public void saveProceessedOrder(String emailId, Map<Integer, Integer> productMap) {
+		// TODO Auto-generated method stub
+		orderDAO.saveProceessedOrder(emailId, productMap);
+		
 	}
 
 }
