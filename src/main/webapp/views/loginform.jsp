@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ADPQ</title>
+<title>cal eStore</title>
 </head>
 <body>
 <h3>Login Form1</h3>
