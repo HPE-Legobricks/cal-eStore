@@ -1,5 +1,7 @@
 package com.hpe.calEStore.validator;
 
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -37,19 +39,88 @@ public class UserValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		User userObject = (User)target;
 		
-		if(userObject.getEmailId() == null || StringUtils.isEmpty(userObject.getEmailId())){
-			return;
+		
+		if(StringUtils.isEmpty(userObject.getFirstName())){
+			errors.rejectValue("firstName", "fname.notEmpty");
 		}
-		if(userObject.getMobileNumber() == null || StringUtils.isEmpty(userObject.getMobileNumber())){
-			return;
+		if(StringUtils.isEmpty(userObject.getLastName())){
+			errors.rejectValue("lastName", "lname.notEmpty");
+		}
+		if(StringUtils.isEmpty(userObject.getDepartment().getDepartmentName())){
+			errors.rejectValue("department.departmentName", "dept.notEmpty");
 		}
 		
-		if(service.isExists(userObject.getEmailId())){
-			errors.rejectValue("password", "email.duplicate");
+		
+		//Mobile validation
+		if(StringUtils.isEmpty(userObject.getMobileNumber())){
+			errors.rejectValue("mobileNumber", "mobile.notEmpty");
 		}
-		if(service.isMobileExists(userObject.getMobileNumber())){
-			errors.rejectValue("mobileNumber", "mobile.duplicate");
+		else{
+			Pattern pattern = Pattern.compile("\\D*([2-9]\\d{2})(\\D*)([2-9]\\d{2})(\\D*)(\\d{4})\\D*");
+			if(!pattern.matcher(userObject.getMobileNumber()).matches()){
+				errors.rejectValue("mobileNumber", "mobile.wrongFormat");
+			}
+			else{
+				if(service.isMobileExists(userObject.getMobileNumber())){
+					errors.rejectValue("mobileNumber", "mobile.duplicate");
+				}
+			}
 		}
+		
+		
+		//E-mail ID validation
+		if(StringUtils.isEmpty(userObject.getEmailId())){
+			errors.rejectValue("emailId", "email.notEmpty");
+		}
+		else{
+			Pattern pattern = Pattern.compile(".+@.+\\..+");
+			if(!pattern.matcher(userObject.getEmailId()).matches()){
+				errors.rejectValue("emailId", "email.wrongFormat");
+			}
+			else{
+				
+				if(service.isExists(userObject.getEmailId())){
+					errors.rejectValue("emailId", "email.duplicate");
+				}
+			}
+		}
+		
+		
+		if(StringUtils.isEmpty(userObject.getPassword())){
+			errors.rejectValue("password", "pass.notEmpty");
+		}
+		else{
+			if(userObject.getPassword().length() < 8 ){
+				errors.rejectValue("password", "pass.min");
+			}
+		}
+		
+		if(StringUtils.isEmpty(userObject.getConfirmPassword())){
+			errors.rejectValue("confirmPassword", "cpass.notEmpty");
+		}
+		
+		
+		if(!(userObject.getPassword().equals(userObject.getConfirmPassword()))){
+			errors.rejectValue("confirmPassword", "pass.notSame");
+		}
+		
+		
+		//Address
+		if(StringUtils.isEmpty(userObject.getAddress().getAddressLine1())){
+			errors.rejectValue("address.addressLine1", "addr1.notEmpty");
+		}
+		if(StringUtils.isEmpty(userObject.getAddress().getState())){
+			errors.rejectValue("address.state", "state.notEmpty");
+		}
+		if(StringUtils.isEmpty(userObject.getAddress().getCity())){
+			errors.rejectValue("address.city", "city.notEmpty");
+		}
+		if(StringUtils.isEmpty(userObject.getAddress().getZipCode())){
+			errors.rejectValue("address.zipCode", "zip.notEmpty");
+		}
+		
+		
+	
 	}
 
 }

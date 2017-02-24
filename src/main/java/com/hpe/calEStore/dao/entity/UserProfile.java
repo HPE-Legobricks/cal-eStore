@@ -98,7 +98,7 @@ public class UserProfile implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "DEPARTMENT_ID", nullable = false)
 	public Department getDepartment() {
 		return this.department;

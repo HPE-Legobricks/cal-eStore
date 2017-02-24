@@ -3,7 +3,7 @@
 		<div class="container" align="center">
 			<div class="row">
 				<div class="span12 info">
-					<a href="#">HARDWARE</a> | <a href="#">SOFTWARE</a> | <a href="#">SERVIVES</a>
+					<a href="#">HARDWARE</a> | <a href="#">SOFTWARE</a> | <a href="#">SERVICES</a>
 					| <a href="#">COMPARE</a>
 				</div>
 			</div>
@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span5 social">
-					<img src="images/logo.png" alt="" />
+					<img src="<%=request.getContextPath()%>/images/logo.png" alt="" />
 				</div>
 				<div class="span2 textcenter"></div>
 				<div class="span5 paymentsicons">

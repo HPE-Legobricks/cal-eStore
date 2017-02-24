@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Constraint;
+import javax.validation.GroupSequence;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.hpe.calEStore.dao.entity.Department;
@@ -17,32 +18,23 @@ import com.hpe.calEStore.dao.entity.Department;
  * @author mishrani
  *
  */
+
 public class User {
-	
 	
 	private Integer userId;
 	
-	@Valid
 	private Department department;
 	
-	@NotEmpty(message="First name should not be empty.")
 	private String firstName;
 	
-	@NotEmpty(message="Last name should not be empty.")
 	private String lastName;
 	
-	@NotEmpty(message="Email should not be empty.")
-	@Email(message = "Email Address is not a valid format")
 	private String emailId;
 	
-	@NotEmpty(message="Password should not be empty.")
-	@Size(min = 8, message ="The password entered is invalid. It must have at least {min} digits.")
 	private String password;
 	
-	@NotEmpty(message="Confirm password should match with the password.")
 	private String confirmPassword;
 	
-	@NotEmpty(message="Mobile should not be empty.")
 	private String mobileNumber;
 	
 	private String gender;
@@ -100,10 +92,6 @@ public class User {
 		this.userCheckBoxList = userCheckBoxList;
 	}
 
-	/**
-	 * 
-	 */
-	@Valid
 	private UserAddress address;
 	
 	
@@ -196,16 +184,8 @@ public class User {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-		checkPassword();
 	}
 	
-	private void checkPassword() {
-	    if(this.password == null || this.confirmPassword == null){
-	        return;
-	    }else if(!this.password.equals(confirmPassword)){
-	        this.confirmPassword = null;
-	    }
-	}
 	
 	/**
 	 * @return

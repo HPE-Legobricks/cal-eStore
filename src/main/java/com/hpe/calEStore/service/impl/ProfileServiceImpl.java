@@ -61,6 +61,11 @@ public class ProfileServiceImpl implements ProfileService{
 		Set<Address> setOfAddress = new HashSet<Address>();
 		setOfAddress.add(address);
 		
+		Department department = new Department();
+		department.setDepartmentId(user.getDepartment().getDepartmentId());
+		department.setDepartmentName(user.getDepartment().getDepartmentName());
+		profile.setDepartment(department);
+		
 		profile.setAddresses(setOfAddress);
 		
         dao.saveUserProfile(profile);

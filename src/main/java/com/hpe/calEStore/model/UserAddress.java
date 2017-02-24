@@ -4,19 +4,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserAddress {
 	
-	@NotEmpty(message="Address Line1 should not be empty.")
 	private String addressLine1;
 	
-	@NotEmpty(message="Address Line 2 should not be empty.")
 	private String addressLine2;
 	
-	@NotEmpty(message="City should not be empty.")
 	private String city;
 	
-	@NotEmpty(message="State should not be empty.")
 	private String state;
 	
-	@NotEmpty(message="Zip code should not be empty.")
 	private String zipCode;
 	
 	

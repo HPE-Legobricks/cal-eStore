@@ -19,24 +19,42 @@
 $(document).ready(function() {
 	
 	
+	$( function() {
+	    $( document ).tooltip();
+	  } );
+	
 	$('#fname-id').bind('keyup blur',function(){ 
 	    var node = $(this);
-	    node.val(node.val().replace(/[^a-z]/g,'') ); }
+	    node.val(node.val().replace(/[^a-zA-Z0-9 ]/g,'') ); }
 	);
+	
 	$('#lname-id').bind('keyup blur',function(){ 
 	    var node = $(this);
-	    node.val(node.val().replace(/[^a-z]/g,'') ); }
+	    node.val(node.val().replace(/[^a-zA-Z0-9 ]/g,'') ); }
+	);
+	
+	$('#addr1-id').bind('keyup blur',function(){ 
+	    var node = $(this);
+	    node.val(node.val().replace(/[^a-zA-Z0-9 ]/g,'') ); }
+	);
+	
+	$('#addr2-id').bind('keyup blur',function(){ 
+	    var node = $(this);
+	    node.val(node.val().replace(/[^a-zA-Z0-9 ]/g,'') ); }
 	);
 	
 
 	$('#dept-id-search').autocomplete({
+		
 	    serviceUrl: '${pageContext.request.contextPath}/getDepartments',
 	    paramName: "tagName",
 	    delimiter: ",",
 	   transformResult: function(response) {
+		   
 	    return {
 	    	
 	      suggestions: $.map($.parseJSON(response), function(item) {
+	    	  
 	          return { value: item.departmentName, data: item.departmentId };
 	       })
 
@@ -109,17 +127,16 @@ $(document).ready(function() {
       
       
       <label for="dept-name" class="usa-input-required">Department name</label>
-      <form:input path="department.departmentName" cssClass="usa-input-required" aria-required="true" />
-      
+      <form:input id="dept-id-search" path="department.departmentName" cssClass="usa-input-required" aria-required="true" />
 
-	  <label for="input-type-text" class="usa-input-required">Mobile</label>
-	  <form:input path="mobileNumber" cssClass="usa-input-required" aria-required="true" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/>
+	  <label for="input-type-text" class="usa-input-required">Phone</label>
+	  <form:input path="mobileNumber" cssClass="usa-input-required" aria-required="true"/>
   
       <label for="input-type-text" class="usa-input-required">Email</label>
       <form:input id="eml-id" path="emailId" cssClass="input-email-text" aria-required="true" />
     
       <label for="input-type-text" class="usa-input-required">Password</label>
-  	  <form:password path="password"/>
+  	  <form:password id="pwd-id" path="password" title="Password should ateast contain one capital letter, one number and a special character."/>
   	  
       <label for="input-type-text" class="usa-input-required">Confirm Password</label>
  	  <form:password path="confirmPassword"/>
@@ -140,20 +157,24 @@ $(document).ready(function() {
     <fieldset>
       <legend>Mailing address</legend>
       <label for="mailing-address-1" class="usa-input-required">Street address 1</label>
-      <form:input path="address.addressLine1"/>
+      <form:input id="addr1-id" path="address.addressLine1"/>
 
-      <label for="mailing-address-2" class="usa-input-required">Street address 2 <span class="usa-additional_text">(Optional)</span></label>
-      <form:input path="address.addressLine2"/>
+      <label for="mailing-address-2">Street address 2 <span class="usa-additional_text">(Optional)</span></label>
+      <form:input id="addr2-id" path="address.addressLine2"/>
 
       <div>
         <div class="usa-input-grid usa-input-grid-medium">
-          <label for="city" class="usa-input-required">City</label>
-          <form:input path="address.city"/>
+          <label for="city" class="usa-input-required">State</label>
+		 <form:select path="address.state">
+            <form:option value="" label="Select" />
+            <form:options items="${city}" />
+         </form:select>
+          
         </div>
 
         <div class="usa-input-grid usa-input-grid-small">
-          <label for="state" class="usa-input-required">State</label>
-          	<form:input path="address.state"/>
+          <label for="state" class="usa-input-required">City</label>
+          	<form:input path="address.city"/>
         </div>
       </div>
 
@@ -175,8 +196,8 @@ $(document).ready(function() {
     <ul class="usa-unstyled-list">
     
       <li>
-        <input id="truth" type="checkbox" name="mobileChecked" value="Y" checked>
-        <label for="truth">Mobile</label>
+        <input id="truth" type="checkbox" name="mobileChecked" value="Y">
+        <label for="truth">Phone</label>
       </li>
       <li>
         <input id="douglass" type="checkbox" name="emailChecked" value="Y">
@@ -189,6 +210,6 @@ $(document).ready(function() {
       </div>
     </li>
     </ul>
-        <button id="submit-btn-id" class=" bg-primary" formnovalidate="formnovalidate" >Submit</button>
+        <button id="submit-btn-id" class=" bg-primary" formnovalidate="formnovalidate">Submit</button>
       </form:form>
 </div>

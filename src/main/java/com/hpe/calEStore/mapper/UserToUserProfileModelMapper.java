@@ -134,14 +134,6 @@ public class UserToUserProfileModelMapper implements Mapper {
 			userProfile.setProfileInd("U");
 			userProfile.setPassword(DecodeUtil.encodedeWithBase64(user.getPassword()));
 			userProfile.setStatusInd("N");
-			
-			/*Department*/
-			Department department = new Department();
-			
-			department.setDepartmentId(1);
-			department.setDepartmentName("Finance");
-			userProfile.setDepartment(department);
-			
 			return userProfile;
 		}
 		

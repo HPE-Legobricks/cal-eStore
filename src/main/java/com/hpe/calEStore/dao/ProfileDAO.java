@@ -2,7 +2,6 @@ package com.hpe.calEStore.dao;
 
 import java.util.List;
 
-import com.hpe.calEStore.dao.UserProfileManageException;
 import com.hpe.calEStore.dao.entity.Department;
 import com.hpe.calEStore.dao.entity.UserProfile;
 

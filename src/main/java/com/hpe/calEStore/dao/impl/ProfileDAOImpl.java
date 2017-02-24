@@ -9,8 +9,10 @@ import java.util.List;
 
 
 
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -120,10 +122,11 @@ public class ProfileDAOImpl extends AbstractDAO<Serializable, UserProfile> imple
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	@Cacheable(value="products")
 	public List<Department> getDepartments() {
 		
-		String hqlQuery = "from Department where departmentName LIKE :searchKeyword";
-		return getSession().createQuery(hqlQuery).setParameter("searchKeyword", "A" + "%").setMaxResults(10).list();
+		String hqlQuery = "from Department";
+		return getSession().createQuery(hqlQuery).list();
 	}
 
 
