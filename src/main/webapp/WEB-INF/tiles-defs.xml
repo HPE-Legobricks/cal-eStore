@@ -3,15 +3,6 @@
 
 <tiles-definitions>
 
-	<definition name="adminLayout" template="/tiles/adminLayout.jsp">
-		<put-attribute name="title" value="CALeStore - Admin Home" />
-		<put-attribute name="header" value="/tiles/adminHeader.jsp" />
-        <put-attribute name="nav" value="/tiles/adminNav.jsp" />
-        <put-attribute name="slider" value=" " />
-		<put-attribute name="body" value=" " />
-		<put-attribute name="footer" value="/tiles/footerPostSignIn.jsp" />
-	</definition>
-	
 	<definition name="preSignInLayout" template="/tiles/preSignInLayout.jsp">
 		<put-attribute name="title" value="CALeStore" />
 		<put-attribute name="header" value="/tiles/header.jsp" />
@@ -23,6 +14,15 @@
 		<put-attribute name="title" value="CALeStore - Home" />
 		<put-attribute name="header" value="/tiles/headerPostSignIn.jsp" />
         <put-attribute name="nav" value="/tiles/nav.jsp" />
+        <put-attribute name="slider" value=" " />
+		<put-attribute name="body" value=" " />
+		<put-attribute name="footer" value="/tiles/footerPostSignIn.jsp" />
+	</definition>
+
+	<definition name="adminLayout" template="/tiles/adminLayout.jsp">
+		<put-attribute name="title" value="CALeStore - Admin Home" />
+		<put-attribute name="header" value="/tiles/adminHeader.jsp" />
+        <put-attribute name="nav" value="/tiles/adminNav.jsp" />
         <put-attribute name="slider" value=" " />
 		<put-attribute name="body" value=" " />
 		<put-attribute name="footer" value="/tiles/footerPostSignIn.jsp" />
@@ -59,6 +59,11 @@
         <put-attribute name="body" value="/views/cartConfirmation.jsp" />
     </definition>
     
+    <definition name="order.thankyou" extends="postSignInLayout">
+        <put-attribute name="title" value="Cal-eStore -Thank You " />
+        <put-attribute name="body" value="/views/thankyou.jsp" />
+    </definition>
+    
     <definition name="order.detail" extends="postSignInLayout">
         <put-attribute name="title" value="Cal-eStore - Cart Detail" />
         <put-attribute name="body" value="/views/orderTrack.jsp" />
@@ -85,10 +90,17 @@
 		<put-attribute name="body" value="/views/productComparision.jsp" />
 	</definition>
 	
-	<definition name="manage.user" extends="adminLayout">
+	<!-- new UI -->
+	 <definition name="manage.user" extends="adminLayout">
 		<put-attribute name="title" value="Welcome Admin - Manage users" />
 		<put-attribute name="body" value="/views/manageUsers.jsp" />
 	</definition>
 	
 	
+	
+	<!-- temp page. -->
+	<definition name="temp.page" extends="postSignInLayout">
+		<put-attribute name="title" value="HAPPY" />
+		<put-attribute name="body" value="/views/viewemp.jsp" />
+	</definition>
 </tiles-definitions>
