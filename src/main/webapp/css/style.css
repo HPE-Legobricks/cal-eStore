@@ -3,21 +3,24 @@
 /* ------------ Reset ------------ */
 body {
 	font-family: 'Noto Sans', sans-serif;
-	color: #96979d;
+	color: #323a45;
 	font-size: 14px;
 	margin: 0px;
-	padding: 0px
+	padding: 0px;
+	line-height: 1.7em;
 }
 a {
-	color : #96979d;
-	text-decoration: none
+	color : #5b616b;
+	text-decoration: none;
+	/*font-weight:bold;*/
 }
 input, button, select, textarea {
 	font-family: 'Noto Sans', sans-serif;
 }
 a:hover {
 	text-decoration: none;
-	color: #0071bc
+	color: #323a45;
+	font-weight:bold
 }
 h1, h2, h3, h4, h5 {
 	font-weight: normal
@@ -314,8 +317,8 @@ li.dropdown {
 #categorymenu {
 	padding: 7px 0 7px 0;
 	background: #fff;
-	border-top: 1px double #E7E7E7;
-	border-bottom: 4px double #E7E7E7
+	border-top: 1px double #aeb0b5;
+	border-bottom: 4px double #aeb0b5
 }
 #categorymenu:after {
 	clear: both;
@@ -345,8 +348,10 @@ ul.categorymenu > li > a {
 	position: relative;
 	color: #4b5b58!Important;
 	text-transform: uppercase;
-	font-size: 14px
+	font-size: 14px;
+	font-weight:bold;
 }
+
 ul.categorymenu > li:hover > a, ul.categorymenu > li > a.active {
 	color: #fff!important;
 	text-shadow: none;
@@ -445,7 +450,7 @@ ul.categorymenu > li ul > li img {
 .breadcrumb {
 	margin-bottom: 30px;
 	background: none;
-	border: 1px solid #efefef
+	border: 1px solid #aeb0b5
 }
 .well {
 	background: none;
@@ -1291,7 +1296,7 @@ h1.productname {
 }
 .tab-content {
 	background-color: #FFFFFF;
-	border: 1px solid #E7E7E7;
+/*	border: 1px solid #E7E7E7;*/
 	border-radius: 3px 3px 3px 3px;
 	border-top: none;
 	padding: 15px
@@ -1353,9 +1358,9 @@ ul.reveiw ul.rate {
 	width: 100%;
 	margin-bottom: 20px;
 	border-collapse: collapse;
-	border-top: 1px solid #E7E7E7;
-	border-left: 1px solid #E7E7E7;
-	border-right: 1px solid #E7E7E7;
+	border-top: 1px solid #aeb0b5;
+	border-left: 1px solid #aeb0b5;
+	border-right: 1px solid #aeb0b5;
 	background-color: #fff;
 }
 .cart-info table tr {
@@ -1390,7 +1395,8 @@ ul.reveiw ul.rate {
 }
 .cart-info tbody td {
 	vertical-align: top;
-	border-bottom: 1px solid #E7E7E7;
+	border-bottom: 1px solid #aeb0b5;
+		line-height: 1.7em;
 }
 .cart-info tbody .remove {
 	vertical-align: middle;
@@ -1406,7 +1412,7 @@ ul.reveiw ul.rate {
 	font-weight: bold;
 }
 .cart-module .cart-heading {
-	border: 1px solid #E7E7E7;
+	border: 1px solid #aeb0b5;
 	padding: 8px 8px 8px 22px;
 	font-weight: bold;
 	font-size: 12px;
@@ -1426,7 +1432,7 @@ ul.reveiw ul.rate {
 	display: none;
 }
 .cart-total {
-	border-top: 1px solid #E7E7E7;
+	border-top: 1px solid #aeb0b5;
 	overflow: auto;
 	padding-top: 8px;
 	margin-bottom: 15px;
@@ -1533,7 +1539,7 @@ padding:5px;
 .newcustomer, .returncustomer {
 	width: 25%;
 	float: left;
-	border: 1px solid #E7E7E7;
+	border: 1px solid #aeb0b5;
 	padding: 15px 20px;
 	border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
@@ -2451,13 +2457,13 @@ a.tweet_avatar {
 }
 /* manufacturer */
 .manufacturer-list {
-	border: 1px solid #DBDEE1;
+	border: 1px solid #aeb0b5;
 	padding: 5px;
 	overflow: auto;
 	margin-bottom: 20px;
 }
 .manufacturer-heading {
-	background: #F8F8F8;
+	background: #d6d7d9;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 5px 8px;
@@ -4012,7 +4018,7 @@ h6 {
 	color: #2B3D53
 }
 .bootstrapWizard li .title {
-	color: #bfbfbf;
+	color: #323a45;
 	display: block;
 	font-size: 13px;
 	line-height: 15px;
@@ -4037,13 +4043,20 @@ h6 {
 .tab-content.transparent {
 	background-color: transparent
 }
-
 .prodtruncate {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
+.Productdisc{
+	font-weight:bold;
+}
+td {
+  white-space: normal !important; 
+  word-wrap: break-word;  
+}
+table {
+  table-layout: fixed;
+}
 /*End Wizard*/
