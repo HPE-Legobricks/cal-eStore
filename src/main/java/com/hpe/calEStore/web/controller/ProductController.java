@@ -1,6 +1,7 @@
 package com.hpe.calEStore.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,14 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hpe.calEStore.dao.entity.Product;
@@ -25,7 +24,7 @@ import com.hpe.calEStore.model.ProductType;
 import com.hpe.calEStore.service.ProductService;
 
 @Controller
-@SessionAttributes("prodCompList")
+// @SessionAttributes({ "prodCompList", "catgForComp" })
 public class ProductController {
 
 	@Autowired
@@ -54,61 +53,66 @@ public class ProductController {
 	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	public ModelAndView showProductDetails(
 			@RequestParam("productTypeCode") String productTypeCode,
-			@RequestParam("OrderBy") String OrderBy) {
+			@RequestParam("OrderBy") String OrderBy,
+			@RequestParam("Order") String Order) {
 
 		ModelAndView mv = new ModelAndView("product.list");
-		List<Product> products = productService.getAllProducts(productTypeCode,
-				OrderBy);
+
+		List<Product> products;
+		HashMap items;
+
+		if ("".equalsIgnoreCase(OrderBy) || OrderBy.isEmpty()) {
+			products = productService.getAllProducts(productTypeCode,
+					"productName", "asc");
+			items = productService.getCategoryByProduct(productTypeCode,
+					OrderBy);
+		} else {
+			products = productService.getAllProducts(productTypeCode, OrderBy,
+					Order);
+			items = productService.getCategoryByProduct(productTypeCode,
+					OrderBy);
+		}
+
+		mv.addObject("category", items.get("categoryByProducts"));
+		mv.addObject("brand", items.get("brandsByProduct"));
 		mv.addObject("productList", products);
 		return mv;
-	}
-
-	@RequestMapping(value = "/markForComparision2")
-	@ResponseStatus(value = HttpStatus.OK)
-	public void addToCompareList2(@RequestParam("productId") int productId,
-			HttpSession session) {
-		List<Integer> prodCompList = (List<Integer>) session
-				.getAttribute("prodCompList");
-		if (prodCompList == null) {
-			prodCompList = new ArrayList<Integer>();
-		}
-		prodCompList.add(productId);
-		session.setAttribute("prodCompList", prodCompList);
 	}
 
 	@RequestMapping(value = "/markForComparision")
 	@ResponseStatus(value = HttpStatus.OK)
 	public void addToCompareList(@RequestParam("productId") int productId,
-			@ModelAttribute("prodCompList") ArrayList<Integer> prodCompList) {
-		if (prodCompList == null) {
-			prodCompList = new ArrayList<Integer>();
+			@RequestParam("categoryId") int categoryId,
+			// @ModelAttribute("prodCompList") ArrayList<Integer> prodCompList,
+			HttpSession session) {
+		List<Integer> prodCompList = new ArrayList<Integer>();
+		if (session.getAttribute("prodCompList") != null) {
+			prodCompList = (List<Integer>) session.getAttribute("prodCompList");
 		}
+		session.setAttribute("catgForComp", Integer.valueOf(categoryId));
 		prodCompList.add(productId);
-	}
-	
-	@RequestMapping(value = "/markForComparision1", method = RequestMethod.POST)
-	public ModelAndView addToCompareList1(Model model,
-			@ModelAttribute("prodCompList") ArrayList<Integer> prodCompList,
-			@RequestParam("productId") int productId) {
-		System.out.println("\n\n PRODUCT IS : " + productId);
-		ModelAndView mv = new ModelAndView("");
-		if (!model.containsAttribute("prodCompList")) {
-			prodCompList = new ArrayList<Integer>();
-		}
-		prodCompList.add(productId);
-		model.addAttribute("prodCompList", prodCompList);
-		return mv;
+		session.setAttribute("prodCompList", prodCompList);
 	}
 
 	@RequestMapping(value = "/compareProducts", method = RequestMethod.GET)
-	public ModelAndView compareProducts() {
+	public ModelAndView compareProducts(
+	// @ModelAttribute("prodCompList") ArrayList<Integer> prodCompList,
+			HttpSession session) {
 
 		ModelAndView mv = new ModelAndView("product.comparision");
 
-		int[] productIds = { 13, 14 };
+		List<Integer> prodCompList = (List<Integer>) session
+				.getAttribute("prodCompList");
+
+		Integer[] productIds = prodCompList.toArray(new Integer[prodCompList
+				.size()]);
+
 		ProductCompareDM productComparisionDM = productService
 				.compareProducts(productIds);
 		mv.addObject("productComparisionDM", productComparisionDM);
+		prodCompList = new ArrayList<Integer>();
+		session.setAttribute("prodCompList", prodCompList);
+		session.removeAttribute("catgForComp");
 		return mv;
 	}
 }

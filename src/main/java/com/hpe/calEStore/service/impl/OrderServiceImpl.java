@@ -49,12 +49,11 @@ public class OrderServiceImpl implements OrderService {
 		orderDAO.saveProceessedOrder(emailId, productMap);
 		
 	}
-	
+
 	@Override
 	public void updateOrderStatus(int orderId) {
 		// TODO Auto-generated method stub
 		orderDAO.updateOrderStatus(orderId);
 	}
-
 
 }
