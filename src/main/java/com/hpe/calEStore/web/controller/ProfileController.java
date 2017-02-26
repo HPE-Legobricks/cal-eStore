@@ -2,6 +2,7 @@ package com.hpe.calEStore.web.controller;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -174,32 +175,47 @@ public class ProfileController {
 	 * @return
 	 */
 	@RequestMapping(value = "/approveOrReject")
-	public ModelAndView approveBulletin(WebRequest request, @RequestParam(value = "approveParam") String approveOrDeny, Model model) {
+	public ModelAndView approveBulletin(WebRequest request, @RequestParam(value = "approveParam") String approveOrDeny, Model model, HttpServletRequest req) {
 		
-		String[] userIdentification = request.getParameterValues("selectedUserBox");
 		
-		if(userIdentification == null){
+		Object[] arObject = (Object[]) req.getSession().getAttribute("userInSession");
+		String[] userIdentificationCheckbox = request.getParameterValues("selectedUserBox");
+		String[] arrayOfUserChecked = null;
+		
+		if(arObject == null){
 			
-			model.addAttribute("error", "notselected");
-			return new ModelAndView("redirect:/renderPaginationViewAll");
+			if(userIdentificationCheckbox == null){
+				
+				model.addAttribute("error", "notselected");
+				return new ModelAndView("redirect:/renderPaginationViewAll");
+			}
 		}
-		
-		
-		// user clicked "approve"
-	    if (approveOrDeny.equalsIgnoreCase("approveVal")) {
-					try {
-						service.approveOrRejectUserProfileWith(userIdentification, APPROVE);
-					} catch (MailException | MessagingException | NumberFormatException | ProfileNotSavedOrUpdatedException | UserProfileManageException | MailNotSentException e) {
-						model.addAttribute("message", "Problem");
-					}
-				model.addAttribute("approvedOrRejected", "Approved.");
-				model.addAttribute("message", "An E-mail has been sent to the user containing his/her credentials. ");
-	    	
-	        
-	    // user clicked "reject"	
-	    } else if (approveOrDeny.equalsIgnoreCase("denyVal")) {
+		else{
+			
+			arrayOfUserChecked =  Arrays.copyOf(arObject, arObject.length, String[].class);
+			if(userIdentificationCheckbox != null){
+				
+				List<String> list = new ArrayList<String>(Arrays.asList(arrayOfUserChecked));
+				list.addAll(Arrays.asList(userIdentificationCheckbox));
+				arrayOfUserChecked = list.toArray(new String[]{});
+				
+
+				
+				// user clicked "approve"
+			    if (approveOrDeny.equalsIgnoreCase("approveVal")) {
 						try {
-							service.approveOrRejectUserProfileWith(userIdentification, REJECT);
+							service.approveOrRejectUserProfileWith(arrayOfUserChecked, APPROVE);
+						} catch (MailException | MessagingException | NumberFormatException | ProfileNotSavedOrUpdatedException | UserProfileManageException | MailNotSentException e) {
+							model.addAttribute("message", "Problem");
+						}
+					model.addAttribute("approvedOrRejected", "Approved.");
+					model.addAttribute("message", "An E-mail has been sent to the user containing his/her credentials. ");
+		    	
+		        
+			    // user clicked "reject"	
+			    } else if (approveOrDeny.equalsIgnoreCase("denyVal")) {
+						try {
+							service.approveOrRejectUserProfileWith(arrayOfUserChecked, REJECT);
 						} catch (MailException | MessagingException | NumberFormatException | ProfileNotSavedOrUpdatedException | UserProfileManageException | MailNotSentException e) {
 							model.addAttribute("message", "Problem");
 						}
@@ -207,8 +223,47 @@ public class ProfileController {
 						model.addAttribute("approvedOrRejected", "Rejected.");
 						model.addAttribute("message", "An E-mail has been sent to the user.");
 				}
-	    		
-	        
+	    		if(req.getSession().getAttribute("userInSession")!=null){
+	    			req.getSession().removeAttribute("userInSession");  
+	    		}
+			
+				
+			}
+			else{
+				
+				// user clicked "approve"
+			    if (approveOrDeny.equalsIgnoreCase("approveVal")) {
+						try {
+							service.approveOrRejectUserProfileWith(arrayOfUserChecked, APPROVE);
+						} catch (MailException | MessagingException | NumberFormatException | ProfileNotSavedOrUpdatedException | UserProfileManageException | MailNotSentException e) {
+							model.addAttribute("message", "Problem");
+						}
+					model.addAttribute("approvedOrRejected", "Approved.");
+					model.addAttribute("message", "An E-mail has been sent to the user containing his/her credentials. ");
+		    	
+		        
+			    // user clicked "reject"	
+			    } else if (approveOrDeny.equalsIgnoreCase("denyVal")) {
+						try {
+							service.approveOrRejectUserProfileWith(arrayOfUserChecked, REJECT);
+						} catch (MailException | MessagingException | NumberFormatException | ProfileNotSavedOrUpdatedException | UserProfileManageException | MailNotSentException e) {
+							model.addAttribute("message", "Problem");
+						}
+						
+						model.addAttribute("approvedOrRejected", "Rejected.");
+						model.addAttribute("message", "An E-mail has been sent to the user.");
+				}
+	    		if(req.getSession().getAttribute("userInSession")!=null){
+	    			req.getSession().removeAttribute("userInSession");  
+	    		}
+			}
+			
+		}
+		
+		
+		
+		
+		
 	    return new ModelAndView("redirect:/renderPaginationViewAll");
 	}
 	

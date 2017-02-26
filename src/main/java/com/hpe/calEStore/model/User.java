@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.hpe.calEStore.dao.entity.Department;
 
@@ -47,7 +48,17 @@ public class User {
 	
 	User[]  selectedUserBox;
 	
+	private String selectPreference = "";
 	
+	
+	public String getSelectPreference() {
+		return selectPreference;
+	}
+
+	public void setSelectPreference(String selectPreference) {
+		this.selectPreference = selectPreference;
+	}
+
 	/**
 	 * @return
 	 */

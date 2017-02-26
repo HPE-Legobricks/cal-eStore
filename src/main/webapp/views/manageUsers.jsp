@@ -2,6 +2,67 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<script src="<%=request.getContextPath()%>/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	
+	
+$(document).ready(function() {
+	
+	
+	//Next clicks
+	$(".cnext").click(function() {
+		
+		 var checkboxValues = [];
+	        $('input:checkbox:not(:checked)').each(function(index, elem) {
+	            checkboxValues.push($(elem).val());
+	        });
+
+		var data = $("#mForm").serialize();
+		
+	    window.location = this.href + "?"+data+"&"+"unchecked="+checkboxValues;
+	    return(false);
+	});
+	
+	
+	//Prev clicks
+	$(".cprev").click(function() {
+		
+		 var checkboxValues = [];
+	        $('input:checkbox:not(:checked)').each(function(index, elem) {
+	            checkboxValues.push($(elem).val());
+	        });
+
+		var data = $("#mForm").serialize();
+		
+	    window.location = this.href + "?"+data+"&"+"unchecked="+checkboxValues;
+	    return(false);
+	});
+	
+	
+	
+	//Page number hyperlink.
+	$(".anyp").click(function() {
+		
+		 var checkboxValues = [];
+	     $('input:checkbox:not(:checked)').each(function(index, elem) {
+	         checkboxValues.push($(elem).val());
+	     });
+	
+		var data = $("#mForm").serialize();
+		
+	 	window.location = this.href + "?"+data+"&"+"unchecked="+checkboxValues;
+	 	return(false);
+	});
+	
+});
+
+
+
+
+</script>
+	
+	
 <div class="container">
 	<div class="box">
 		<div class="row">
@@ -11,7 +72,7 @@
 			<div class="col-sm-6 text-right"></div>
 		</div>
 		
-		<form name="form1" action="${pageContext.request.contextPath}/approveOrReject">
+		<form name="form1" id="mForm" action="${pageContext.request.contextPath}/approveOrReject">
 		
 		
     	<!------Success message----->
@@ -54,8 +115,7 @@
 				<tbody>
 					<c:forEach var="ph" items="${pageListHolder.pageList}">
 						<tr>
-							<td><input type="checkbox" value="${ph.userId}"
-								name="selectedUserBox" /></td>
+							<td><input type="checkbox" id="check_id" class="chk" value="${ph.userId}" name="selectedUserBox" ${ph.selectPreference}/></td>
 							<td>${ph.firstName}</td>
 							<td>${ph.lastName}</td>
 							<td>${ph.department.departmentName}</td>
@@ -90,7 +150,7 @@
 							</c:when>
 							<c:otherwise>	
 								<li>
-									<span aria-hidden="true"><a href="${pageurl}/prev">Previous</a></span>
+									<span aria-hidden="true"><a class="cprev" href="${pageurl}/prev">Previous</a></span>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -103,7 +163,7 @@
 									<li class="active"><a href="#">${loop.index+1}</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="${pageurl}/${loop.index}">${loop.index+1}</a></li>
+									<li><a class="anyp" href="${pageurl}/${loop.index}">${loop.index+1}</a></li>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -120,7 +180,7 @@
 							</c:when>
 							<c:otherwise>	
 								<li>
-									<span aria-hidden="true"><a href="${pageurl}/next">Next</a></span>
+									<span aria-hidden="true"><a class="cnext" href="${pageurl}/next">Next</a></span>
 								</li>
 							</c:otherwise>
 						</c:choose>
