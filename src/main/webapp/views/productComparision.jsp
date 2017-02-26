@@ -18,7 +18,7 @@
 								<td>&nbsp;</td>
 								<c:forEach var="productName"
 									items="${productComparisionDM.productNames}">
-									<td class="name"><b><a href="#">${productName}</a></b></td>
+									<td class="name"><b>${productName}</b></td>
 								</c:forEach>
 							</tr>
 							<c:forEach var="aspectDM"
@@ -26,10 +26,43 @@
 								<tr>
 									<td nowrap>${aspectDM.key}</td>
 									<c:forEach var="aspectValue" items="${aspectDM.value}">
-										<td>${aspectValue}</td>
+										<td><c:choose>
+												<c:when test="${aspectDM.key == 'Rating'}">
+													<div class="ratingstar">
+														<c:forEach begin="1" end="${aspectValue}" var="counter">
+															<i class="icon-star orange"> </i>
+														</c:forEach>
+														<c:forEach begin="1" end="${5 - aspectValue}"
+															var="counter">
+															<i class="icon-star-empty"></i>
+														</c:forEach>
+													</div>
+												</c:when>
+												<c:when test="${aspectDM.key == 'Image'}">
+													<img
+														src="<%=request.getContextPath()%>/images/product-base/catalogue/${aspectValue}">
+												</c:when>
+												<c:otherwise>
+											        ${aspectValue}
+											    </c:otherwise>
+											</c:choose></td>
 									</c:forEach>
 								</tr>
 							</c:forEach>
+
+							<tr>
+								<td>&nbsp;</td>
+								<c:forEach var="productId"
+									items="${productComparisionDM.productIds}">
+									<th style="border-bottom: none"><button
+											onclick="javascript:addTocart(${productId})"
+											class="btn btn-orange tooltip-test"
+											data-original-title="Cart">
+											<i class="icon-shopping-cart icon-white"></i> Add to Cart
+										</button></th>
+								</c:forEach>
+							</tr>
+
 						</tbody>
 					</table>
 				</div>
