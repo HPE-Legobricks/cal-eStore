@@ -26,7 +26,7 @@
 		<security:intercept-url pattern="/loginform/accessgranted**" access="hasAnyRole('ROLE_A, ROLE_U')" />
 		
 		<security:intercept-url pattern="/productCatalogue**"  access="hasRole('ROLE_U')" />
-		<security:intercept-url pattern="/renderAdminReview**" access="hasRole('ROLE_A')" />
+		<security:intercept-url pattern="/renderPaginationViewAll**" access="hasRole('ROLE_A')" />
 		
 		<security:intercept-url pattern="/resources/**" access="hasRole('ROLE_A', ROLE_U)"/>
 			
