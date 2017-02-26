@@ -22,5 +22,7 @@ public interface OrderDAO {
 	List<PurchaseOrder> getAllOrdersWithStatus(String emailId);
 
 	void saveProceessedOrder(String emailId, Map<Integer, Integer> productMap);
+	
+	void updateOrderStatus(int orderId);
 
 }

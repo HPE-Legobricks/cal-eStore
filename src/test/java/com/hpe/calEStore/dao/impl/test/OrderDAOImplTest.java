@@ -101,5 +101,13 @@ public class OrderDAOImplTest {
 			e.printStackTrace();
 		}
 	}
+    @Rollback(false)
+	@Test
+	public void updateOrderStatusTest()
+    
+    {
+    	orderDAO.updateOrderStatus(2);
+    	
+    }
 
 }

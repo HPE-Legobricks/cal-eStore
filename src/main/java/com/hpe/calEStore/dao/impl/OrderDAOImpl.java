@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hpe.calEStore.dao.AbstractDAO;
 import com.hpe.calEStore.dao.OrderDAO;
-
 import com.hpe.calEStore.dao.entity.Address;
 import com.hpe.calEStore.dao.entity.OrderStatus;
 import com.hpe.calEStore.dao.entity.OrderStatusId;
@@ -70,7 +70,6 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 
 		return purchaseOrders;
 	}
-
 	@Transactional
 	@Override
 	public void saveProceessedOrder(String emailId, Map<Integer, Integer> productMap) {
@@ -92,14 +91,12 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 		purchaseOrder.setUserProfile(userProfile);
 		purchaseOrder.setStatus(status);
 		int orderId = (int) saveAndReturnKey(purchaseOrder);
-
-		ProductOrder productOrder = new ProductOrder();
-		ProductOrderId productOrderId = new ProductOrderId();
-		Product product = new Product();
-
 		for (Map.Entry<Integer, Integer> productIdMap : productMap.entrySet()) {
 			Integer productId = productIdMap.getKey();
 			Integer quantity = productIdMap.getValue();
+			ProductOrder productOrder = new ProductOrder();
+			ProductOrderId productOrderId = new ProductOrderId();
+			Product product = new Product();
 			productOrderId.setOrderId(orderId);
 			productOrderId.setProductId(productId);
 			product.setProductId(productId);
@@ -120,5 +117,29 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public void updateOrderStatus(int orderId) {
+		
+		// TODO Auto-generated method stub
+		
+		Query query = getSession().createQuery("update PurchaseOrder purchaseorder set purchaseorder.status.statusId=5 where purchaseorder.orderId=:id");		
+		query.setParameter("id",orderId);
+		query.executeUpdate();		
+		OrderStatus orderStatus = new OrderStatus();		
+		Status status = new Status();
+		status.setStatusId(5);
+		OrderStatusId orderStatusId = new OrderStatusId();
+		orderStatusId.setOrderId(orderId);
+		orderStatusId.setStatusId(5);
+		orderStatus.setId(orderStatusId);
+		orderStatus.setStatus(status);
+		getSession().save(orderStatus);
+
+		
+	}
+	
+	
+
 
 }
