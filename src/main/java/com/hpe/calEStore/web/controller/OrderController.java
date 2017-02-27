@@ -62,6 +62,19 @@ public class OrderController {
 			cartItemsMap.put(productId, 1);
 		}
 	}
+	
+	@RequestMapping(value = "/removeFromCart")
+	@ResponseStatus(value = HttpStatus.OK)
+	public void removeFromCart(
+			@RequestParam("productId") int productId,
+			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
+			HttpSession session) {
+		HashMap<Integer, Integer> cartItemsMap = new HashMap<Integer, Integer>();
+		if (session.getAttribute("cartItemsMap") != null) {
+			cartItemsMap = (HashMap<Integer, Integer>) (session.getAttribute("cartItemsMap"));
+			cartItemsMap.remove(productId);
+		}
+	}
 
 	@RequestMapping(value = "/cartDetail", method = RequestMethod.GET)
 	public ModelAndView displayAddressOfUser(
@@ -172,7 +185,12 @@ public class OrderController {
 		HashMap<Integer, Integer> cartItemsMap = (HashMap<Integer, Integer> ) session
 				.getAttribute("cartItemsMap");
 		if(userEmail!=null){
-		orderService.saveProceessedOrder(userEmail, cartItemsMap);
+		try {
+			orderService.saveProceessedOrder(userEmail, cartItemsMap);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+		}
 		cartItemsMap = new HashMap<Integer, Integer>();
 		mv.addObject("cartItemsMap", cartItemsMap);
 		}
