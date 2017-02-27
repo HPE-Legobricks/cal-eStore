@@ -131,7 +131,6 @@ public class ProfileController {
 		} catch (MailNotSentException | HibernateException | ProfileNotSavedOrUpdatedException | MailException | MessagingException e) {
 			
 			model.addAttribute("auth", "PROFILE NOT INSERTED: "+e.getMessage());
-			//String errorMsg = "PROFILE NOT INSERTED: "+e.getMessage();
 			return new ModelAndView("redirect:/userregistration");
 		}
 		model.addAttribute("success", "Profile inserted. Waiting for admin approval.");
@@ -273,11 +272,6 @@ public class ProfileController {
 			listOfDepartments = (List<Department>) object;
 		}
 		
-		/*EqualPredicate nameEqlPredicate = new EqualPredicate("Association of Bay Area G");
-	    BeanPredicate beanPredicate = new BeanPredicate("departmentName", nameEqlPredicate);
-	    Collection<Department> filteredCollection = CollectionUtils.select(listOfDepartments, beanPredicate);*/
-	    
-		
 		List<Department> returningListOfDepartments = new ArrayList<Department>();
 		
 		Department department = null;
@@ -292,29 +286,59 @@ public class ProfileController {
 				returningListOfDepartments.add(department);
 			}
 		}
-		
 		return returningListOfDepartments;
-		
-		
-		//return service.getDepartments();
-		
-		/*Department department = new Department();
-		
-		department.setDepartmentId(1);
-		department.setDepartmentName("dept1");
-		
-		Department department1 = new Department();
-		department1.setDepartmentId(2);
-		department1.setDepartmentName("dept2");
-		
-		List<Department> list = new ArrayList<Department>();
-		list.add(department);
-		list.add(department1);
-		
-		return list;*/
-
 	}
 	
+	
+	/**
+	 * @param request
+	 * @param model
+	 * @param hrequest
+	 * @return
+	 */
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
+	public ModelAndView showForgotPasswordPage(WebRequest request, Model model, HttpServletRequest hrequest){
+		
+		return new ModelAndView("forgotPassword.form");
+	}
+	
+	
+	/**
+	 * @param id
+	 * @param approveOrDeny
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/sendpasswordmail")
+	public ModelAndView sendNewPassword(Model model, HttpServletRequest request) {
+		
+		String returnMessage;
+		try {
+			returnMessage = service.forgotPasswordSendemail(request.getParameter("password"));
+			
+		} catch (MailException | MessagingException e) {
+			
+			model.addAttribute("problem", "exception");
+			return new ModelAndView("redirect:/forgotpassword");
+		}
+		
+		if(returnMessage.equals("false")){
+			
+			model.addAttribute("failed", returnMessage);
+			return new ModelAndView("redirect:/forgotpassword");
+		}
+		else{
+			
+			model.addAttribute("passed", returnMessage);
+			return new ModelAndView("redirect:/forgotpassword");
+		}
+	}
+	
+	
+	
+	/**
+	 * @param model
+	 */
 	private void initModelList(Model model) {
 		
 		List<String> cityList = new ArrayList<String>();

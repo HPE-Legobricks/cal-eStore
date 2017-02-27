@@ -2,6 +2,8 @@ package com.hpe.calEStore.dao;
 
 import java.util.List;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import com.hpe.calEStore.dao.entity.Department;
 import com.hpe.calEStore.dao.entity.UserProfile;
 
@@ -73,4 +75,12 @@ public abstract interface ProfileDAO {
 	 * @return
 	 */
 	public boolean isMobileExists(String mobileNumber);
+
+
+	/**
+	 * @param string 
+	 * @param defaultEncryptedPassword 
+	 * @return
+	 */
+	public String forgotPasswordSendemail(String string, String defaultEncryptedPassword);
 }

@@ -10,11 +10,15 @@ import java.util.List;
 
 
 
+
+
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.ModelAndView;
 
 import antlr.StringUtils;
 
@@ -156,10 +160,28 @@ public class ProfileDAOImpl extends AbstractDAO<Serializable, UserProfile> imple
 		}
 		return false;
 	}
-
 	
 	
-
-	
-
+	/* (non-Javadoc)
+	 * @see com.hpe.calEStore.dao.ProfileDAO#forgotPasswordSendemail(java.lang.String)
+	 */
+	@Override
+	public String forgotPasswordSendemail(String email, String password) {
+		
+		Criteria criteria = createEntityCriteria();
+		Object object = criteria.add(Restrictions.eq("emailId", email)).uniqueResult();
+		
+		if(object == null){
+			return "false";
+		}
+		else{
+			String hqlUpdate = "update UserProfile profile set profile.password = :password where profile.emailId = :email";
+			int rowUpdated = getSession().createQuery( hqlUpdate ).setString("email", email).setString("password", password).executeUpdate();
+			
+			if(rowUpdated == 1){
+				return "true";
+			}
+		}
+		return "";
+	}
 }
