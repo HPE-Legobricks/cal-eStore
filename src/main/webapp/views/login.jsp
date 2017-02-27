@@ -1,10 +1,10 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <div class="col-lg-4 col-centered">
 	<!--Language Option-->
-	<div class="btn-group" style="margin-left: 20.0em">
+	<!-- <div class="btn-group" style="margin-left: 20.0em">
 		<a href="javascript:void(0);">English</a> | <a
 			href="javascript:void(0);">Spanish</a>
-	</div>
+	</div> -->
 	<!--Language Option End-->
 	
 	

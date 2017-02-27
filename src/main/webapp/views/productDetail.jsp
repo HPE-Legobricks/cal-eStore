@@ -27,9 +27,12 @@
 							</h1>
 							<div class="productprice">
 								<div class="productpageprice">
-									<span class="spiral"></span>&nbsp;${product.pricePerUnit}
+									<span class="spiral"></span>&nbsp;
+									<h6>
+										Discounted Price:<b>$</b><b>${product.pricePerUnit}</b>
+									</h6>
 								</div>
-								<div class="productpageoldprice">Old price :
+								<div class="productpageoldprice">Old price : $
 									&nbsp;${product.msrpPerUnit}</div>
 							</div>
 							<div class="controls"></div>
@@ -38,7 +41,9 @@
 									<h6>
 										Discount: <b>${product.discPercent} %</b>
 									</h6>
-									${product.productDesc}
+									<h6>
+									Description:<br> </h6>${product.productDesc}
+									
 								</div>
 							</div>
 							<div class="span6">
