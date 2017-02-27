@@ -4059,4 +4059,9 @@ td {
 table {
   table-layout: fixed;
 }
+.removeFilter {
+	height: 13px;
+	width: 13px;
+	padding: 5px;
+}  
 /*End Wizard*/

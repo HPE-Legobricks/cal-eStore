@@ -1,9 +1,13 @@
+<%@page import="java.util.HashMap"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ page import="com.fasterxml.jackson.databind.ObjectMapper" %>
+<%@ page import="java.util.Map" %>
+
 <script>
 	var catgForComp = <%=session.getAttribute("catgForComp")%>;
 	var prodCompList = <%=session.getAttribute("prodCompList")%>;
-	var cartItemsMap = <%=session.getAttribute("cartItemsMap")%>;
-
+	var cartItemsMap = <%=new ObjectMapper().writeValueAsString(session.getAttribute("cartItemsMap"))%>;
+	
 	function addToCompare(productId, categoryId) {
 		if (prodCompList.length == 3) {
 			$('body').scrollTop(0);
