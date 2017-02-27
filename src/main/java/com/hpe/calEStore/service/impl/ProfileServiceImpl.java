@@ -165,9 +165,9 @@ public class ProfileServiceImpl implements ProfileService{
 		
 		String defaultEncryptedPassword = "bmloYXIkJA=="; // nihar$$
 		String message = dao.forgotPasswordSendemail(email, defaultEncryptedPassword);
-		if(message.equals("true")){
+		/*if(message.equals("true")){
 			service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password nihar$$ as your new password to login. Thanks.");
-		}
+		}*/
 		return message;
 	}
 
