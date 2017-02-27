@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hpe.calEStore.dao.ProfileDAO;
 import com.hpe.calEStore.dao.ProfileNotSavedOrUpdatedException;
@@ -144,10 +145,30 @@ public class ProfileServiceImpl implements ProfileService{
 
 
 
+	/* (non-Javadoc)
+	 * @see com.hpe.calEStore.service.ProfileService#isMobileExists(java.lang.String)
+	 */
 	@Override
 	@Transactional
 	public boolean isMobileExists(String mobileNumber) {
 		return dao.isMobileExists(mobileNumber);
+	}
+	
+
+
+	/* (non-Javadoc)
+	 * @see com.hpe.calEStore.service.ProfileService#forgotPasswordSendemail(java.lang.String)
+	 */
+	@Override
+	@Transactional
+	public String forgotPasswordSendemail(String email) throws MailException, MessagingException {
+		
+		String defaultEncryptedPassword = "bmloYXIkJA=="; // nihar$$
+		String message = dao.forgotPasswordSendemail(email, defaultEncryptedPassword);
+		/*if(message.equals("true")){
+			service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password nihar$$ as your new password to login. Thanks.");
+		}*/
+		return message;
 	}
 
 	

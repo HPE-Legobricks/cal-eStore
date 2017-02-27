@@ -5,6 +5,7 @@ import java.util.List;
 import javax.mail.MessagingException;
 
 import org.springframework.mail.MailException;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hpe.calEStore.dao.ProfileNotSavedOrUpdatedException;
 import com.hpe.calEStore.dao.UserProfileManageException;
@@ -48,9 +49,25 @@ public abstract interface ProfileService {
 	 */
 	public List<Department> getDepartments();
 
+	/**
+	 * @param password
+	 * @return
+	 */
 	public boolean isExists(String password);
 
+	/**
+	 * @param mobileNumber
+	 * @return
+	 */
 	public boolean isMobileExists(String mobileNumber);
+
+	/**
+	 * @param string 
+	 * @return
+	 * @throws MessagingException 
+	 * @throws MailException 
+	 */
+	public String forgotPasswordSendemail(String string) throws MailException, MessagingException;
 	
 	
 	

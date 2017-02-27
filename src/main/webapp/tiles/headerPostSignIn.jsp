@@ -141,8 +141,6 @@
 				<li class="dropdown hover"><a href="#" class="dropdown-toggle"
 					data-toggle="">English <b class="caret"></b></a>
 					<ul class="dropdown-menu language">
-						<li><a href="#">English</a></li>
-						<li><a href="#">Spanish</a></li>
 					</ul></li>
 			</ul>
 		</div> -->
