@@ -1,5 +1,6 @@
 package com.hpe.calEStore.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,9 +52,12 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.getAllProductsByCategory(category);
 	}
 
-	@Override
-	public List<Product> getAllProducts(String productTypeCode, String OrderBy) {
-		return prodDao.getAllProducts(productTypeCode, OrderBy);
+	public List<Product> getAllProducts(String productTypeCode,String orderBy,String order) {
+		return prodDao.getAllProducts(productTypeCode,orderBy,order);
+	}	
+		@Override
+	public HashMap getCategoryByProduct(String productTypeCode,String OrderBy){
+		return prodDao.getCategoryByProduct(productTypeCode, OrderBy);
 	}
 
 	@Override
@@ -67,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductCompareDM compareProducts(int[] productIds) {
+	public ProductCompareDM compareProducts(Integer[] productIds) {
 		return prodDao.compareProducts(productIds);
 	}
 
@@ -76,4 +80,5 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return prodDao.getDetailsByProductId(productIds);
 	}
+
 }

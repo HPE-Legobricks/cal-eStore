@@ -1,5 +1,5 @@
 /**
- * 
+ * Copyright (c) 2017 HPE, All rights reserved.
  */
 package com.hpe.calEStore.dao;
 
@@ -22,7 +22,7 @@ public interface OrderDAO {
 	List<PurchaseOrder> getAllOrdersWithStatus(String emailId);
 
 	void saveProceessedOrder(String emailId, Map<Integer, Integer> productMap);
-	
+
 	void updateOrderStatus(int orderId);
 
 }

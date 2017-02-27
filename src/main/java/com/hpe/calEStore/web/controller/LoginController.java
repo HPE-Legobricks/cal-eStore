@@ -1,6 +1,7 @@
 package com.hpe.calEStore.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -91,6 +92,8 @@ public class LoginController {
 			} else {
 				System.out.println("IDENTIFIED AS:: USER: = " + role);
 				session.setAttribute("prodCompList", new ArrayList<Integer>());
+				session.setAttribute("cartItemsMap",
+						new HashMap<Integer, Integer>());
 				return new ModelAndView("redirect:/productCatalogue");
 			}
 		}

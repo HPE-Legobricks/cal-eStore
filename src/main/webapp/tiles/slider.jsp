@@ -15,12 +15,9 @@
 			<div>
 				<img data-u="image" src="img/red.jpg" />
 				<div
-					style="position: absolute; top: 30px; left: 30px; width: 480px; height: 120px; z-index: 0; font-size: 50px; color: #ffffff; line-height: 60px;">TOUCH
-					SWIPE SLIDER</div>
+					style="position: absolute; top: 30px; left: 30px; width: 480px; height: 120px; z-index: 0; font-size: 50px; color: #ffffff; line-height: 60px;"></div>
 				<div
-					style="position: absolute; top: 300px; left: 30px; width: 480px; height: 120px; z-index: 0; font-size: 30px; color: #ffffff; line-height: 38px;">Build
-					your slider with anything, includes image, content, text, html,
-					photo, picture</div>
+					style="position: absolute; top: 300px; left: 30px; width: 480px; height: 120px; z-index: 0; font-size: 30px; color: #ffffff; line-height: 38px;"></div>
 			</div>
 			<div>
 				<img data-u="image" src="img/purple.jpg" />

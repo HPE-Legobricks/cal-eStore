@@ -4,6 +4,7 @@
 
 package com.hpe.calEStore.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,14 +29,16 @@ public interface ProductService {
 	List<Product> getAllProductsByRating(int value);
 
 	List<Product> getAllProductsByCategory(int category);
-
-	List<Product> getAllProducts(String productTypeCode, String OrderBy);
-
-	void publishProducts(List<Integer> productIds);
-
+	
+	List<Product> getAllProducts(String productTypeCode,String OrderBy,String order);
+    
+	void  publishProducts(List<Integer> productIds);
+	
 	List<Product> getUnpublishedProductsByProductType(String productType);
+	
+	ProductCompareDM compareProducts(Integer[] productIds);
 
-	ProductCompareDM compareProducts(int[] productIds);
-
+	HashMap getCategoryByProduct(String productTypeCode,String OrderBy);
+	
 	List<Product> getDetailsByProductId(List<Integer> productIds);
 }

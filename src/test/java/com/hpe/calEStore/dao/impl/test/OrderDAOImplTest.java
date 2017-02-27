@@ -86,14 +86,15 @@ public class OrderDAOImplTest {
 			e.printStackTrace();
 		}
 	}
-    @Rollback(false)
+
+	@Rollback(false)
 	@Test
 	public void saveProceessedOrderTest() {
 		try {
 			String emailId = "user@user.com";
 			Map<Integer, Integer> productListMap = new HashMap<Integer, Integer>();
-			productListMap.put(41, 1);
-			productListMap.put(42, 1);
+			productListMap.put(22, 1);
+			productListMap.put(23, 1);
 
 			orderDAO.saveProceessedOrder(emailId, productListMap);
 		} catch (Exception e) {
@@ -101,13 +102,16 @@ public class OrderDAOImplTest {
 			e.printStackTrace();
 		}
 	}
-    @Rollback(false)
+
+	@Rollback(false)
 	@Test
-	public void updateOrderStatusTest()
-    
-    {
-    	orderDAO.updateOrderStatus(2);
-    	
-    }
+	public void updateOrderStatusTest() {
+		try {
+			orderDAO.updateOrderStatus(2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

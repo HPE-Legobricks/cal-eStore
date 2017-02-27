@@ -45,7 +45,7 @@ public class ProductCompareDM implements java.io.Serializable {
 	}
 
 	public String toString() {
-		StringBuffer buff = new StringBuffer();
+		StringBuilder buff = new StringBuilder();
 		for (String productName : productNames) {
 			buff.append("\nProduct Name : " + productName);
 		}

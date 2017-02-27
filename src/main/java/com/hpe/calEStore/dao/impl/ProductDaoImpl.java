@@ -13,6 +13,8 @@ import java.util.TreeMap;
 
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +40,7 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@SuppressWarnings({ "unchecked" })
 	@Transactional
 	@Override
-	public ProductCompareDM compareProducts(int[] productIds) {
+	public ProductCompareDM compareProducts(Integer[] productIds) {
 
 		ProductCompareDM productCompareDM = new ProductCompareDM();
 		// Iterate thru the list of input product ids
@@ -49,17 +51,15 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 					.createCriteria(ProductAspect.class)
 					.add(Restrictions.eq("id.productId", productId)).list();
 
-			Product product = null;
+			Product product;
 			Map<String, List<String>> aspectMap = productCompareDM
 					.getAspectMap();
 
-			if (productAspects.size() > 0) {
+			if (!productAspects.isEmpty()) {
 
 				product = productAspects.get(0).getProduct();
 
-				// Map<String, List<String>> aspectMap = productCompareDM
-				// .getAspectMap();
-
+				
 				// Iterate through the prod aspect records for each product id
 				for (ProductAspect productAspect : productAspects) {
 
@@ -92,7 +92,12 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 			addNewAspect(aspectMap, "Rating", product.getRating().toString());
 			addNewAspect(aspectMap, "Image", product.getImgPath());
 			addNewAspect(aspectMap, "Summary", product.getProductDesc());
+
+			SortedMap<String, List<String>> ascSortedMap = new TreeMap<String, List<String>>();
+			ascSortedMap.putAll(aspectMap);
+			productCompareDM.setAspectMap(ascSortedMap);
 		}
+
 		return productCompareDM;
 	}
 
@@ -110,7 +115,7 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public Map<ProductType, List<Product>> getProductCatalog() {
-		// TODO Auto-generated method stub
+
 
 		// Map<String,List<Product>> prodMap = null;
 		Map<ProductType, List<Product>> prodMap = new HashMap<ProductType, List<Product>>();
@@ -145,7 +150,7 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public Product getProductDetailsByProductId(int productId) {
-		// TODO Auto-generated method stub
+
 
 		Product prod = (Product) createEntityCriteria().add(
 				Restrictions.eq("productId", productId)).uniqueResult();
@@ -156,23 +161,23 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public List<Product> getAllProductsByProductType(String productType) {
-		// TODO Auto-generated method stub
+
 
 		List<Product> productsByType = new ArrayList<Product>();
 
-		if (productType != null && productType.equalsIgnoreCase("HW")) {
+		if (productType != null && "HW".equalsIgnoreCase(productType)) {
 			productsByType = createEntityCriteria()
 					.add(Restrictions.eq("productType", "HW"))
 					.add(Restrictions.eq("isPublishedInd", "Y"))
 					.addOrder(Order.desc("publishedDate")).list();
 
-		} else if (productType != null && productType.equalsIgnoreCase("SW")) {
+		} else if (productType != null && "SW".equalsIgnoreCase(productType)) {
 			productsByType = createEntityCriteria()
 					.add(Restrictions.eq("productType", "SW"))
 					.add(Restrictions.eq("isPublishedInd", "Y"))
 					.addOrder(Order.desc("publishedDate")).list();
 
-		} else if (productType != null && productType.equalsIgnoreCase("SE")) {
+		} else if (productType != null && "SE".equalsIgnoreCase(productType)) {
 			productsByType = createEntityCriteria()
 					.add(Restrictions.eq("productType", "SE"))
 					.add(Restrictions.eq("isPublishedInd", "Y"))
@@ -187,7 +192,7 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public List<Product> getAllProductsByRating(int value) {
-		// TODO Auto-generated method stub
+
 
 		List<Product> ProductsByRating = createEntityCriteria()
 				.add(Restrictions.eq("rating", value))
@@ -201,7 +206,7 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public List<Product> getAllProductsByCategory(int category) {
-		// TODO Auto-generated method stub
+
 
 		List<Product> ProductsByCategory = createEntityCriteria()
 				.add(Restrictions.eq("category", category))
@@ -213,29 +218,74 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@SuppressWarnings({ "unchecked" })
 	@Transactional
 	@Override
-	public List<Product> getAllProducts(String productTypeCode, String OrderBy) {
-		// TODO Auto-generated method stub
+	public List<Product> getAllProducts(String productTypeCode, String orderBy,
+			String order) {
+
 
 		ProductType[] productValues = ProductType.values();
 
 		for (ProductType temp : productValues) {
-			// System.out.println(temp.getName().equalsIgnoreCase(productTypeCode));
+
+			if (temp.getName().equalsIgnoreCase(productTypeCode)) {
+				productTypeCode = String.valueOf(temp);
+			}
+		}
+		List<Product> productsByCategory = null;
+
+		if ("asc".equalsIgnoreCase(order)) {
+			productsByCategory = createEntityCriteria()
+					.add(Restrictions.eq("productType", productTypeCode))
+					.addOrder(Order.asc(orderBy)).list();
+		} else if ("desc".equalsIgnoreCase(order)) {
+			productsByCategory = createEntityCriteria()
+					.add(Restrictions.eq("productType", productTypeCode))
+					.addOrder(Order.desc(orderBy)).list();
+		}
+
+		return productsByCategory;
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Transactional
+	@Override
+	public HashMap getCategoryByProduct(String productTypeCode, String OrderBy) {
+
+		ProductType[] productValues = ProductType.values();
+
+		for (ProductType temp : productValues) {
 			if (temp.getName().equalsIgnoreCase(productTypeCode)) {
 				productTypeCode = String.valueOf(temp);
 			}
 		}
 
-		List<Product> ProductsByCategory = createEntityCriteria()
-				.add(Restrictions.eq("productType", productTypeCode))
-				.addOrder(Order.asc(OrderBy)).list();
+		HashMap items = new HashMap();
 
-		return ProductsByCategory;
+		ProjectionList projectionList2 = Projections.projectionList();
+		projectionList2.add(Projections.distinct(Projections
+				.property("category")));
+
+		List categoryByProducts = createEntityCriteria()
+				.add(Restrictions.eq("productType", productTypeCode))
+				.setProjection(projectionList2).list();
+
+		items.put("categoryByProducts", categoryByProducts);
+
+		ProjectionList projectionList = Projections.projectionList();
+		projectionList.add(Projections.distinct(Projections.property("brand")));
+
+		List brandsByProduct = createEntityCriteria()
+				.add(Restrictions.eq("productType", productTypeCode))
+				.setProjection(projectionList).list();
+
+		items.put("brandsByProduct", brandsByProduct);
+
+		return items;
 	}
 
 	@Transactional
 	@Override
 	public void publishProducts(List<Integer> productIds) {
-		// TODO Auto-generated method stub
+
 		String hqlUpdate = "update Product set IS_PUBLISHED_IND='Y' where Product_Id=:id";
 		for (Integer prodId : productIds) {
 			Query query = getSession().createQuery(hqlUpdate);
@@ -249,9 +299,9 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 	@Transactional
 	@Override
 	public List<Product> getUnpublishedProductsByProductType(String productType) {
-		// TODO Auto-generated method stub
 
-		List<Product> productsByType = new ArrayList<Product>();
+
+		List<Product> productsByType;
 		if (StringUtils.isNullOrEmpty(productType)) {
 			productsByType = createEntityCriteria()
 					.add(Restrictions.eq("isPublishedInd", "N"))
@@ -266,15 +316,14 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 		return productsByType;
 
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public List<Product> getDetailsByProductId(List<Integer> productIds) {
-		// TODO Auto-generated method stub
 
-		List<Product> productDetails = createEntityCriteria()
-				.add(Restrictions.in("productId", productIds))
+
+		List<Product> productDetails = createEntityCriteria().add(Restrictions.in("productId", productIds))
 				.addOrder(Order.desc("publishedDate")).list();
 
 		return productDetails;

@@ -33,24 +33,26 @@ import com.hpe.calEStore.dao.entity.UserProfile;
 @Repository
 public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> implements OrderDAO {
 
+	private static final String EMAIL_ID = "emailId";
+
 	@Transactional
 	@Override
 	public UserProfile getAddressByUser(String emailId) {
-		// TODO Auto-generated method stub
-		UserProfile userProfile = (UserProfile) getSession().createCriteria(UserProfile.class)
-				.add(Restrictions.eq("emailId", emailId)).uniqueResult();
 
-		return userProfile;
+		return (UserProfile) getSession().createCriteria(UserProfile.class)
+				.add(Restrictions.eq(EMAIL_ID, emailId)).uniqueResult();
+
+
 	}
 
 	@Transactional
 	@Override
 	public String getUserDepartmentName(String emailId) {
-		// TODO Auto-generated method stub
+
 
 		String departmentName = null;
 		UserProfile userProfile = (UserProfile) getSession().createCriteria(UserProfile.class)
-				.add(Restrictions.eq("emailId", emailId)).uniqueResult();
+				.add(Restrictions.eq(EMAIL_ID, emailId)).uniqueResult();
 
 		if (userProfile != null) {
 			departmentName = userProfile.getDepartment().getDepartmentName();
@@ -62,7 +64,7 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 	@Transactional
 	@Override
 	public List<PurchaseOrder> getAllOrdersWithStatus(String emailId) {
-		// TODO Auto-generated method stub
+
 
 		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
 				.add(Restrictions.eq("userProfile.userId", getAddressByUser(emailId).getUserId()))
@@ -70,6 +72,7 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 
 		return purchaseOrders;
 	}
+
 	@Transactional
 	@Override
 	public void saveProceessedOrder(String emailId, Map<Integer, Integer> productMap) {
@@ -77,7 +80,7 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 		PurchaseOrder purchaseOrder = new PurchaseOrder();
 		Address address = new Address();
 		UserProfile userProfile = (UserProfile) getSession().createCriteria(UserProfile.class)
-				.add(Restrictions.eq("emailId", emailId)).uniqueResult();
+				.add(Restrictions.eq(EMAIL_ID, emailId)).uniqueResult();
 
 		Iterator<Address> itr = userProfile.getAddresses().iterator();
 		while (itr.hasNext()) {
@@ -114,19 +117,22 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 		orderStatus.setStatus(status);
 		getSession().save(orderStatus);
 
-		// TODO Auto-generated method stub
+
 
 	}
-	
+
 	@Override
 	public void updateOrderStatus(int orderId) {
-		
-		// TODO Auto-generated method stub
-		
-		Query query = getSession().createQuery("update PurchaseOrder purchaseorder set purchaseorder.status.statusId=5 where purchaseorder.orderId=:id");		
-		query.setParameter("id",orderId);
-		query.executeUpdate();		
-		OrderStatus orderStatus = new OrderStatus();		
+
+
+
+		Query query = getSession().createQuery(
+				"update PurchaseOrder purchaseorder set purchaseorder.status.statusId=5 where purchaseorder.orderId=:id");
+
+		query.setParameter("id", orderId);
+		query.executeUpdate();
+
+		OrderStatus orderStatus = new OrderStatus();
 		Status status = new Status();
 		status.setStatusId(5);
 		OrderStatusId orderStatusId = new OrderStatusId();
@@ -136,10 +142,6 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 		orderStatus.setStatus(status);
 		getSession().save(orderStatus);
 
-		
 	}
-	
-	
-
 
 }
