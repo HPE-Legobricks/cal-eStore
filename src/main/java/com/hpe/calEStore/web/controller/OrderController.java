@@ -107,28 +107,33 @@ public class OrderController {
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
-			List<PurchaseOrder> orderDetailsMap = orderService
-					.getAllOrdersWithStatus(userEmail);
+			try {
+				List<PurchaseOrder> orderDetailsMap = orderService
+						.getAllOrdersWithStatus(userEmail);
 
-			int currentOrderId = orderDetailsMap.get(0).getOrderId();
-			String currentOrderStatus = orderDetailsMap.get(0).getStatus()
-					.getStatusName();
-			Set<ProductOrder> orderList = orderDetailsMap.get(0)
-					.getProductOrders();
-			Iterator itr = orderList.iterator();
-			StringBuilder productName = new StringBuilder();
-			while (itr.hasNext()) {
-				ProductOrder prodName = (ProductOrder) itr.next();
-				productName.append(prodName.getProduct().getProductName())
-						.append("\n");
+				int currentOrderId = orderDetailsMap.get(0).getOrderId();
+				String currentOrderStatus = orderDetailsMap.get(0).getStatus()
+						.getStatusName();
+				Set<ProductOrder> orderList = orderDetailsMap.get(0)
+						.getProductOrders();
+				Iterator itr = orderList.iterator();
+				StringBuilder productName = new StringBuilder();
+				while (itr.hasNext()) {
+					ProductOrder prodName = (ProductOrder) itr.next();
+					productName.append(prodName.getProduct().getProductName())
+							.append("\n");
+				}
+				//logger.debug("product information:" + productName);
+				orderDetailsMap.remove(0);
+				orderDetailsMap.get(0).getProductOrders();
+				mv.addObject("orderDetailsMap", orderDetailsMap);
+				mv.addObject("currentOrderId", currentOrderId);
+				mv.addObject("currentOrderStatus", currentOrderStatus);
+				mv.addObject("productName", productName);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				logger.error(e);
 			}
-			//logger.debug("product information:" + productName);
-			orderDetailsMap.remove(0);
-			orderDetailsMap.get(0).getProductOrders();
-			mv.addObject("orderDetailsMap", orderDetailsMap);
-			mv.addObject("currentOrderId", currentOrderId);
-			mv.addObject("currentOrderStatus", currentOrderStatus);
-			mv.addObject("productName", productName);
 		}
 		return mv;
 
@@ -203,7 +208,12 @@ public class OrderController {
 		ModelAndView mv = new ModelAndView("order.detail");
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
-		orderService.updateOrderStatus(orderId);
+		try {
+			orderService.updateOrderStatus(orderId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+		}
 		List<PurchaseOrder> orderDetailsMap = orderService
 				.getAllOrdersWithStatus(userEmail);
 		int currentOrderId = orderDetailsMap.get(0).getOrderId();
