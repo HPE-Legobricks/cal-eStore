@@ -58,8 +58,7 @@
 			</p>
 			<input type="submit" value="Sign in" />
 			<p>
-				<a href="javascript:void(0);" title="Forgot password"> Forgot
-					password?</a>
+				<a href="${pageContext.request.contextPath}/forgotpassword" title="Forgot password"> Forgot password?</a>
 			</p>
 		</fieldset>
 	</form>
