@@ -193,12 +193,12 @@
 									<td>${purchaseOrder.status.statusName}</td>
 									<c:choose>
 										<c:when
-											test="${purchaseOrder.status.statusName =='Cancelled'}">>
+											test="${purchaseOrder.status.statusName =='Cancelled'}">
                                             <td><a
-												class="btn  pull-right deactive ">Its  Cancelled</a></td>
+												class="button disabled pull-right">Cancelled</a></td>
 										</c:when>
 										<c:otherwise>
-											<td><a class="btn btn-primary pull-right "
+											<td><a class="button pull-right"
 												href="cancelOrder?orderId=${purchaseOrder.orderId}">
 													Cancel Order </a></td>
 										</c:otherwise>

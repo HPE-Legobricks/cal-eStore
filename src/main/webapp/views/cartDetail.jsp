@@ -43,13 +43,25 @@
 		sumtext = dollarsymb.concat(sumtotal1);//append the dollar symbol
 		document.getElementById("mytable").deleteRow(i);
 		document.getElementById("sumtotal").innerHTML = sumtext;
-		if(i==1){
+		var rowscount = document.getElementById('mytable').rows.length;
+		if (rowscount <= 1) {
 			document.getElementById("proceedToCheckout").style.visibility = 'hidden';
 			document.getElementById("sumtotal").innerHTML = 0;
 		}
 	}
+	
+	function checkForTables() {
+		if (document.getElementById("mytable")) {
+			var rowscount = document.getElementById('mytable').rows.length;
+			if (rowscount <= 1) {
+				document.getElementById("proceedToCheckout").style.visibility = 'hidden';
+				document.getElementById("sumtotal").innerHTML = 0;
+			}
+		}
+	}
+	
 </script>
-
+<body onload='checkForTables()'>
 <div id="maincontainer">
 	<section id="product">
 		<div class="container">
@@ -90,8 +102,8 @@
 								onclick="myFunction(this);return false;"><i
 									class="tooltip-test font24 icon-remove-circle"
 									data-original-title="Remove"> </i></a></td>
-							<td class="price">${product.discPercent}</td>
-							<td class="total">${product.discPercent}</td>
+							<td class="price">${product.pricePerUnit}</td>
+							<td class="total">${product.pricePerUnit}</td>
 						</tr>
 					</c:forEach>
 				</table>

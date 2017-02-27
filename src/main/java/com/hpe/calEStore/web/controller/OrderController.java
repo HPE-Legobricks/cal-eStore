@@ -54,9 +54,13 @@ public class OrderController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public void addToCart(
 			@RequestParam("productId") int productId,
-			@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap,
+			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
 			HttpSession session) {
-		cartItemsMap.put(productId, 1);
+		HashMap<Integer, Integer> cartItemsMap = new HashMap<Integer, Integer>();
+		if (session.getAttribute("cartItemsMap") != null) {
+			cartItemsMap = (HashMap<Integer, Integer>) (session.getAttribute("cartItemsMap"));
+			cartItemsMap.put(productId, 1);
+		}
 	}
 
 	@RequestMapping(value = "/cartDetail", method = RequestMethod.GET)
@@ -123,14 +127,20 @@ public class OrderController {
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
-			UserProfile usrAdd = orderService
-					.getAddressByUser(userEmail);
-			Set<Address> userAddresses = usrAdd.getAddresses();
-			StringBuilder shipToAddress = getAddress(userAddresses);
+			try {
+				UserProfile usrAdd = orderService
+						.getAddressByUser(userEmail);
+				Set<Address> userAddresses = usrAdd.getAddresses();
+				StringBuilder shipToAddress = getAddress(userAddresses);
+				mv.addObject("shipToAddress", shipToAddress);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				logger.info(""+e);
+			}
 			String userDepartmentName = orderService
 					.getUserDepartmentName(userEmail);
 			mv.addObject("userDepartmentName", userDepartmentName);
-			mv.addObject("shipToAddress", shipToAddress);
+			
 		}
 		return mv;
 	}
@@ -149,16 +159,23 @@ public class OrderController {
 		}
 		return shipToAddress;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/saveOrder", method = RequestMethod.GET)
 	public ModelAndView saveOrder(
 			String userId,
-			@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap) {
+			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
+			HttpSession session) {
 		ModelAndView mv = new ModelAndView("order.thankyou");
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
+		HashMap<Integer, Integer> cartItemsMap = (HashMap<Integer, Integer> ) session
+				.getAttribute("cartItemsMap");
+		if(userEmail!=null){
 		orderService.saveProceessedOrder(userEmail, cartItemsMap);
 		cartItemsMap = new HashMap<Integer, Integer>();
+		mv.addObject("cartItemsMap", cartItemsMap);
+		}
 		return mv;
 	}
 

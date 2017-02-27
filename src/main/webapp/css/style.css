@@ -4064,4 +4064,43 @@ table {
 	width: 13px;
 	padding: 5px;
 }  
+
+
+.button.disabled {
+  opacity: 0.65; 
+  cursor: not-allowed;
+}
+.buttons {
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 20px;
+  
+}
+
+.button, .button.disabled:hover { 
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    border:1px solid #25729a; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family:arial, helvetica, sans-serif; 
+    padding: 10px 10px 10px 10px; 
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    text-align: center; 
+    color: #FFFFFF; 
+    background-color: #0071bc;
+	width: 100px;
+	/* margin: 0 auto; */
+
+}
+
+.button:hover{
+    border:1px solid #1c5675;
+    background-color: #205493;
+	color:#ffffff;
+
+}
 /*End Wizard*/

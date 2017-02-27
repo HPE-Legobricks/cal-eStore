@@ -99,7 +99,7 @@
 								</div>
 								<!-- Category-->
 								<section id="categorygrid">
-									<table id="productlist">
+									<table id="productlist" Style=" display: inline; width: -1px !important"  >
 										<thead>
 											<tr>
 												<th style="border: none; display: none"></th>

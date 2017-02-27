@@ -149,7 +149,7 @@
 </div>
 <div class="container">
 	<div class="headerdetails">
-		<a class="logo pull-left" href="#"><img title="SimpleOne"
+		<a class="logo pull-left" href="location.href='productCatalogue'"><img title="SimpleOne"
 			alt="SimpleOne" src="img/logo.png"></a>
 		<div class="pull-left">
 			<!--  <form class="form-search top-search">
