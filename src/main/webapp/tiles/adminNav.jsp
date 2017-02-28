@@ -16,7 +16,7 @@
 						Dashboard</a></li>
 				<!--  <li><a href="index.html"><i class="fa fa-desktop"></i>
 						Products</a></li> -->
-				<li><a href="publish_products.html"><i
+				<li><a href="${pageContext.request.contextPath}/renderPaginationViewAllProducts"><i
 						class="fa fa-cloud-upload"></i>Publish Products</a></li>
 				<li class="active"><a
 					href="${pageContext.request.contextPath}/renderPaginationViewAll"><i
