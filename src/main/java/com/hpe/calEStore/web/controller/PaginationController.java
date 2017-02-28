@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
@@ -52,6 +53,10 @@ public class PaginationController {
 			List<User> userList = null;
 			try {
 				userList = service.fetchPendingUserProfiles();
+				
+				if(userList == null){
+					userList = new ArrayList<User>();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
