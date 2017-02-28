@@ -5,10 +5,10 @@
 	<section id="product">
 		<div class="container">
 			<!--  breadcrumb -->
-			<ul class="breadcrumb">
+			<!-- <ul class="breadcrumb">
 				<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 				<li class="active">Product List View</li>
-			</ul>
+			</ul> -->
 			<div class="row">
 				<!-- Sidebar Start-->
 				<!-- Sidebar-->
