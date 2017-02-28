@@ -1,17 +1,11 @@
-/**
- * 
- */
 package com.hpe.calEStore.service;
 
 import java.util.List;
 import java.util.Map;
 
 import com.hpe.calEStore.model.OrderReportDM;
+import com.hpe.calEStore.model.OrderStatisticsDM;
 
-/**
- * @author sangaras
- *
- */
 public interface OrderReportService {
 
 	Map<String, Integer> getActiveOrdersByStatus();
@@ -24,4 +18,5 @@ public interface OrderReportService {
 	
 	int costOfTotalOrdersByLatestQuarter();
 
+	public OrderStatisticsDM getOrderStatistics();
 }
