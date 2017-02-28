@@ -47,7 +47,7 @@
 		<fieldset>
 			<legend class="usa-drop_text">Sign in</legend>
 			<span>or <a href="${pageContext.request.contextPath}/userregistration">create a profile</a></span> <label
-				for="username">Email address</label> <input id="username"
+				for="username">Email Id</label> <input id="username"
 				name="username" type="text" autocapitalize="off" autocorrect="off">
 			<label for="password">Password</label> <input id="password"
 				name="password" type="password">
