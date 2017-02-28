@@ -120,6 +120,13 @@
 
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20090211</version>
+		</dependency>
+				
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>

@@ -65,10 +65,14 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 	@Override
 	public List<PurchaseOrder> getAllOrdersWithStatus(String emailId) {
 
-
+		System.out.println("useremail"+emailId);
+		System.out.println("+++++++++++++++++++"+getAddressByUser(emailId).getUserId());
+		
+		int uderID = getAddressByUser(emailId).getUserId();
 		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
-				.add(Restrictions.eq("userProfile.userId", getAddressByUser(emailId).getUserId()))
+				.add(Restrictions.eq("userProfile.userId", uderID))
 				.addOrder(Order.desc("orderDate")).list();
+		System.out.println("purchaseOrders size:"+purchaseOrders.size());
 
 		return purchaseOrders;
 	}
@@ -79,6 +83,7 @@ public class OrderDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> imple
 
 		PurchaseOrder purchaseOrder = new PurchaseOrder();
 		Address address = new Address();
+		System.out.println("useremail"+emailId);
 		UserProfile userProfile = (UserProfile) getSession().createCriteria(UserProfile.class)
 				.add(Restrictions.eq(EMAIL_ID, emailId)).uniqueResult();
 

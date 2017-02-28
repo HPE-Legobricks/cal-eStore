@@ -1,6 +1,6 @@
 <div id="content">
     <div class="manufacturer-list">
-      <div class="manufacturer-heading">Order Confirmation Message<a id="A"></a></div>
+      <div class="manufacturer-heading"><h5>Order Confirmation Message</h5><a id="A"></a></div>
       <div > 
         <!-- widget content -->
         <p class="heading3"> <br>

@@ -18,7 +18,7 @@
 						Products</a></li> -->
 				<li><a href="${pageContext.request.contextPath}/renderPaginationViewAllProducts"><i
 						class="fa fa-cloud-upload"></i>Publish Products</a></li>
-				<li class="active"><a
+				<li><a
 					href="${pageContext.request.contextPath}/renderPaginationViewAll"><i
 						class="fa fa-user"></i> Manage Users</a></li>
 			</ul>

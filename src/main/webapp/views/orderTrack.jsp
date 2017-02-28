@@ -4,10 +4,10 @@
 <div id="maincontainer">
 	<div class="container">
 		<!--  breadcrumb -->
-		<ul class="breadcrumb">
+		<!-- <ul class="breadcrumb">
 			<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 			<li class="active">Order Track</li>
-		</ul>
+		</ul> -->
 		<h1 class="heading1">
 			<span class="maintext"> <i class="icon-tags"></i> Track Orders
 			</span>
@@ -128,8 +128,8 @@
 														<br>
 														<h4></h4>
 														<div style="float: right">
-															<a class="btn  deactive" title=" Order Status">
-																Order is cancelled</a>
+															<a class="btn  deactive" title=" Order Status"> Order
+																is cancelled</a>
 														</div>
 													</div>
 												</c:when>
@@ -143,7 +143,7 @@
 									<c:choose>
 										<c:when test="${currentOrderStatus =='Shipped'}">
 
-											<h3>Order cant be cancelled</h3>
+											<h3>Order can't be cancelled</h3>
 										</c:when>
 										<c:otherwise>
 
@@ -156,7 +156,7 @@
 
 											<div>
 												<br>
-												<h3>Order can’t be cancelled</h3>
+												<h3>Order can't be cancelled</h3>
 											</div>
 										</c:when>
 										<c:otherwise>
@@ -165,7 +165,7 @@
 									</c:choose>
 								</div>
 							</div>
-					   </div>
+					</div>
 					</form>
 				</div>
 			</div>
@@ -175,8 +175,8 @@
 		<div id="content2">
 			<div class="manufacturer-list">
 				<div class="manufacturer-heading">
-                        Order History<a id="b"></a>
-                    </div>
+					Order History<a id="b"></a>
+				</div>
 				<div>
 					<table class="table table-striped table-bordered compare">
 						<tbody>
@@ -189,13 +189,12 @@
 							<c:forEach var="purchaseOrder" items="${orderDetailsMap}">
 								<tr>
 									<td class="Productdisc">${purchaseOrder.orderId}</td>
-									<td>${productName}</td>
+									<td>${prodName.product.productName}</td>
 									<td>${purchaseOrder.status.statusName}</td>
 									<c:choose>
 										<c:when
 											test="${purchaseOrder.status.statusName =='Cancelled'}">
-                                            <td><a
-												class="button disabled pull-right">Cancelled</a></td>
+											<td><a class="button disabled pull-right">Cancelled</a></td>
 										</c:when>
 										<c:otherwise>
 											<td><a class="button pull-right"

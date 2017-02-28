@@ -15,13 +15,13 @@
 
 	function drawChart1() {
 		var data = google.visualization.arrayToDataTable([
-				[ 'Year', 'Sales', 'Expenses' ], [ '2004', 1000, 400 ],
-				[ '2005', 1170, 460 ], [ '2006', 660, 1120 ],
-				[ '2007', 1030, 540 ] ]);
+				[ 'Week', 'VendorA', 'VendorB' ], [ 'Week1', 1000, 400 ],
+				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
+				[ 'Week4', 1030, 540 ] ]);
 
 		var options = {
 			hAxis : {
-				title : 'Year'
+				title : ''
 			}
 		};
 
@@ -34,13 +34,13 @@
 
 	function drawChart2() {
 		var data = google.visualization.arrayToDataTable([
-				[ 'Year', 'Sales', 'Expenses' ], [ '2013', 1000, 400 ],
-				[ '2014', 1170, 460 ], [ '2015', 660, 1120 ],
-				[ '2016', 1030, 540 ] ]);
+				[ 'Week', 'DEP HR', 'DEP COD' ], [ 'Week1', 1000, 400 ],
+				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
+				[ 'Week4', 1030, 540 ] ]);
 
 		var options = {
 			hAxis : {
-				title : 'Year'
+				title : ''
 			},
 			vAxis : {
 				minValue : 0
@@ -57,11 +57,10 @@
 	function drawChart3() {
 
 		var data = google.visualization.arrayToDataTable([
-				[ 'Task', 'Hours per Day' ], [ 'Work', 11 ], [ 'Eat', 2 ],
-				[ 'Commute', 2 ], [ 'Watch TV', 2 ], [ 'Sleep', 7 ] ]);
+				[ 'Inprocess', 'Shipped' ], [ 'Inprocess', 11 ], [ 'Shipped', 7 ]]);
 
 		var options = {
-			title : 'My Daily Activities'
+			title : ''
 		};
 
 		var chart = new google.visualization.PieChart(document
@@ -116,7 +115,7 @@
 				<span class="info-box-icon bg-blue"><i class="fa fa-desktop"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text">Total Orders</span> <span
-						class="info-box-number">#1000</span>
+						class="info-box-number">${orderStatistics.totalOrders}</span>
 				</div>
 			</div>
 		</div>
@@ -126,7 +125,7 @@
 					class="fa fa-shopping-cart"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text">Open Orders</span> <span
-						class="info-box-number">#1000</span>
+						class="info-box-number">${orderStatistics.openOrders}</span>
 				</div>
 			</div>
 		</div>
@@ -135,7 +134,7 @@
 				<span class="info-box-icon bg-blue"><i class="fa fa-dollar"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text">Total Cost</span> <span
-						class="info-box-number">$1000.00</span>
+						class="info-box-number">${orderStatistics.totalOrderCost}</span>
 				</div>
 			</div>
 		</div>
@@ -145,7 +144,7 @@
 					class="fa fa-arrow-circle-up"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text">Highest Cost Dept</span> <span
-						class="info-box-number">Abc</span>
+						class="info-box-number">${orderStatistics.highSpendingDeptName}</span>
 				</div>
 			</div>
 		</div>
@@ -153,28 +152,29 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="box">
-				<h4>Chart-1</h4>
-				<div id="chart_div1" style="width: 100%; height: 400px;"></div>
+				<h4>Total Active Orders</h4>
+				<div id="piechart" style="width: 100%; height: 250px;"></div>
 			</div>
+			
 		</div>
 		<div class="col-sm-6">
 			<div class="box">
-				<h4>Chart-2</h4>
-				<div id="chart_div2" style="width: 100%; height: 400px;"></div>
+				<h4>Number of placed orders by departments</h4>
+				<div id="chart_div2" style="width: 100%; height: 250px;"></div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="box">
-				<h4>Chart-3</h4>
-				<div id="piechart" style="width: 100%; height: 400px;"></div>
+				<h4>Number of cancelled orders by vendor</h4>
+				<div id="chart_div1" style="width: 100%; height: 250px;"></div>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="box">
-				<h4>Chart-4</h4>
-				<div id="chart_div4" style="width: 100%; height: 400px;"></div>
+				<h4>Number of delivered orders by vendor</h4>
+				<div id="chart_div4" style="width: 100%; height: 250px;"></div>
 			</div>
 		</div>
 	</div>

@@ -1,9 +1,16 @@
-<div id="categorymenu">
+<!-- <div id="categorymenu">
 	<nav class="subnav">
 		<ul class="nav-pills categorymenu container">
 			<li><a class="active home" href="productCatalogue"><i
 					class="icon-home icon-white font18"></i> <span> Home</span></a></li>
-			<!-- <li><a>HARDWARE</a>
+					
+					<li><a class="active home" href="#"><i
+					class=" icon-white font18"></i> <span> Hardware</span></a></li>
+					<li><a class="active home" href="#"><i
+					class=" icon-white font18"></i> <span> Software</span></a></li>
+					<li><a class="active home" href="#"><i
+					class=" icon-white font18"></i> <span> Services</span></a></li>
+			<li><a>HARDWARE</a>
 				<div>
 					<ul>
 						<li><a href="hproduct.html">Audio Devices</a></li>
@@ -35,7 +42,8 @@
 						<li><a href="serproduct.html">Value Added Service</a></li>
 						<li><a href="serproduct.html">Warranty</a></li>
 					</ul>
-				</div></li> -->
+				</div></li>
 		</ul>
 	</nav>
 </div>
+ -->
