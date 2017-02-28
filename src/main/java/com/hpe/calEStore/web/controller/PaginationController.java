@@ -148,6 +148,10 @@ public class PaginationController {
 						userList.add((ProductDM) new ProductToProductDMModelMapper().fromEntity(product));
 					}
 				}
+				
+				if(userList == null){
+					userList = new ArrayList<ProductDM>();
+				}
 					
 				
 			} catch (Exception e) {
