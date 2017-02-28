@@ -59,11 +59,6 @@ public class UserValidator implements Validator {
 			if(userObject.getMobileNumber().length() < 10){
 				errors.rejectValue("mobileNumber", "mobile.wrongFormat");
 			}
-			else{
-				if(service.isMobileExists(userObject.getMobileNumber())){
-					errors.rejectValue("mobileNumber", "mobile.duplicate");
-				}
-			}
 		}
 		
 		
