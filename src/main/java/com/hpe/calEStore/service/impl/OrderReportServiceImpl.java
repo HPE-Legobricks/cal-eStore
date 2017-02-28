@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.hpe.calEStore.dao.OrderReportDAO;
 import com.hpe.calEStore.model.OrderReportDM;
+import com.hpe.calEStore.model.OrderStatisticsDM;
 import com.hpe.calEStore.service.OrderReportService;
 
 /**
@@ -54,6 +55,16 @@ public class OrderReportServiceImpl implements OrderReportService {
 	public int costOfTotalOrdersByLatestQuarter() {
 		// TODO Auto-generated method stub
 		return orderReportDAO.costOfTotalOrdersByLatestQuarter();
+	}
+
+	@Override
+	public OrderStatisticsDM getOrderStatistics() {
+		OrderStatisticsDM dm = new OrderStatisticsDM();
+		dm.setTotalOrders(100);
+		dm.setOpenOrders(75);
+		dm.setTotalOrderCost(2275.45);
+		dm.setHighSpendingDeptName("Department of Human Resources");
+		return dm;
 	}
 
 }
