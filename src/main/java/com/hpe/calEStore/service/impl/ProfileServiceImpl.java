@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.hpe.calEStore.dao.ProfileDAO;
 import com.hpe.calEStore.dao.ProfileNotSavedOrUpdatedException;
@@ -56,7 +55,6 @@ public class ProfileServiceImpl implements ProfileService{
 		address.setState(user.getAddress().getState());
 		address.setCity(user.getAddress().getCity());
 		address.setZipCode(user.getAddress().getZipCode());
-		address.setUserProfile(profile);
 		address.setIsDfltInd("Y");
 		
 		Set<Address> setOfAddress = new HashSet<Address>();
@@ -68,8 +66,12 @@ public class ProfileServiceImpl implements ProfileService{
 		profile.setDepartment(department);
 		
 		profile.setAddresses(setOfAddress);
+		Integer id = dao.saveAndReturnID(profile);
 		
+		profile.setUserId(id);
         dao.saveUserProfile(profile);
+        
+        
         //service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile pending for approval!", "Your username " +user.getEmailId()+ " is pending for an approval with the admin. Thanks." );
         
 	}

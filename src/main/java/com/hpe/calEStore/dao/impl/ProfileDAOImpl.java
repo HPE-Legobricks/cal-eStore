@@ -13,6 +13,9 @@ import java.util.List;
 
 
 
+
+
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.cache.annotation.Cacheable;
@@ -26,6 +29,7 @@ import com.hpe.calEStore.dao.AbstractDAO;
 import com.hpe.calEStore.dao.ProfileDAO;
 import com.hpe.calEStore.dao.ProfileNotSavedOrUpdatedException;
 import com.hpe.calEStore.dao.UserProfileManageException;
+import com.hpe.calEStore.dao.entity.Address;
 import com.hpe.calEStore.dao.entity.Department;
 import com.hpe.calEStore.dao.entity.UserProfile;
 
@@ -79,7 +83,10 @@ public class ProfileDAOImpl extends AbstractDAO<Serializable, UserProfile> imple
 	@Override
 	@Transactional
 	public void saveUserProfile(UserProfile user) throws ProfileNotSavedOrUpdatedException {
-			save(user);
+		
+			Address address = user.getAddresses().iterator().next();
+			String queryString    = "insert into address(user_id, address_line1, address_line2, city, state, zip_code, is_dflt_ind) values("+user.getUserId()+","+"'"+address.getAddressLine1()+"'"+","+"'"+address.getAddressLine2()+"'"+","+"'"+address.getCity()+"'"+","+"'"+address.getState()+"'"+","+address.getZipCode()+","+"'"+address.getIsDfltInd()+"'"+")";
+			getSession().createSQLQuery(queryString).executeUpdate();
 	}
 	
 	
@@ -183,5 +190,13 @@ public class ProfileDAOImpl extends AbstractDAO<Serializable, UserProfile> imple
 			}
 		}
 		return "";
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see com.hpe.calEStore.dao.ProfileDAO#saveAndReturnID(com.hpe.calEStore.dao.entity.UserProfile)
+	 */
+	public Integer saveAndReturnID(UserProfile up){
+		return (Integer) saveAndReturnKey(up);
 	}
 }

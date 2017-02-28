@@ -1,5 +1,6 @@
 package com.hpe.calEStore.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -83,4 +84,7 @@ public abstract interface ProfileDAO {
 	 * @return
 	 */
 	public String forgotPasswordSendemail(String string, String defaultEncryptedPassword);
+	
+	
+	public Integer saveAndReturnID(UserProfile up);
 }
