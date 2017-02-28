@@ -4,18 +4,46 @@
 *, *::after, *::before {
 	box-sizing: inherit
 }/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	border-bottom-left-radius: 1.5rem;
+	border-top-left-radius: 1.5rem;
+	border-top-right-radius: 1.5rem;
+	border-bottom-right-radius: 1.5rem;
+}
+.img-responsive.img-center {
+	margin: 0 auto;
+	padding-top: 0.45em;
+}
+.clear {
+	clear: both;
+	position: absolute}
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%
+	-webkit-text-size-adjust: 100%;
+
 }
 body {
-	margin: 0
+	margin: 0;
+	padding:0;
+	height:100%;
+
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
 	display: block;
 	background-color: #dce4ef;
+
 }
+/*footer{	left:0;
+	width:100%;
+	position: fixed;
+	bottom:0;
+	}*/
+
 audio, canvas, progress, video {
 	display: inline-1block;
 	vertical-align: baseline
@@ -203,7 +231,7 @@ html {
 	box-sizing: inherit;
 }
 body {
-	background-color: #fff;
+	background-color: #0071bc;
 	overflow-x: hidden
 }
 .lt-ie9 * {
@@ -647,7 +675,7 @@ input, textarea, select {
 	height: 4.4rem;
 	line-height: 1.3;
 	margin: 0.2em 0;
-	max-width: 46rem;
+	max-width: 35rem;
 	outline: none;
 	padding: 1rem 0.7em;
 	width: 100%
@@ -2061,7 +2089,7 @@ fieldset {
 	border: solid 1px #DDD !important;
 	margin: 0;
 	width:inherit; /* Or auto */
-	padding: 0 20px 20px 20px
+	padding: 0 129px 20px 20px
 }
 
 @media screen and (min-width: 600px) {
@@ -3278,4 +3306,30 @@ input.usa-input-medium {
   margin-bottom: 2em;
   background-color: #ffffff;
   padding: 3rem;
-  border: 1px solid #eeeeee; }
+  border: 1px solid #eeeeee; 
+  }
+  .previewprofile {
+	  
+  margin-top: 2em;
+  margin-bottom: 2em;
+/*  margin-left: 20em;*/
+  background-color: #ffffff;
+/*  margin-right: 20em;*/
+  padding: 3rem;
+  border: 1px solid #eeeeee; 
+  }
+/*#wrapper {
+	min-height:100%;
+	position:relative;
+}*/
+.wrapper{
+position:relative;
+height:auto;
+}
+.loginbtn{
+	float:right;
+	font-weight:bold;
+	line-height:3.0rem;
+	font-size:1.5rem;
+	
+	}
