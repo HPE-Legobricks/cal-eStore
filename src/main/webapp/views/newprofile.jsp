@@ -130,7 +130,7 @@ $(document).ready(function() {
       <form:input id="dept-id-search" path="department.departmentName" cssClass="usa-input-required" aria-required="true" />
 
 	  <label for="input-type-text" class="usa-input-required">Phone</label>
-	  <form:input path="mobileNumber" cssClass="usa-input-required" aria-required="true"/>
+	  <form:input path="mobileNumber" cssClass="usa-input-required" aria-required="true" maxlength="10" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/>
   
       <label for="input-type-text" class="usa-input-required">Email</label>
       <form:input id="eml-id" path="emailId" cssClass="input-email-text" aria-required="true" />
