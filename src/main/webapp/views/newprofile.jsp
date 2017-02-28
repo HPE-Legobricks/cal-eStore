@@ -196,10 +196,6 @@ $(document).ready(function() {
     <ul class="usa-unstyled-list">
     
       <li>
-        <input id="truth" type="checkbox" name="mobileChecked" value="Y">
-        <label for="truth">Phone</label>
-      </li>
-      <li>
         <input id="douglass" type="checkbox" name="emailChecked" value="Y">
         <label for="douglass">Email</label>
       </li>
