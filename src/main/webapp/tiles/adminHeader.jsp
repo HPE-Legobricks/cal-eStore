@@ -3,8 +3,7 @@
 		<div class="row">
 			<div class="col-sm-8">
 				<p>
-					An official website of the United States government <a href="#">Here's
-						how you know</a>
+					An official website of the United States government
 				</p>
 			</div>
 			<div class="col-sm-4">
