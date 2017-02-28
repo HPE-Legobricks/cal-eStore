@@ -66,8 +66,9 @@ public abstract interface ProfileService {
 	 * @return
 	 * @throws MessagingException 
 	 * @throws MailException 
+	 * @throws MailNotSentException 
 	 */
-	public String forgotPasswordSendemail(String string) throws MailException, MessagingException;
+	public String forgotPasswordSendemail(String string) throws MailException, MessagingException, MailNotSentException;
 	
 	
 	

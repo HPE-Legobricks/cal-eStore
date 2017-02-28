@@ -167,7 +167,7 @@ public class ProfileServiceImpl implements ProfileService{
 	 */
 	@Override
 	@Transactional
-	public String forgotPasswordSendemail(String email) throws MailException, MessagingException {
+	public String forgotPasswordSendemail(String email) throws MailNotSentException, MailException, MessagingException {
 		
 		String defaultEncryptedPassword = DecodeUtil.encodedeWithBase64(RandomPasswordGeneratorUtil.randomPassword());
 		String message = dao.forgotPasswordSendemail(email, defaultEncryptedPassword);

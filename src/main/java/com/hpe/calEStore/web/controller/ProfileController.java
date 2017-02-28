@@ -133,14 +133,14 @@ public class ProfileController {
 		    
 			try {
 				service.registerUser(user);
-				model.addAttribute("success", "Profile inserted. Waiting for estore administrator approval.");
+				model.addAttribute("success", "Profile submitted. Waiting for estore administrator approval.");
 				
 		} catch (MailNotSentException | HibernateException | ProfileNotSavedOrUpdatedException | MailException | MessagingException e) {
 			
-			model.addAttribute("auth", "PROFILE NOT INSERTED: "+e.getMessage());
+			model.addAttribute("auth", "PROFILE NOT SUBMITTED: "+e.getMessage());
 			return new ModelAndView("redirect:/userregistration");
 		}
-		model.addAttribute("success", "Profile inserted. Waiting for estore administrator approval.");
+		model.addAttribute("success", "Profile submitted. Waiting for estore administrator approval.");
 		return new ModelAndView("redirect:/userregistration");
 		
 	}
@@ -323,7 +323,7 @@ public class ProfileController {
 		try {
 			returnMessage = service.forgotPasswordSendemail(request.getParameter("password"));
 			
-		} catch (MailException | MessagingException e) {
+		} catch (MailException | MessagingException | MailNotSentException e) {
 			
 			model.addAttribute("problem", "exception");
 			return new ModelAndView("redirect:/forgotpassword");
