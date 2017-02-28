@@ -4,7 +4,9 @@ package com.hpe.calEStore.web.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +35,7 @@ import com.hpe.calEStore.dao.UserProfileManageException;
 import com.hpe.calEStore.dao.entity.Department;
 import com.hpe.calEStore.model.User;
 import com.hpe.calEStore.service.MailNotSentException;
+import com.hpe.calEStore.service.ProductService;
 import com.hpe.calEStore.service.ProfileService;
 import com.hpe.calEStore.validator.UserValidator;
 
@@ -49,6 +52,10 @@ public class ProfileController {
 	 */
 	@Autowired
 	ProfileService service;
+	
+	@Autowired
+	ProductService productService;
+
 
 	
 	@Autowired
@@ -395,6 +402,91 @@ public class ProfileController {
 		
 	    model.addAttribute("city", cityList);
 	}
+	
+	/**
+	 * @param id
+	 * @param approveOrDeny
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/publishProducts")
+	public ModelAndView approveProducts(WebRequest request, @RequestParam(value = "approveParam") String approveOrDeny, Model model, HttpServletRequest req) {
+		
+		System.out.println(" Suman >>>>>>>>>>>>");		Object[] arObject = (Object[]) req.getSession().getAttribute("userInSession");
+		String[] userIdentificationCheckbox = request.getParameterValues("selectedUserBox");
+		String[] arrayOfUserChecked = null;
+		
+		if(arObject == null){
+			
+			if(userIdentificationCheckbox == null){
+				
+				model.addAttribute("error", "notselected");
+				return new ModelAndView("redirect:/renderPaginationViewAllProducts");
+			}
+			else{
+			/*	List<String> list = new ArrayList<String>(Arrays.asList(""));
+				list.addAll(Arrays.asList(userIdentificationCheckbox));
+				arrayOfUserChecked = list.toArray(new String[]{});*/
+				
+				publishProducts(model, req, approveOrDeny, userIdentificationCheckbox);
+			}
+		}
+		else{
+			
+			arrayOfUserChecked =  Arrays.copyOf(arObject, arObject.length, String[].class);
+			if(userIdentificationCheckbox != null){
+				
+				List<String> list = new ArrayList<String>(Arrays.asList(arrayOfUserChecked));
+				list.addAll(Arrays.asList(userIdentificationCheckbox));
+				arrayOfUserChecked = list.toArray(new String[]{});
+				
+				publishProducts(model, req, approveOrDeny, arrayOfUserChecked);
+			}
+			else{
+				publishProducts(model, req, approveOrDeny, arrayOfUserChecked);
+			}
+		}
+		
+	    return new ModelAndView("redirect:/renderPaginationViewAllProducts");
+		
+		//return null;
+		
+	}
+	
+	
+	/**
+	 * @param model
+	 * @param req
+	 * @param approveOrDeny
+	 * @param arrayOfUserChecked 
+	 */
+	private void publishProducts(Model model, HttpServletRequest req, String approveOrDeny, String[] arrayOfUserChecked) {
+		
+		// user clicked "approve"
+		Integer[] intarray=new Integer[arrayOfUserChecked.length];
+	    int i=0;
+	    for(String str:arrayOfUserChecked){
+	        intarray[i]=Integer.parseInt(str);//Exception in this line
+	        i++;
+	    }
+	    
+	    List<Integer> list = new ArrayList<Integer>();
+	    list = Arrays.asList(intarray);
+	    if (approveOrDeny.equalsIgnoreCase("approveVal")) {
+				
+			productService.publishProducts(list);
+				
+			model.addAttribute("approvedOrRejected", "Published.");
+			model.addAttribute("message", "Requested products are been published. ");
+    	
+        
+	    // user clicked "reject"	
+	    } 
+		if(req.getSession().getAttribute("userInSession")!=null){
+			req.getSession().removeAttribute("userInSession");  
+		}
+	}
+	
 }
 
 
