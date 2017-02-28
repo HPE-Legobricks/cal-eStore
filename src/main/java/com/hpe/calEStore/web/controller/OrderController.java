@@ -47,32 +47,31 @@ public class OrderController {
 	private OrderService orderService;
 	@Autowired
 	private ProductService productService;
-	
-	
 
 	@RequestMapping(value = "/addForCart")
 	@ResponseStatus(value = HttpStatus.OK)
-	public void addToCart(
-			@RequestParam("productId") int productId,
-			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
-			HttpSession session) {
+	public void addToCart(@RequestParam("productId") int productId,
+	/* @ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap */
+	HttpSession session) {
 		HashMap<Integer, Integer> cartItemsMap = new HashMap<Integer, Integer>();
 		if (session.getAttribute("cartItemsMap") != null) {
-			cartItemsMap = (HashMap<Integer, Integer>) (session.getAttribute("cartItemsMap"));
+			cartItemsMap = (HashMap<Integer, Integer>) (session
+					.getAttribute("cartItemsMap"));
 			cartItemsMap.put(productId, 1);
 		}
 	}
-	
+
 	@RequestMapping(value = "/removeFromCart")
 	@ResponseStatus(value = HttpStatus.OK)
-	public void removeFromCart(
-			@RequestParam("productId") int productId,
-			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
-			HttpSession session) {
+	public void removeFromCart(@RequestParam("productId") int productId,
+	/* @ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap */
+	HttpSession session) {
 		HashMap<Integer, Integer> cartItemsMap = new HashMap<Integer, Integer>();
 		if (session.getAttribute("cartItemsMap") != null) {
-			cartItemsMap = (HashMap<Integer, Integer>) (session.getAttribute("cartItemsMap"));
+			cartItemsMap = (HashMap<Integer, Integer>) (session
+					.getAttribute("cartItemsMap"));
 			cartItemsMap.remove(productId);
+			System.out.println("size of the map" + cartItemsMap.size());
 		}
 	}
 
@@ -101,6 +100,21 @@ public class OrderController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/oderTrack1", method = RequestMethod.GET)
+	public ModelAndView trackOrders1() {
+		ModelAndView mv = new ModelAndView("order.detail");
+		String userEmail = SecurityContextHolder.getContext()
+				.getAuthentication().getName();
+		if (!(userEmail.equals(""))) {
+			List<PurchaseOrder> poList = orderService
+					.getAllOrdersWithStatus(userEmail);
+			mv.addObject("latestOrder", poList.get(0));
+			poList.remove(0);
+			mv.addObject("poList",poList);
+		}
+		return mv;
+	}
+
 	@RequestMapping(value = "/oderTrack", method = RequestMethod.GET)
 	public ModelAndView trackOrders() {
 		ModelAndView mv = new ModelAndView("order.detail");
@@ -110,29 +124,72 @@ public class OrderController {
 			try {
 				List<PurchaseOrder> orderDetailsMap = orderService
 						.getAllOrdersWithStatus(userEmail);
+				System.out.println("orderDetailsMap size: "
+						+ orderDetailsMap.size());
 
-				int currentOrderId = orderDetailsMap.get(0).getOrderId();
-				String currentOrderStatus = orderDetailsMap.get(0).getStatus()
-						.getStatusName();
-				Set<ProductOrder> orderList = orderDetailsMap.get(0)
-						.getProductOrders();
-				Iterator itr = orderList.iterator();
+				int currentOrderId;
+				String currentOrderStatus;
+				ProductOrder prodName = null;
 				StringBuilder productName = new StringBuilder();
-				while (itr.hasNext()) {
-					ProductOrder prodName = (ProductOrder) itr.next();
-					productName.append(prodName.getProduct().getProductName())
-							.append("\n");
+				;
+				if (orderDetailsMap.size() == 1) {
+
+					for (PurchaseOrder orderlist : orderDetailsMap) {
+						currentOrderId = orderlist.getOrderId();
+						currentOrderStatus = orderlist.getStatus()
+								.getStatusName();
+						System.out.println(":::::" + orderlist.getOrderId());
+						System.out.println(":::::"
+								+ orderlist.getStatus().getStatusName());
+						mv.addObject("orderDetailsMap", orderDetailsMap);
+						mv.addObject("currentOrderId", currentOrderId);
+						mv.addObject("currentOrderStatus", currentOrderStatus);
+					}
+				} else {
+					currentOrderId = orderDetailsMap.get(0).getOrderId();
+					currentOrderStatus = orderDetailsMap.get(0).getStatus()
+							.getStatusName();
+					for (PurchaseOrder orderlist : orderDetailsMap) {
+
+						Set<ProductOrder> orderList = orderlist
+								.getProductOrders();
+
+						Iterator itr = orderList.iterator();
+
+						while (itr.hasNext()) {
+							prodName = (ProductOrder) itr.next();
+							productName.append(
+									prodName.getProduct().getProductName())
+									.append("\n");
+							System.out.println("product description:"
+									+ productName);
+						}
+					}
+					// }
+					// Set<ProductOrder> orderList = ((Product)
+					// orderDetailsMap).getProductOrders();
+					// System.out.println("size::"+orderDetailsMap.size());
+					// Iterator itr = orderList.iterator();
+					// productName = new StringBuilder();
+					// ProductOrder prodName = null;
+					// while (itr.hasNext()) {
+					// prodName= (ProductOrder) itr.next();
+					// productName.append(
+					// prodName.getProduct().getProductName()).append(
+					// "\n");
+					// System.out.println("product description:" +productName);
+					// }
+					orderDetailsMap.remove(0);
+					orderDetailsMap.get(0).getProductOrders();
+
+					mv.addObject("orderDetailsMap", orderDetailsMap);
+					mv.addObject("currentOrderId", currentOrderId);
+					mv.addObject("currentOrderStatus", currentOrderStatus);
+					mv.addObject("prodName", prodName);
 				}
-				//logger.debug("product information:" + productName);
-				orderDetailsMap.remove(0);
-				orderDetailsMap.get(0).getProductOrders();
-				mv.addObject("orderDetailsMap", orderDetailsMap);
-				mv.addObject("currentOrderId", currentOrderId);
-				mv.addObject("currentOrderStatus", currentOrderStatus);
-				mv.addObject("productName", productName);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				logger.error(e);
+				System.out.println(e);
 			}
 		}
 		return mv;
@@ -146,19 +203,18 @@ public class OrderController {
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
 			try {
-				UserProfile usrAdd = orderService
-						.getAddressByUser(userEmail);
+				UserProfile usrAdd = orderService.getAddressByUser(userEmail);
 				Set<Address> userAddresses = usrAdd.getAddresses();
 				StringBuilder shipToAddress = getAddress(userAddresses);
 				mv.addObject("shipToAddress", shipToAddress);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				logger.info(""+e);
+				logger.info("" + e);
 			}
 			String userDepartmentName = orderService
 					.getUserDepartmentName(userEmail);
 			mv.addObject("userDepartmentName", userDepartmentName);
-			
+
 		}
 		return mv;
 	}
@@ -177,27 +233,28 @@ public class OrderController {
 		}
 		return shipToAddress;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/saveOrder", method = RequestMethod.GET)
-	public ModelAndView saveOrder(
-			String userId,
-			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
-			HttpSession session) {
+	public ModelAndView saveOrder(String userId,
+	/* @ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap */
+	HttpSession session) {
 		ModelAndView mv = new ModelAndView("order.thankyou");
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
-		HashMap<Integer, Integer> cartItemsMap = (HashMap<Integer, Integer> ) session
+		HashMap<Integer, Integer> cartItemsMap = (HashMap<Integer, Integer>) session
 				.getAttribute("cartItemsMap");
-		if(userEmail!=null){
-		try {
-			orderService.saveProceessedOrder(userEmail, cartItemsMap);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			logger.error(e);
-		}
-		cartItemsMap = new HashMap<Integer, Integer>();
-		mv.addObject("cartItemsMap", cartItemsMap);
+		if (userEmail != null) {
+			try {
+				System.out.println("email: " + userEmail + "size:"
+						+ cartItemsMap.size());
+				orderService.saveProceessedOrder(userEmail, cartItemsMap);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.out.println(e);
+			}
+			cartItemsMap = new HashMap<Integer, Integer>();
+			mv.addObject("cartItemsMap", cartItemsMap);
 		}
 		return mv;
 	}
@@ -224,7 +281,8 @@ public class OrderController {
 		StringBuilder productName = new StringBuilder();
 		while (itr.hasNext()) {
 			ProductOrder prodName = (ProductOrder) itr.next();
-			productName.append(prodName.getProduct().getProductName()).append("\n");
+			productName.append(prodName.getProduct().getProductName()).append(
+					"\n");
 		}
 		orderDetailsMap.remove(0);
 		orderDetailsMap.get(0).getProductOrders();

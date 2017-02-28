@@ -7,6 +7,7 @@
 	var catgForComp = <%=session.getAttribute("catgForComp")%>;
 	var prodCompList = <%=session.getAttribute("prodCompList")%>;
 	var cartItemsMap = <%=new ObjectMapper().writeValueAsString(session.getAttribute("cartItemsMap"))%>;
+	//alert(cartItemsMap);
 	
 	function addToCompare(productId, categoryId) {
 		if (prodCompList.length == 3) {
@@ -63,7 +64,9 @@
 	function addTocart(productId) {
 		if (!(productId in cartItemsMap)) {
 			cartItemsMap[productId] = 1;
+			/* alert('add to cart'); */
 		} else {
+			displayMsg('* Product already exist in your Cart *');
 			var qty = cartItemsMap[productId];
 			qty++;
 			cartItemsMap[productId] = qty;
@@ -104,6 +107,39 @@
 	    x.innerHTML = msg;
 	    x.className = "show";
 	    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}
+	
+	function removeFromCart(productId){
+		/* alert('removing'); */
+		if ((productId in cartItemsMap)) {
+			delete cartItemsMap.productId;
+			/* alert((cartItemsMap).length); */
+		} else {
+			/* alert('eles part'); */
+		}
+
+		$.ajax({
+			type : "GET",
+			url : "removeFromCart?productId=" + productId,
+			cache : false,
+			success : function(data) {
+				 $('body').scrollTop(0);
+				displayMsg('*** Product removed from the cart ***');
+				console.log("success");
+				/* alert(Object.keys(cartItemsMap).length); */
+				document.getElementById('cartItemsDiv').innerHTML = (Object
+						.keys(cartItemsMap).length)-1;
+				window.location.href = "cartDetail";
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				alert(xhr.status);
+				alert(thrownError);
+				console.log("error");
+				console.log(xhr.status);
+				console.log(thrownError);
+			}
+		});
+
 	}
 	
 </script>

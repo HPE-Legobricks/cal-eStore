@@ -60,16 +60,20 @@
 		}
 	}
 	
+	/* function removeFromCart(productId){
+		alert('in cart');
+	}
+	 */
 </script>
 <body onload='checkForTables()'>
 <div id="maincontainer">
 	<section id="product">
 		<div class="container">
 			<!--  breadcrumb -->
-			<ul class="breadcrumb">
+			<!-- <ul class="breadcrumb">
 				<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 				<li class="active">Shopping Cart</li>
-			</ul>
+			</ul> -->
 			<h1 class="heading1">
 				<span class="maintext"> <i class="icon-shopping-cart"></i>
 					Shopping Cart
@@ -96,14 +100,25 @@
 							<td class="name"><a href="#">${product.productName}</a></td>
 							<td class="model">${product.brand.brandName}</td>
 							<td class="quantity"><input type="text"  value=${cartItemsMap[product.productId] }
-								name="quantity[40]" class="span1" class="span1"
+								name="quantity[40]" class="span1" class="span1"  
 								onkeyup="caltotal(this,this.value),totalcalculation();"></td>
-							<td class="total"><a id="myLink" title="Click" href="#"
-								onclick="myFunction(this);return false;"><i
+							<td class="total"><a id="myLink" title="Click" href=""
+								onclick="myFunction(this);removeFromCart(${product.productId});return false;"><i
 									class="tooltip-test font24 icon-remove-circle"
 									data-original-title="Remove"> </i></a></td>
-							<td class="price">${product.pricePerUnit}</td>
-							<td class="total">${product.pricePerUnit}</td>
+									
+							<td class="price" >	
+							<fmt:setLocale value="en_US"/>
+										<fmt:formatNumber var="pricePerUnit" type="currency"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${product.pricePerUnit}" />
+							${pricePerUnit}</td>
+							<td class="total">
+							<fmt:setLocale value="en_US"/>
+										<fmt:formatNumber var="pricePerUnit" type="currency"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${product.pricePerUnit}" />
+							${pricePerUnit}</td>
 						</tr>
 					</c:forEach>
 				</table>

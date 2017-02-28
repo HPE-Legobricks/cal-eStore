@@ -119,9 +119,9 @@
 														</div></td>
 													<td><div class="span6">
 															<a href="productDetail?productId=${product.productId}"><b><c:out
-																		value="${product.productName}" /></b></a> <br><b>Discounted Price :</b> $
+																		value="${product.productName}" /></b></a> <br><b>Contract Price :</b> $
 															<c:out value="${product.pricePerUnit}" />
-															<div class="productdiscrption">
+															<div class="productdiscrption"><b>Description :</b>
 																<c:out value="${product.productDesc}" />
 																<br> <br>
 																<div class="span6 productdiscrption">

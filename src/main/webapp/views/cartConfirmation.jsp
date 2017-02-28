@@ -3,10 +3,10 @@
 <div id="maincontainer">
 	<div class="container">
 		<!--  breadcrumb -->
-		<ul class="breadcrumb">
+		<!-- <ul class="breadcrumb">
 			<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 			<li class="active">Order confirmation</li>
-		</ul>
+		</ul> -->
 		<h1 class="heading1">
 			<span class="maintext"> <i class="icon-tags"></i> Confirmation
 			</span>

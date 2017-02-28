@@ -29,7 +29,7 @@
 								<div class="productpageprice">
 									<span class="spiral"></span>&nbsp;
 									<h6>
-										Discounted Price:<b>$</b><b>${product.pricePerUnit}</b>
+										Contract Price:<b>$</b><b>${product.pricePerUnit}</b>
 									</h6>
 								</div>
 								<div class="productpageoldprice">Old price : $
