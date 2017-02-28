@@ -40,7 +40,7 @@ public class DashboardController {
 
 		ObjectMapper mapper = new ObjectMapper();
 		OrderStatisticsDM orderStatisticsDm = mapper.readValue(
-				new URL("http://localhost:8088/calestore/getOrderStatistics"),
+				new URL("http://localhost:8080/calestore/getOrderStatistics"),
 				OrderStatisticsDM.class);
 
 		mv.addObject("orderStatistics", orderStatisticsDm);
