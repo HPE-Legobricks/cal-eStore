@@ -67,7 +67,7 @@ $(document).ready(function() {
 </script>
 	
 	
-<div class="previewprofile">
+<div class = "previewprofile col-lg-4 col-centered">
 <!----------First Accordian------>
 <form:form id="profileform" modelAttribute="user" action="${pageContext.request.contextPath}/registernewuser" method="POST" cssClass="usa-form">
 <ul class="usa-accordion-bordered">
