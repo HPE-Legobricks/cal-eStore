@@ -11,12 +11,12 @@
 	function addToCompare(productId, categoryId) {
 		if (prodCompList.length == 3) {
 			$('body').scrollTop(0);
-			displayMsg('!!! Maximum three products allowed for comparision');
+			displayMsg('!!! Maximum three products allowed for comparison');
 			return;
 		}
 		if (prodCompList.indexOf(productId) != -1) {
 			$('body').scrollTop(0);
-			displayMsg('! Product already marked for comparision');
+			displayMsg('! Product already marked for comparison');
 			return;
 		}
 		if (catgForComp == null) {
@@ -24,7 +24,7 @@
 		} else {
 			if (categoryId != catgForComp) {
 				$('body').scrollTop(0);
-				displayMsg('!!!! Only products of same category allowed for comparision');
+				displayMsg('!!!! Only products of same category allowed for comparison');
 				return;
 			}
 		}
@@ -37,7 +37,7 @@
 					success : function(data) {
 						prodCompList.push(productId);
 						$('body').scrollTop(0);
-						displayMsg('*** Product marked for comparision ***');
+						displayMsg('*** Product marked for comparison ***');
 						console.log("success");
 						document.getElementById('prodCompListDiv').innerHTML = prodCompList.length;
 					},
@@ -54,7 +54,7 @@
 	function compareProducts() {
 		if (prodCompList.length < 2) {
 			$('body').scrollTop(0);
-			displayMsg('! Minimum two products required for comparision');
+			displayMsg('! Minimum two products required for comparison');
 			return;
 		}
 		window.location.href = "compareProducts";
@@ -93,7 +93,8 @@
 
 	function proceedToCart() {
 		if (Object.keys(cartItemsMap).length < 1) {
-			//alert('! No items in your cart');
+			displayMsg('!Minimum one product required to view your Cart');
+			return;
 		}
 		window.location.href = "cartDetail";
 	}
@@ -124,8 +125,8 @@
 								class="icon-home"></i> Home </a></li>
 						<li><a class="Track Order" href="oderTrack"><i
 								class="icon-user"></i> Track Order </a></li>
-						<li><a class="shoppingcart" href="cartDetail"><i
-								class="icon-shopping-cart"></i> Cart </a></li>
+						<!-- <li><a class="shoppingcart" href="cartDetail"><i
+								class="icon-shopping-cart"></i> Cart </a></li> -->
 						<!-- <li><a class="checkout" href="#"><i
 								class="icon-ok-circle"></i> My Account </a></li>  -->
 						<li><a class="checkout" href="loginform/signout"><i
@@ -147,7 +148,7 @@
 </div>
 <div class="container">
 	<div class="headerdetails">
-		<a class="logo pull-left" href="location.href='productCatalogue'"><img title="SimpleOne"
+		<a class="logo pull-left"  style="cursor: pointer;" onclick="location.href='productCatalogue'"><img title="SimpleOne"
 			alt="SimpleOne" src="img/logo.png"></a>
 		<div class="pull-left">
 			<!--  <form class="form-search top-search">
@@ -162,7 +163,7 @@
 
 		<ul class="nav topcart pull-right topcartm">
 			<li class="dropdown hover carticon "><a style="cursor: pointer;"
-				onclick="location.href='cartDetail'" class="dropdown-toggle"> <i
+				onclick="javascript:proceedToCart()" class="dropdown-toggle"> <i
 					class="icon-shopping-cart font18"></i>Cart<span id="cartItemsDiv"
 					class="label label-orange font14 cartlabelitems"><%=((java.util.HashMap<Integer, Integer>) session
 					.getAttribute("cartItemsMap")).size()%></span>

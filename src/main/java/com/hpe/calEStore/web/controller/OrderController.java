@@ -62,6 +62,19 @@ public class OrderController {
 			cartItemsMap.put(productId, 1);
 		}
 	}
+	
+	@RequestMapping(value = "/removeFromCart")
+	@ResponseStatus(value = HttpStatus.OK)
+	public void removeFromCart(
+			@RequestParam("productId") int productId,
+			/*@ModelAttribute("cartItemsMap") HashMap<Integer, Integer> cartItemsMap*/
+			HttpSession session) {
+		HashMap<Integer, Integer> cartItemsMap = new HashMap<Integer, Integer>();
+		if (session.getAttribute("cartItemsMap") != null) {
+			cartItemsMap = (HashMap<Integer, Integer>) (session.getAttribute("cartItemsMap"));
+			cartItemsMap.remove(productId);
+		}
+	}
 
 	@RequestMapping(value = "/cartDetail", method = RequestMethod.GET)
 	public ModelAndView displayAddressOfUser(
@@ -94,28 +107,33 @@ public class OrderController {
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
-			List<PurchaseOrder> orderDetailsMap = orderService
-					.getAllOrdersWithStatus(userEmail);
+			try {
+				List<PurchaseOrder> orderDetailsMap = orderService
+						.getAllOrdersWithStatus(userEmail);
 
-			int currentOrderId = orderDetailsMap.get(0).getOrderId();
-			String currentOrderStatus = orderDetailsMap.get(0).getStatus()
-					.getStatusName();
-			Set<ProductOrder> orderList = orderDetailsMap.get(0)
-					.getProductOrders();
-			Iterator itr = orderList.iterator();
-			StringBuilder productName = new StringBuilder();
-			while (itr.hasNext()) {
-				ProductOrder prodName = (ProductOrder) itr.next();
-				productName.append(prodName.getProduct().getProductName())
-						.append("\n");
+				int currentOrderId = orderDetailsMap.get(0).getOrderId();
+				String currentOrderStatus = orderDetailsMap.get(0).getStatus()
+						.getStatusName();
+				Set<ProductOrder> orderList = orderDetailsMap.get(0)
+						.getProductOrders();
+				Iterator itr = orderList.iterator();
+				StringBuilder productName = new StringBuilder();
+				while (itr.hasNext()) {
+					ProductOrder prodName = (ProductOrder) itr.next();
+					productName.append(prodName.getProduct().getProductName())
+							.append("\n");
+				}
+				//logger.debug("product information:" + productName);
+				orderDetailsMap.remove(0);
+				orderDetailsMap.get(0).getProductOrders();
+				mv.addObject("orderDetailsMap", orderDetailsMap);
+				mv.addObject("currentOrderId", currentOrderId);
+				mv.addObject("currentOrderStatus", currentOrderStatus);
+				mv.addObject("productName", productName);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				logger.error(e);
 			}
-			//logger.debug("product information:" + productName);
-			orderDetailsMap.remove(0);
-			orderDetailsMap.get(0).getProductOrders();
-			mv.addObject("orderDetailsMap", orderDetailsMap);
-			mv.addObject("currentOrderId", currentOrderId);
-			mv.addObject("currentOrderStatus", currentOrderStatus);
-			mv.addObject("productName", productName);
 		}
 		return mv;
 
@@ -172,7 +190,12 @@ public class OrderController {
 		HashMap<Integer, Integer> cartItemsMap = (HashMap<Integer, Integer> ) session
 				.getAttribute("cartItemsMap");
 		if(userEmail!=null){
-		orderService.saveProceessedOrder(userEmail, cartItemsMap);
+		try {
+			orderService.saveProceessedOrder(userEmail, cartItemsMap);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+		}
 		cartItemsMap = new HashMap<Integer, Integer>();
 		mv.addObject("cartItemsMap", cartItemsMap);
 		}
@@ -185,7 +208,12 @@ public class OrderController {
 		ModelAndView mv = new ModelAndView("order.detail");
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
-		orderService.updateOrderStatus(orderId);
+		try {
+			orderService.updateOrderStatus(orderId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+		}
 		List<PurchaseOrder> orderDetailsMap = orderService
 				.getAllOrdersWithStatus(userEmail);
 		int currentOrderId = orderDetailsMap.get(0).getOrderId();

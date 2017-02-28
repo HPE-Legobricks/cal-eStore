@@ -6,7 +6,7 @@
 		<div class="container">
 			<!--  breadcrumb -->
 			<ul class="breadcrumb">
-				<li><a href="#">Home</a> <span class="divider">/</span></li>
+				<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 				<li class="active">Product List View</li>
 			</ul>
 			<div class="row">
@@ -32,7 +32,7 @@
 					<!--  Price -->
 					<div class="sidewidt">
 						<h1 class="heading1">
-							<span class="maintext">Select by Price</span>
+							<span class="maintext">Discounted Price</span>
 						</h1>
 						<section>
 							<div style="position: relative; padding: 0px;">
@@ -88,14 +88,14 @@
 										</select>
 
 									</form>
-									<div class="btn-group pull-right">
+									<!-- <div class="btn-group pull-right">
 										<button class="btn btn-orange" id="list">
 											<i class="icon-th-list"></i>
 										</button>
 										<button class="btn " id="grid">
 											<i class="icon-th icon-white"></i>
 										</button>
-									</div>
+									</div> -->
 								</div>
 								<!-- Category-->
 								<section id="categorygrid">
@@ -119,7 +119,7 @@
 														</div></td>
 													<td><div class="span6">
 															<a href="productDetail?productId=${product.productId}"><b><c:out
-																		value="${product.productName}" /></b></a> <br>Price : $
+																		value="${product.productName}" /></b></a> <br><b>Discounted Price :</b> $
 															<c:out value="${product.pricePerUnit}" />
 															<div class="productdiscrption">
 																<c:out value="${product.productDesc}" />

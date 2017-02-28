@@ -88,7 +88,8 @@ public class LoginController {
 
 			if (role.equals("ROLE_A")) {
 				System.out.println("IDENTIFIED AS:: ADMINISTRATOR: = " + role);
-				return new ModelAndView("redirect:/renderPaginationViewAll");
+				// return new ModelAndView("redirect:/renderPaginationViewAll");
+				return new ModelAndView("redirect:/adminDashboard");
 			} else {
 				System.out.println("IDENTIFIED AS:: USER: = " + role);
 				session.setAttribute("prodCompList", new ArrayList<Integer>());
