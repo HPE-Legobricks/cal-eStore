@@ -8,7 +8,7 @@
             
             
             <%
-            if(!request.getAttribute("javax.servlet.forward.request_uri").equals("/calEStore/loginform")) { %>
+            if(!request.getAttribute("javax.servlet.forward.request_uri").equals("/calestore/loginform")) { %>
             	<a href="${pageContext.request.contextPath}/loginform"> Sign in</a>
            <% }
             
