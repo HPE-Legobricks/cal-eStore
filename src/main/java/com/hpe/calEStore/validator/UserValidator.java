@@ -56,8 +56,7 @@ public class UserValidator implements Validator {
 			errors.rejectValue("mobileNumber", "mobile.notEmpty");
 		}
 		else{
-			Pattern pattern = Pattern.compile("\\D*([2-9]\\d{2})(\\D*)([2-9]\\d{2})(\\D*)(\\d{4})\\D*");
-			if(!pattern.matcher(userObject.getMobileNumber()).matches()){
+			if(userObject.getMobileNumber().length() < 10){
 				errors.rejectValue("mobileNumber", "mobile.wrongFormat");
 			}
 			else{

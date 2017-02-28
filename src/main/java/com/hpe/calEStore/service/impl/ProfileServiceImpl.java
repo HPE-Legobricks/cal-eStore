@@ -1,5 +1,6 @@
 package com.hpe.calEStore.service.impl;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Set;
 
 import javax.mail.MessagingException;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,8 @@ import com.hpe.calEStore.model.User;
 import com.hpe.calEStore.service.MailNotSentException;
 import com.hpe.calEStore.service.MailService;
 import com.hpe.calEStore.service.ProfileService;
+import com.hpe.calEStore.util.DecodeUtil;
+import com.hpe.calEStore.util.RandomPasswordGeneratorUtil;
 
 @Service
 public class ProfileServiceImpl implements ProfileService{
@@ -165,14 +169,13 @@ public class ProfileServiceImpl implements ProfileService{
 	@Transactional
 	public String forgotPasswordSendemail(String email) throws MailException, MessagingException {
 		
-		String defaultEncryptedPassword = "bmloYXIkJA=="; // nihar$$
+		String defaultEncryptedPassword = DecodeUtil.encodedeWithBase64(RandomPasswordGeneratorUtil.randomPassword());
 		String message = dao.forgotPasswordSendemail(email, defaultEncryptedPassword);
-		/*if(message.equals("true")){
-			service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password nihar$$ as your new password to login. Thanks.");
-		}*/
+		if(message.equals("true")){
+			service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password "+DecodeUtil.decodeWithBase64(defaultEncryptedPassword)+" as your new password to login. Thanks.");
+		}
 		return message;
 	}
 
 	
-
 }
