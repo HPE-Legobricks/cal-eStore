@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <div id="maincontainer">
 	<section id="product">
 		<div class="container">
 			<!--  breadcrumb -->
-			<ul class="breadcrumb">
+			<!--  <ul class="breadcrumb">
 				<li><a href="productCatalogue">Home</a> <span class="divider">/</span></li>
 				<li class="active">Product List View</li>
-			</ul>
+			</ul> -->
 			<div class="row">
 				<!-- Sidebar Start-->
 				<!-- Sidebar-->
@@ -99,7 +100,8 @@
 								</div>
 								<!-- Category-->
 								<section id="categorygrid">
-									<table id="productlist" Style=" display: inline; width: -1px !important"  >
+									<table id="productlist"
+										Style="display: inline; width: -1px !important">
 										<thead>
 											<tr>
 												<th style="border: none; display: none"></th>
@@ -119,9 +121,15 @@
 														</div></td>
 													<td><div class="span6">
 															<a href="productDetail?productId=${product.productId}"><b><c:out
-																		value="${product.productName}" /></b></a> <br><b>Contract Price :</b> $
-															<c:out value="${product.pricePerUnit}" />
-															<div class="productdiscrption"><b>Description :</b>
+																		value="${product.productName}" /></b></a> <br> <b>Contract
+																Price :</b>
+															<fmt:setLocale value="en_US" />
+															<fmt:formatNumber var="pricePerUnit" type="currency"
+																minFractionDigits="2" maxFractionDigits="2"
+																value="${product.pricePerUnit}" />
+															${pricePerUnit}
+															<div class="productdiscrption">
+																<b>Description :</b>
 																<c:out value="${product.productDesc}" />
 																<br> <br>
 																<div class="span6 productdiscrption">

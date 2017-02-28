@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <section id="product">
 	<div class="container">
@@ -27,13 +29,24 @@
 							</h1>
 							<div class="productprice">
 								<div class="productpageprice">
-									<span class="spiral"></span>&nbsp;
 									<h6>
-										Contract Price:<b>$</b><b>${product.pricePerUnit}</b>
+										Contract Price:
+										<fmt:setLocale value="en_US" />
+										<fmt:formatNumber var="pricePerUnit" type="currency"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${product.pricePerUnit}" />
+										<b>${pricePerUnit}</b>
 									</h6>
 								</div>
-								<div class="productpageoldprice">Old price : $
-									&nbsp;${product.msrpPerUnit}</div>
+								<div class="productpageoldprice">
+									<h6>
+										List price :
+										<fmt:formatNumber var="msrpPerUnit" type="currency"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${product.msrpPerUnit}" />
+										<b>${msrpPerUnit}</b>
+									</h6>
+								</div>
 							</div>
 							<div class="controls"></div>
 							<div class="control-group">
@@ -41,9 +54,8 @@
 									<h6>
 										Discount: <b>${product.discPercent} %</b>
 									</h6>
-									<h6>
-									Description:<br> </h6>${product.productDesc}
-									
+									<h6>Description:</h6>
+									${product.productDesc}
 								</div>
 							</div>
 							<div class="span6">

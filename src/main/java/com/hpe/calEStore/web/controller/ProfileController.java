@@ -133,14 +133,14 @@ public class ProfileController {
 		    
 			try {
 				service.registerUser(user);
-				model.addAttribute("success", "Profile submitted. Waiting for estore administrator approval.");
+				model.addAttribute("success", "Profile submitted. Waiting for estore Administrator approval.");
 				
 		} catch (MailNotSentException | HibernateException | ProfileNotSavedOrUpdatedException | MailException | MessagingException e) {
 			
 			model.addAttribute("auth", "PROFILE NOT SUBMITTED: "+e.getMessage());
 			return new ModelAndView("redirect:/userregistration");
 		}
-		model.addAttribute("success", "Profile submitted. Waiting for estore administrator approval.");
+		model.addAttribute("success", "Profile submitted. Waiting for estore Administrator approval.");
 		return new ModelAndView("redirect:/userregistration");
 		
 	}
