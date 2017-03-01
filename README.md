@@ -307,8 +307,6 @@ Derek has over 20 years of Information Technology experience in software
 product development, implementation and operations management. This includes
 five years of Agile methodology experience in various team roles.
 
- 
-
 For this project,
 Derek oversaw the overall product prototype vision and acted as direct liaison
 to system users to gather feedback, conduct conceptual, wireframe and mock-up
@@ -316,8 +314,6 @@ interview sessions. Derek interpreted the data and information gathered to
 create a product definition and epic stories. Additionally, he worked closely
 with the Scrum Master, Business Analyst and Technical Architect to organize and
 prioritize the prototype feature backlog.
-
- 
 
 ### (b) Collaboration team
 
