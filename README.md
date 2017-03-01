@@ -207,8 +207,7 @@ load the prototype’s data source.
 Continuous integration, delivery, and deployment is
 key to automating the delivery process. In order to successfully implement the
 concept of agile and continuous delivery it is highly important that
-collaboration and communication exist between various work groups. [DevOps](calestore/contributing
-documents/Technical Approach DevOps Automation) is a set of processes
+collaboration and communication exist between various work groups. [DevOps](./Contributing Documents/Technical ApproachDevOps Automation.pdf) is a set of processes
 and methods for this communication and collaboration of both software and
 information technology while automating the processes of software delivery and
 infrastructure changes.
@@ -263,8 +262,7 @@ identified across 5 Epics (Profile, Catalog, Checkout, Manage Product Inventory,
 stories were prioritized by the Product Manager and executed by the agile development
 team in three sprints. There are 11 user stories remaining in the backlog after
 end of Sprint 3. The documentation regarding the user stories is provided in
-the [JIRA presentation](calestore/contributing
-documents/ D.4b_JIRA Tool) attached. We used our Global Agile Software
+the [JIRA presentation](./Contributing Documents/D.4b_JIRA Tool.pdf) attached. We used our Global Agile Software
 Delivery Model to guide our project teams’ delivery, using a set of
 interrelated roles, practices, and work products that optimized the flow of
 business value delivery. Our project was a success, delivering on each goal we
@@ -272,7 +270,6 @@ set for our prototype. Our prototype meets the needs of the prospective users
 and admins. 
 
  
-
 #US Digital Services Playbook
 
 We complied with the US Digital Service: Digital
@@ -280,7 +277,6 @@ Services Playbook in creation of our prototype. See the [Service Plays
 Table](calestore/contributing
 documents/J.1_US Digital Services Playbook) for details about our
 approach.
-
  
 
 ## Team
@@ -384,8 +380,7 @@ insights on the user orders.
 within minutes. I want the same experience for my official equipment ordering
 system.
 
-More detail about our [understanding of users](calestore/contributing
-documents/C.1_User Centric Design) is attached.
+More detail about our [understanding of users](./Contributing Documents/C.1_User Centric Design.pdf) is attached.
 
 ### (d) User-centric design tools and/or techniques 
 
@@ -473,8 +468,7 @@ Based on requirements for the prototype and insight
 from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
 backlog grooming session with the product owner. We have attached the [user
-stories[(calestore/contributing
-documents/D.4a_Cal eStore User Stories) and documentation of the [JIRA tool](calestore/contributing documents/ D.4b_JIRA Tool) where we capture the user stories. 
+stories](./Contributing Documents/D.4a_Cal eStore User Stories.pdf)and documentation of the [JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
 **Develop wireframes** 
 
 As the starting point to
