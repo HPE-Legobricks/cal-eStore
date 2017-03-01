@@ -73,36 +73,25 @@
 
 	function drawChart4() {
 
-		var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Days');
-		data.addColumn('number', 'Department A');
-		data.addColumn('number', 'Department B');
-		data.addColumn('number', 'Department C');
+		
+		var data = google.visualization.arrayToDataTable([
+       				[ 'Week', 'DEP HR', 'DEP COD' ], [ 'Week1', 1000, 400 ],
+       				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
+       				[ 'Week4', 1030, 540 ] ]);
 
-		data.addRows([ [ 1, 100, 90, 70 ], [ 2, 110, 95, 75 ],
-				[ 3, 115, 100, 82 ], [ 4, 120, 110, 90 ], [ 5, 140, 130, 110 ],
-				[ 6, 115, 95, 80 ], [ 7, 100, 92, 75 ], [ 8, 123, 111, 92 ],
-				[ 9, 130, 120, 100 ], [ 10, 128, 120, 112 ],
-				[ 11, 135, 125, 115 ], [ 12, 128, 120, 112 ],
-				[ 13, 128, 120, 112 ], [ 14, 135, 125, 115 ],
-				[ 15, 128, 120, 112 ], [ 16, 128, 120, 112 ],
-				[ 17, 145, 130, 120 ] ]);
+       		var options = {
+       			hAxis : {
+       				title : ''
+       			},
+       			vAxis : {
+       				minValue : 0
+       			}
+       		};
 
-		var options = {
+       		var chart = new google.visualization.AreaChart(document
+       				.getElementById('chart_div4'));
+       		chart.draw(data, options);
 
-			axes : {
-				x : {
-					0 : {
-						side : 'bottom'
-					}
-				}
-			}
-		};
-
-		var chart = new google.charts.Line(document
-				.getElementById('chart_div4'));
-
-		chart.draw(data, options);
 	}
 </script>
 
