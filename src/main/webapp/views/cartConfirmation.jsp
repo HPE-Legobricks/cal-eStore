@@ -26,8 +26,8 @@
 									<label for="focusedInput" class="control-label">Department
 										Name</label>
 									<div class="controls">
-										<input type="text" value=${userDepartmentName} id="focusedInput"
-											class="input-xlarge focused">
+										<input type="text" disabled="" value=${userDepartmentName} id="focusedInput"
+											class="input-xlarge focused uneditable-input">
 									</div>
 								</div>
 								<div class="control-group">

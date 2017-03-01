@@ -33,7 +33,7 @@
 					<!--  Price -->
 					<div class="sidewidt">
 						<h1 class="heading1">
-							<span class="maintext">Discounted Price</span>
+							<span class="maintext">Contract Price</span>
 						</h1>
 						<section>
 							<div style="position: relative; padding: 0px;">
@@ -129,7 +129,7 @@
 																value="${product.pricePerUnit}" />
 															${pricePerUnit}
 															<div class="productdiscrption">
-																<b>Description :</b>
+																<b>Item Description :</b>
 																<c:out value="${product.productDesc}" />
 																<br> <br>
 																<div class="span6 productdiscrption">

@@ -13,13 +13,12 @@
 			</span>
 		</h1>
 
-
 		<div id="content">
 			<div class="manufacturer-list">
 				<div class="manufacturer-heading">
 					Current Order :<a id="A"></a>
 				</div>
-				<div>${currentOrderId}</div>
+				<div>${latestOrder.orderId}</div>
 			</div>
 			<div>
 				<!-- widget content -->
@@ -30,7 +29,7 @@
 								<div class="form-bootstrapWizard">
 									<ul class="bootstrapWizard form-wizard">
 										<c:choose>
-											<c:when test="${currentOrderStatus == 'Ordered'}">
+											<c:when test="${latestOrder.status.statusName == 'Ordered'}">
 												<li data-target="#step1" class="active"><a
 													data-toggle=""> <span class="step active">1</span> <span
 														class="title active ">Ordered</span>
@@ -45,7 +44,7 @@
 										</c:choose>
 
 										<c:choose>
-											<c:when test="${currentOrderStatus == 'Processing'}">
+											<c:when test="${latestOrder.status.statusName == 'Processing'}">
 												<li data-target="#step3" class="active"><a
 													data-toggle=""> <span class="step active">2</span> <span
 														class="title active ">Processing</span>
@@ -60,7 +59,7 @@
 
 
 										<c:choose>
-											<c:when test="${currentOrderStatus =='Shipped'}">
+											<c:when test="${latestOrder.status.statusName =='Shipped'}">
 												<li data-target="#step3" class="active"><a
 													data-toggle="tab"> <span class="step active">3</span> <span
 														class="title active ">Shipped</span>
@@ -74,7 +73,7 @@
 										</c:choose>
 
 										<c:choose>
-											<c:when test="${currentOrderStatus =='Delivered'}">
+											<c:when test="${latestOrder.status.statusName =='Delivered'}">
 												<li data-target="#step3" class="active"><a
 													data-toggle="tab"> <span class="step active">4</span> <span
 														class="title active ">Delivered</span>
@@ -94,12 +93,12 @@
 								<div class="tab-content">
 
 									<c:choose>
-										<c:when test="${currentOrderStatus =='Ordered'}">
+										<c:when test="${latestOrder.status.statusName =='Ordered'}">
 											<div class="tab-pane active" id="tab1">
 												<br>
 												<h4>Order Tracking</h4>
 												<div style="float: right">
-													<a href="cancelOrder?orderId=${currentOrderId}"
+													<a href="cancelOrder?orderId=${latestOrder.orderId}"
 														class="btn btn-primary"> Cancel Order </a>
 												</div>
 											</div>
@@ -110,12 +109,12 @@
 									</c:choose>
 
 									<c:choose>
-										<c:when test="${currentOrderStatus =='Processing'}">
+										<c:when test="${latestOrder.status.statusName =='Processing'}">
 											<div class="tab-pane active" id="">
 												<br>
 												<h4>Order Tracking</h4>
 												<div style="float: right">
-													<a href="cancelOrder?orderId=${currentOrderId}"
+													<a href="cancelOrder?orderId=${latestOrder.orderId}"
 														class="btn btn-primary"> Cancel Order </a>
 												</div>
 											</div>
@@ -123,13 +122,12 @@
 										<c:otherwise>
 
 											<c:choose>
-												<c:when test="${currentOrderStatus =='Cancelled'}">
+												<c:when test="${latestOrder.status.statusName =='Cancelled'}">
 													<div class="tab-pane active" id="tab1">
 														<br>
 														<h4></h4>
 														<div style="float: right">
-															<a class="btn  deactive" title=" Order Status"> Order
-																is cancelled</a>
+															<a class="button disabled" title=" Order Status">Cancelled</a>
 														</div>
 													</div>
 												</c:when>
@@ -141,7 +139,7 @@
 										</c:otherwise>
 									</c:choose>
 									<c:choose>
-										<c:when test="${currentOrderStatus =='Shipped'}">
+										<c:when test="${latestOrder.status.statusName =='Shipped'}">
 
 											<h3>Order can't be cancelled</h3>
 										</c:when>
@@ -151,7 +149,7 @@
 									</c:choose>
 
 									<c:choose>
-										<c:when test="${currentOrderStatus =='Delivered'}">
+										<c:when test="${latestOrder.status.statusName =='Delivered'}">
 											<h3>Order cant be cancelled</h3>
 
 											<div>
@@ -172,6 +170,10 @@
 			<!-- end widget content -->
 		</div>
 
+
+
+
+
 		<div id="content2">
 			<div class="manufacturer-list">
 				<div class="manufacturer-heading">
@@ -181,15 +183,18 @@
 					<table class="table table-striped table-bordered compare">
 						<tbody>
 							<tr>
-								<td class="Productdisc">Order ID</td>
-								<td class="Productdisc">Items</td>
-								<td class="Productdisc">Status</td>
-								<td class="Productdisc">Action</td>
+								<th width="10%" class="Productdisc">Order ID</th>
+								<th width="40%" class="Productdisc">Items</th>
+								<th width="20%" class="Productdisc">Status</th>
+								<th width="30%" class="Productdisc">Action</th>
 							</tr>
-							<c:forEach var="purchaseOrder" items="${orderDetailsMap}">
+							<c:forEach var="purchaseOrder" items="${poList}">
 								<tr>
 									<td class="Productdisc">${purchaseOrder.orderId}</td>
-									<td>${prodName.product.productName}</td>
+									<td><c:forEach var="productOrder"
+											items="${purchaseOrder.productOrders}">
+										<li>${productOrder.product.productName}</li>
+										</c:forEach></td>
 									<td>${purchaseOrder.status.statusName}</td>
 									<c:choose>
 										<c:when

@@ -17,7 +17,7 @@
 							src="<%=request.getContextPath()%>/images/product-base/detail/${product.imgPath}">
 					</a></li>
 				</ul>
-				<span>Mouse move on Image to zoom</span>
+				<span>Roll over image to zoom</span>
 			</div>
 			<div class="row">
 				<!-- Right Details-->
