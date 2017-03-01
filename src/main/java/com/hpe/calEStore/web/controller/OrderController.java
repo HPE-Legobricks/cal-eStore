@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.dao.entity.Address;
 import com.hpe.calEStore.dao.entity.Product;
 import com.hpe.calEStore.dao.entity.ProductOrder;
@@ -39,7 +41,7 @@ import com.hpe.calEStore.service.ProductService;
  */
 
 @Controller
-@SessionAttributes("cartItemsMap")
+@SessionAttributes("cartItemsMap") @ApiIgnore
 public class OrderController {
 	final static Logger logger = Logger.getLogger(OrderController.class);
 

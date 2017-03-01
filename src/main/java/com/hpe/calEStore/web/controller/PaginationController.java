@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.dao.entity.Product;
 import com.hpe.calEStore.dao.entity.UserProfile;
 import com.hpe.calEStore.mapper.ProductToProductDMModelMapper;
@@ -26,7 +28,7 @@ import com.hpe.calEStore.model.User;
 import com.hpe.calEStore.service.ProductService;
 import com.hpe.calEStore.service.ProfileService;
 
-@Controller
+@Controller @ApiIgnore
 public class PaginationController {
 
 	/**

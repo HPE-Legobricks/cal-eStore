@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.dao.entity.Product;
 import com.hpe.calEStore.model.ProductCompareDM;
 import com.hpe.calEStore.model.ProductType;
 import com.hpe.calEStore.service.ProductService;
 
-@Controller
+@Controller @ApiIgnore
 // @SessionAttributes({ "prodCompList", "catgForComp" })
 public class ProductController {
 

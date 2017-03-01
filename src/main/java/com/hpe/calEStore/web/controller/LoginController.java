@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.web.form.LoginForm;
 
 @Controller
-@RequestMapping("loginform")
+@RequestMapping("loginform") @ApiIgnore
 public class LoginController {
 
 	/**
