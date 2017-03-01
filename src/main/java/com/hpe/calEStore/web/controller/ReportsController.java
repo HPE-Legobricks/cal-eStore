@@ -34,7 +34,7 @@ public class ReportsController {
 	@RequestMapping(value = "/getOrderCountPerStatus", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Integer>> getOrderCountPerStatus() {
 
-		Map<String, Integer> orderCountMap = orderReportService.getOrderCount();
+		Map<String, Integer> orderCountMap = null;//orderReportService.getOrderCount();
 		return new ResponseEntity<Map<String, Integer>>(orderCountMap,
 				HttpStatus.OK);
 	}
