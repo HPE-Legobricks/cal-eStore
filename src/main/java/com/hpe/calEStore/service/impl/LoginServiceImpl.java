@@ -47,7 +47,6 @@ public class LoginServiceImpl implements UserDetailsService {
 			throws UsernameNotFoundException {
 
 		UserProfile user = findByUsername(username);
-		System.out.println(user.getUserId() + " :  " + user.getPassword());
 
 		String encodedPassword = passwordEncoder.encode(decodeWithBase64(user
 				.getPassword()));

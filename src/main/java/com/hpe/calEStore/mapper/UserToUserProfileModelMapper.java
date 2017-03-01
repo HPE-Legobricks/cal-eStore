@@ -82,30 +82,6 @@ public class UserToUserProfileModelMapper implements Mapper {
 		} 
 		
 		
-		public static void main(String[] a){
-			
-			/*User user= new User();
-			user.setEmailId("ss@kk.com");
-			user.setPassword("ddddd");
-			
-			
-	        UserProfile profile = (UserProfile)new UserToUserProfileModelMapper().fromModel(user);
-	        
-	        System.out.println(profile.getEmailId());
-	        System.out.println(profile.getPassword());*/
-			
-			User user= new User();
-			user.setEmailId("ss@kk.com");
-			user.setPassword("ddddd");
-			
-			UserProfile uf = new UserToUserProfileModelMapper(user).getUserProfile();
-			System.out.println(uf.getEmailId());
-			System.out.println(uf.getPassword());
-			
-			
-			
-		}
-
 
 		/**
 		 * @param user
