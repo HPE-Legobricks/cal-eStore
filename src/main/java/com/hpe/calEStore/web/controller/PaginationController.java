@@ -102,7 +102,7 @@ public class PaginationController {
 		} else {
 
 			// Return specific index set of list
-			System.out.println("type:" + type);
+			
 
 			productList = (PagedListHolder<User>) req.getSession()
 					.getAttribute("userList");
@@ -192,7 +192,7 @@ public class PaginationController {
 		} else {
 
 			// Return specific index set of list
-			System.out.println("type:" + type);
+		
 
 			productList = (PagedListHolder<ProductDM>) req.getSession()
 					.getAttribute("userList");
@@ -392,13 +392,6 @@ public class PaginationController {
 
 	private void printPageDetails(PagedListHolder productList) {
 
-		System.out.println("curent page - productList.getPage() :"
-				+ productList.getPage());
-		System.out.println("Total Num of pages - productList.getPageCount :"
-				+ productList.getPageCount());
-		System.out.println("is First page - productList.isFirstPage :"
-				+ productList.isFirstPage());
-		System.out.println("is Last page - productList.isLastPage :"
-				+ productList.isLastPage());
+		
 	}
 }
