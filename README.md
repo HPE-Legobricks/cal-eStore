@@ -366,8 +366,7 @@ Writer/Content Designer - Developed the strategy and execution of content
 
 ## Design and Development
 
-### (c) Understanding
-users 
+### (c) Understanding users 
 
 Utilizing both the US Digital Service: Digital
 Services Playbook: Play 1: Understanding What People Need as well as
@@ -406,8 +405,7 @@ system.
 More detail about our [understanding of users](calestore/contributing
 documents/C.1_User Centric Design) is attached.
 
-### (d) User-centric
-design tools and/or techniques 
+### (d) User-centric design tools and/or techniques 
 
 Early in the development of
 the prototype, our team employed the following user centric design methods
@@ -415,8 +413,7 @@ which are applicable and proven to be valid in use case scenarios. The
 following discussions elaborate on the elements of these seven user centric
 design techniques. 
 
-**Research
-**
+**Research**
 
 The product owner and team
 researched current tool features to identify pros and cons and apply learnings
@@ -449,8 +446,7 @@ inspired by the Enterprise Services Employees internal shopping website. This
 site allows authorized Enterprise Services employees access to buy products. An
 administrator controls the product publishing process. 
 
-**Interview
-the user**
+**Interview the user**
 
 This step involved
 preparing a questionnaire based on the Digital Services
@@ -459,8 +455,7 @@ Playbook: Play 2: Address the Whole Experience, from Start to Finish and Play
 a system user as well as a system administrator both of which were from outside
 the development team. 
 
-**Build
-the persona** 
+**Build the persona** 
 
 In the development process
 we based our prototype on the following fictional persona information.
@@ -539,8 +534,7 @@ Wireframe) and [admin](calestore/contributing documents/ D.6a_Admin Final
 Wireframe) wireframes are
 attached.
 
-**Create
-mock-ups** 
+**Create mock-ups** 
 
 Using the wireframes and
 user input, we created mock-ups that follow the US Web Design Standards.
@@ -549,8 +543,7 @@ the application. Mock-ups are based on a simple
 and flexible design style guide. The mock-ups were used in the usability
 testing for the Visual Design.
 
-### (e) GitHub code
-commits
+### (e) GitHub code commits
 
 GitHub was used as our source code management tool
 for daily code commits. We also used GitHub for storing documents related to
@@ -564,8 +557,7 @@ Further detail of our [Swagger](calestore/contributing documents/F.2_Swagger Spe
 flow updates](calestore/contributing
 documents/F.3_Swagger documentation) are attached. 
 
-### (g) ADA Section 508
-and WCAG 2.0 compliance 
+### (g) ADA Section 508 and WCAG 2.0 compliance 
 
 To comply with WCAG, our team used HTML5 and CSS3
 technology during front end development. Once built, the code was tested
@@ -574,8 +566,7 @@ against the W3 standard site. This methodology supports compliance with Section
 Tables](calestore/contributing
 documents/G.1_ADA WCAG Compliance) for details.
 
-### (h) Design style
-guide and pattern library 
+### (h) Design style guide and pattern library 
 
 We used the US Web Design Standards UI component
 library and strictly followed brand guidelines to define color, typography,
@@ -747,8 +738,7 @@ prototype
 Details of our automated [integration testing](calestore/contributing documents/Technical Approach DevOps Automation) are
 attached.
 
-## Environment and
-Installation
+## Environment and Installation
 
 ### (p) Configuration management
 
@@ -761,8 +751,7 @@ approach are attached.
 
  
 
-### (q) Continuous
-monitoring
+### (q) Continuous monitoring
 
 We used SiteScope to monitor application and system
 performance. Custom scripts were written based on certain condition for
@@ -771,8 +760,7 @@ alert select team members of system failures. [ref](http://referenceurl).
 Details of our [continuous monitoring](calestore/contributing documents/Technical Approach DevOps Automation)
 are attached.
 
-### (r) Container based
-deployment
+### (r) Container based deployment
 
 Our team setup and used container based deployment.
 The CI process generates a .war file and Jenkins uploads it into Nexus, which
@@ -785,8 +773,7 @@ Automation](calestore/contributing
 documents/Technical
 Approach DevOps Automation) for more details.
 
-### (s) Installation
-guide
+### (s) Installation guide
 
 The following is our installation guide for our Cal
 eStore prototype:
@@ -813,8 +800,7 @@ cloned project)
 * Deploy the code: cp \target\caleStore.war
 \tomcatpath\webapps\. (Copy the caleStore.war file into Tomcat webapps folder)
 
-### (t) Prototype and
-underlying platforms
+### (t) Prototype and underlying platforms
 
 The packages and platforms used to build and run
 the prototype are open-sources.
