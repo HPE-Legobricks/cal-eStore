@@ -17,7 +17,7 @@
 		}
 		if (prodCompList.indexOf(productId) != -1) {
 			$('body').scrollTop(0);
-			displayMsg('! Product already marked for comparison');
+			displayMsg('Product already marked for comparison.');
 			return;
 		}
 		if (catgForComp == null) {
@@ -55,7 +55,7 @@
 	function compareProducts() {
 		if (prodCompList.length < 2) {
 			$('body').scrollTop(0);
-			displayMsg('! Minimum two products required for comparison');
+			displayMsg('A minimum of two products required for comparison.');
 			return;
 		}
 		window.location.href = "compareProducts";
@@ -96,7 +96,7 @@
 
 	function proceedToCart() {
 		if (Object.keys(cartItemsMap).length < 1) {
-			displayMsg('!Minimum one product required to view your Cart');
+			displayMsg('A minimum of one product is required to view your Cart.');
 			return;
 		}
 		window.location.href = "cartDetail";
@@ -149,8 +149,7 @@
 <div class="headerstrip">
 	<div class="container">
 		<div class="pull-left welcometxt">
-			An official website of the United States government, <a
-				class="orange" href="#">Here's how you know</a>
+			An official website of the United States government.
 		</div>
 		<!-- Top Nav Start -->
 		<div class="pull-right">

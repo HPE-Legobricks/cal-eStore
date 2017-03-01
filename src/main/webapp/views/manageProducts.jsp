@@ -67,7 +67,7 @@ $(document).ready(function() {
 	<div class="box">
 		<div class="row">
 			<div class="col-sm-6">
-				<h4>Manage Unpublished Orders</h4>
+				<h4>Manage Unpublished Products</h4>
 			</div>
 			<div class="col-sm-6 text-right"></div>
 		</div>

@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import springfox.documentation.annotations.ApiIgnore;
-
 import com.hpe.calEStore.dao.entity.Address;
 import com.hpe.calEStore.dao.entity.Product;
 import com.hpe.calEStore.dao.entity.ProductOrder;
@@ -41,7 +39,7 @@ import com.hpe.calEStore.service.ProductService;
  */
 
 @Controller
-@SessionAttributes("cartItemsMap") @ApiIgnore
+@SessionAttributes("cartItemsMap")
 public class OrderController {
 	final static Logger logger = Logger.getLogger(OrderController.class);
 
@@ -102,7 +100,7 @@ public class OrderController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/oderTrack1", method = RequestMethod.GET)
+	@RequestMapping(value = "/oderTrack", method = RequestMethod.GET)
 	public ModelAndView trackOrders1() {
 		ModelAndView mv = new ModelAndView("order.detail");
 		String userEmail = SecurityContextHolder.getContext()
@@ -117,7 +115,7 @@ public class OrderController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/oderTrack", method = RequestMethod.GET)
+	@RequestMapping(value = "/oderTrack2", method = RequestMethod.GET)
 	public ModelAndView trackOrders() {
 		ModelAndView mv = new ModelAndView("order.detail");
 		String userEmail = SecurityContextHolder.getContext()
@@ -273,7 +271,14 @@ public class OrderController {
 			// TODO Auto-generated catch block
 			logger.error(e);
 		}
-		List<PurchaseOrder> orderDetailsMap = orderService
+
+		List<PurchaseOrder> poList = orderService
+				.getAllOrdersWithStatus(userEmail);
+		mv.addObject("latestOrder", poList.get(0));
+		poList.remove(0);
+		mv.addObject("poList",poList);
+	
+	/*	List<PurchaseOrder> orderDetailsMap = orderService
 				.getAllOrdersWithStatus(userEmail);
 		int currentOrderId = orderDetailsMap.get(0).getOrderId();
 		String currentOrderStatus = orderDetailsMap.get(0).getStatus()
@@ -291,7 +296,7 @@ public class OrderController {
 		mv.addObject("orderDetailsMap", orderDetailsMap);
 		mv.addObject("currentOrderId", currentOrderId);
 		mv.addObject("currentOrderStatus", currentOrderStatus);
-		mv.addObject("productName", productName);
+		mv.addObject("productName", productName);*/
 		return mv;
 	}
 }

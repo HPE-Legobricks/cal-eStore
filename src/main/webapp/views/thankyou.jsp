@@ -1,11 +1,11 @@
 <div id="content">
     <div class="manufacturer-list">
-      <div class="manufacturer-heading"><h5>Order Confirmation Message</h5><a id="A"></a></div>
+      <div class="manufacturer-heading"><h7>Order Confirmation Message</h7><a id="A"></a></div>
       <div > 
         <!-- widget content -->
         <p class="heading3"> <br>
-        <h3>Thank you for your order with us.</h3><br>
-         <h3>Confirmation mail will be sent to your registered Email ID </h3> 
+        <h5>Thank you for your order with us.</h5><br>
+         <h5>Confirmation mail will be sent to your registered Email ID </h5> 
          <br>
          <br>
          </p>
