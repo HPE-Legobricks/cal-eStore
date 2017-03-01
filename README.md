@@ -207,7 +207,7 @@ load the prototype’s data source.
 Continuous integration, delivery, and deployment is
 key to automating the delivery process. In order to successfully implement the
 concept of agile and continuous delivery it is highly important that
-collaboration and communication exist between various work groups. [DevOps](./Contributing Documents/Technical ApproachDevOps Automation.pdf) is a set of processes
+collaboration and communication exist between various work groups. [DevOps](./Contributing Documents/Technical Approach DevOps Automation.pdf) is a set of processes
 and methods for this communication and collaboration of both software and
 information technology while automating the processes of software delivery and
 infrastructure changes.
