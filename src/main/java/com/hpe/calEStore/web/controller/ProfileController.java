@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.dao.ProfileNotSavedOrUpdatedException;
 import com.hpe.calEStore.dao.UserProfileManageException;
 import com.hpe.calEStore.dao.entity.Department;
@@ -43,7 +45,7 @@ import com.hpe.calEStore.validator.UserValidator;
  * @author mishrani
  *
  */
-@Controller
+@Controller @ApiIgnore
 public class ProfileController {
 
 	

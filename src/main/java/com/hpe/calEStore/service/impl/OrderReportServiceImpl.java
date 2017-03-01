@@ -63,7 +63,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 		dm.setTotalOrders(100);
 		dm.setOpenOrders(75);
 		dm.setTotalOrderCost(2275.45);
-		dm.setHighSpendingDeptName("Department of HR");
+		dm.setHighSpendingDeptName("Social Service");
 		return dm;
 	}
 

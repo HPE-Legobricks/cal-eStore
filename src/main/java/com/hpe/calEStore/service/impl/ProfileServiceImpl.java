@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.mail.MessagingException;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
@@ -24,13 +25,16 @@ import com.hpe.calEStore.model.User;
 import com.hpe.calEStore.service.MailNotSentException;
 import com.hpe.calEStore.service.MailService;
 import com.hpe.calEStore.service.ProfileService;
+import com.hpe.calEStore.util.CustomDataSourceForMySQL;
 import com.hpe.calEStore.util.DecodeUtil;
 import com.hpe.calEStore.util.RandomPasswordGeneratorUtil;
 
 @Service
 public class ProfileServiceImpl implements ProfileService{
 
-	
+	final static Logger logger = Logger
+			.getLogger(CustomDataSourceForMySQL.class);
+
 	/**
 	 * 
 	 */
@@ -47,7 +51,7 @@ public class ProfileServiceImpl implements ProfileService{
 	 */
 	@Override
 	@Transactional
-	public void registerUser(User user) throws ProfileNotSavedOrUpdatedException, MailException, MessagingException {
+	public void registerUser(User user) throws ProfileNotSavedOrUpdatedException, MessagingException {
 		
 		UserProfile profile = new UserToUserProfileModelMapper(user).getUserProfile();
 		
@@ -73,9 +77,12 @@ public class ProfileServiceImpl implements ProfileService{
 		profile.setUserId(id);
         dao.saveUserProfile(profile);
         
-        
-        //service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile pending for approval!", "Your username " +user.getEmailId()+ " is pending for an approval with the admin. Thanks." );
-        
+        try{
+        	service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile pending for approval!", "Your username " +user.getEmailId()+ " is pending for an approval with the admin. Thanks." );
+        }
+        catch(Exception ex){
+        	logger.error("Error while sending email:",ex);
+        }
 	}
 
 
@@ -113,13 +120,18 @@ public class ProfileServiceImpl implements ProfileService{
 			if(dao.saveOrUpdateUserProfile(user) == 1){
 				
 				user = dao.getUserProfileByID(Integer.parseInt(id));
-				if(vote.equalsIgnoreCase("A"))
-				{
-					//service.sendMail("nihar1213@gmail.com", user.getEmailId(), "You have been registered!", "Please use " +user.getEmailId()+ " and " + DecodeUtil.decodeWithBase64(user.getPassword()) +" as your credentials to login. Thanks." );
+				try{
+					if(vote.equalsIgnoreCase("A"))
+					{
+						service.sendMail("nihar1213@gmail.com", user.getEmailId(), "You have been registered!", "Please use " +user.getEmailId()+ " and " + DecodeUtil.decodeWithBase64(user.getPassword()) +" as your credentials to login. Thanks." );
+					}
+					else{
+
+						service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile Rejected!", "Your profile has been rejected by the administrator. Thanks." );
+					}
 				}
-				else{
-					
-					//service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile Rejected!", "Your profile has been rejected by the administrator. Thanks." );
+				catch(Exception ex){
+					logger.error("Error while sending email:",ex);
 				}
 			}
 		}

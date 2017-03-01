@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hpe.calEStore.model.OrderStatisticsDM;
 import com.hpe.calEStore.service.ProductService;
 
-@Controller
+@Controller @ApiIgnore
 public class DashboardController {
 
 	@Autowired
@@ -30,13 +32,6 @@ public class DashboardController {
 			JsonParseException, JsonMappingException, IOException {
 
 		ModelAndView mv = new ModelAndView("admin.dashboard");
-		//
-		/*
-		 * RestTemplate restTemplate = new RestTemplate(); String fooResourceUrl
-		 * = "http://localhost:8088/calEStore/getOrderStatistics";
-		 * ResponseEntity<String> response =
-		 * restTemplate.getForEntity(fooResourceUrl, String.class);
-		 */
 
 		ObjectMapper mapper = new ObjectMapper();
 		
