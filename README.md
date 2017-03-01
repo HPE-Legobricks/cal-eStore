@@ -215,8 +215,7 @@ data access model and web services.
 **Database:** MySQL relational database was used to
 load the prototype’s data source.
 
-##DevOps Automation (See
-the State of CA_CI-CD.ppt.)
+##DevOps Automation 
 
 Continuous integration, delivery, and deployment is
 key to automating the delivery process. In order to successfully implement the
