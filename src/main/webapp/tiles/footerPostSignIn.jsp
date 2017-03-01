@@ -1,37 +1,24 @@
 <footer id="footer">
-	<section class="footersocial">
-		<div class="container" align="center">
-			<div class="row">
-				<!-- <div class="span12 info">
-					<a href="#">HARDWARE</a> | <a href="#">SOFTWARE</a> | <a href="#">SERVICES</a>
-					| <a href="#">COMPARE</a>
-				</div> -->
-			</div>
-		</div>
-	</section>
 	<section class="copyrightbottom">
 		<div class="container">
 			<div class="row">
-				<div class="span5 social">
-					<img src="<%=request.getContextPath()%>/images/logo.png" alt="" />
+				<div class="col-sm-4 col-xs-4">
+					<img src="images/logo_footer.png" alt="" / class="img-responsive">
 				</div>
-				<div class="span2 textcenter"></div>
-				<div class="span5 paymentsicons">
-					<div class="span3 contact">
-						<div class="span5 social">
-							<ul>
-								<li><a href="https://www.facebook.com/CADeptTech/"><i class="icon-facebook"></i></a></li>
-								<li><a href="https://twitter.com/cadepttech?lang=en"><i class="icon-twitter"></i></a></li>
-								<!-- <li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-google-plus"></i></a></li>
-								<li><a href="#"><i class="icon-pinterest"></i></a></li> -->
-								<li><a href="https://www.youtube.com/user/californiacio"><i class=""></i></a></li>
-							</ul>
-						</div>
-						<div class="span5 social">
-							<h3>Department of Technology</h3>
-							PO Box 1810, Rancho Cordova, CA 95741</br> <a href="mailto:info@agency.gov">ADPQ@state.ca.gov</a>
-						</div>
+				<div class="col-sm-8 col-xs-8 text-right">
+					<ul class="list-inline social">
+						<li><a href="https://www.facebook.com/CADeptTech/"
+							target="_blank"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/cadepttech?lang=en"
+							target="_blank"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.youtube.com/user/californiacio"
+							target="_blank"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+					<div class="info">
+						<h2>Department of Technology</h2>
+						<p>Po Box 1810, Rancho Cordova, CA 9541</p>
+						<a href="#"> <i class="fa fa-envelope"></i> ABPQ@state.ca.gov
+						</a>
 					</div>
 				</div>
 			</div>
