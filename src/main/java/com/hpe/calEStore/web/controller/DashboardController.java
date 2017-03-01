@@ -39,7 +39,7 @@ public class DashboardController {
 		ObjectMapper mapper = new ObjectMapper();
 
 		OrderStatisticsDM orderStatisticsDm = mapper.readValue(new URL(
-				"http://localhost:8080/calEStore/getOrderStatistics"),
+				"http://localhost:8080/calestore/getOrderStatistics"),
 				OrderStatisticsDM.class);
 
 		mv.addObject("orderStatistics", orderStatisticsDm);
@@ -47,7 +47,7 @@ public class DashboardController {
 		Map<String, Map<String, Integer>> weeklyOrderPerDeptMap = mapper
 				.readValue(
 						new URL(
-								"http://localhost:8080/calEStore/getWeeklyOrderCountPerDept"),
+								"http://localhost:8080/calestore/getWeeklyOrderCountPerDept"),
 						Map.class);
 		mv.addObject("weeklyOrderPerDeptMap", weeklyOrderPerDeptMap);
 
