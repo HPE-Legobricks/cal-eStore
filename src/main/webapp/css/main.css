@@ -114,7 +114,7 @@ header .header-info .input-group input:focus	{box-shadow:none;border-color:#ddd}
     padding: 12px;
     margin-left: 90px;
 }
-.info-box-number {font-size:24px}
+.info-box-number {font-size:23px}
 .info-box-content span {display: block}
 .info-box-icon {
     border-top-left-radius: 2px;

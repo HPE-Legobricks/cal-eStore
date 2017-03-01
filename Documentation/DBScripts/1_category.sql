@@ -1,0 +1,140 @@
+USE calestore;
+
+INSERT INTO CATEGORY
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Laptops',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Desktop',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Hard Drive',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'VAS Services',
+'');
+
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Hardware Services',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Deploy and Logistic',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Recycling Services',
+'');
+
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Monitor',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Data Encryption',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Device & Data Security',
+'');
+
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Other',
+'');
+
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Graphics Card',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Port',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`
+(`CATEGORY_ID`,
+`CATEGORY_NAME`,
+`CATEGORY_DESC`)
+VALUES
+(0,
+'Processor',
+'');
+
+INSERT INTO `calestore`.`CATEGORY`(`CATEGORY_ID`,`CATEGORY_NAME`,`CATEGORY_DESC`)
+VALUES(0,'Installation Services','');
+
+INSERT INTO `calestore`.`CATEGORY`(`CATEGORY_ID`,`CATEGORY_NAME`,`CATEGORY_DESC`)
+VALUES(0,'Asset Tagging Services','');
+
+INSERT INTO `calestore`.`CATEGORY`(`CATEGORY_ID`,`CATEGORY_NAME`,`CATEGORY_DESC`)
+VALUES(0,'Warranty Services','');

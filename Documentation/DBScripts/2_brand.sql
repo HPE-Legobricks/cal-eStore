@@ -1,0 +1,58 @@
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'HP');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'Apple');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'Dell');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'TIG');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'NWN');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'Intel');
+
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'LOGITECH');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'AMD');
+
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'UTLTRALIGHT');
+
+INSERT INTO `calestore`.`BRAND` (`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'ViewSonic');
+
+INSERT INTO `calestore`.`BRAND`
+(`BRAND_ID`,
+`BRAND_NAME`)
+VALUES
+(0,'SAMSUNG');
+

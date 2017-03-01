@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author sangaras
@@ -21,7 +21,7 @@ public class ProductDM {
 	public ProductDM() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Integer getProductId() {
 		return productId;
 	}
@@ -130,6 +130,7 @@ public class ProductDM {
 		return selectedUserBox;
 	}
 
+	@JsonIgnore
 	public void setSelectedUserBox(ProductDM[] selectedUserBox) {
 		this.selectedUserBox = selectedUserBox;
 	}
@@ -138,10 +139,12 @@ public class ProductDM {
 		return selectPreference;
 	}
 
+	@JsonIgnore
 	public void setSelectPreference(String selectPreference) {
 		this.selectPreference = selectPreference;
 	}
 
+	@JsonIgnore
 	public List<ProductDM> getUserCheckBoxList() {
 		return userCheckBoxList;
 	}
@@ -163,11 +166,11 @@ public class ProductDM {
 	private Integer rating;
 	private String isPublishedInd;
 	private Date publishedDate;
-	
-	ProductDM[]  selectedUserBox;
-	
+
+	ProductDM[] selectedUserBox;
+
 	private String selectPreference = "";
-	
+
 	List<ProductDM> userCheckBoxList = new ArrayList<ProductDM>();
 
 }

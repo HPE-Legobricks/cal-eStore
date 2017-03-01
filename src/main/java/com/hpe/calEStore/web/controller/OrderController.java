@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.hpe.calEStore.dao.entity.Address;
 import com.hpe.calEStore.dao.entity.Product;
 import com.hpe.calEStore.dao.entity.ProductOrder;
@@ -40,6 +42,7 @@ import com.hpe.calEStore.service.ProductService;
 
 @Controller
 @SessionAttributes("cartItemsMap")
+@ApiIgnore
 public class OrderController {
 	final static Logger logger = Logger.getLogger(OrderController.class);
 
@@ -88,7 +91,8 @@ public class OrderController {
 		if (productId != null && !(productId.isEmpty())) {
 			List<Product> productsInfo = productService
 					.getDetailsByProductId(productId);
-			System.out.println("price value "+productsInfo.get(0).getMsrpPerUnit());
+			System.out.println("price value "
+					+ productsInfo.get(0).getMsrpPerUnit());
 			mv.addObject("productsInfo", productsInfo);
 		}
 		String userEmail = SecurityContextHolder.getContext()
@@ -103,7 +107,7 @@ public class OrderController {
 
 	@RequestMapping(value = "/oderTrack", method = RequestMethod.GET)
 	public ModelAndView trackOrders1() {
-		
+
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
@@ -111,10 +115,10 @@ public class OrderController {
 					.getAllOrdersWithStatus(userEmail);
 			System.out.println("size of order polist :" + poList.size());
 			if (poList.size() == 0) {
-				
+
 				ModelAndView mv1 = new ModelAndView("order.empty");
 				System.out.println("inside the polist size");
-				
+
 				return mv1;
 			} else {
 				ModelAndView mv = new ModelAndView("order.detail");
@@ -289,27 +293,26 @@ public class OrderController {
 				.getAllOrdersWithStatus(userEmail);
 		mv.addObject("latestOrder", poList.get(0));
 		poList.remove(0);
-		mv.addObject("poList",poList);
-	
-	/*	List<PurchaseOrder> orderDetailsMap = orderService
-				.getAllOrdersWithStatus(userEmail);
-		int currentOrderId = orderDetailsMap.get(0).getOrderId();
-		String currentOrderStatus = orderDetailsMap.get(0).getStatus()
-				.getStatusName();
-		Set<ProductOrder> orderList = orderDetailsMap.get(0).getProductOrders();
-		Iterator itr = orderList.iterator();
-		StringBuilder productName = new StringBuilder();
-		while (itr.hasNext()) {
-			ProductOrder prodName = (ProductOrder) itr.next();
-			productName.append(prodName.getProduct().getProductName()).append(
-					"\n");
-		}
-		orderDetailsMap.remove(0);
-		orderDetailsMap.get(0).getProductOrders();
-		mv.addObject("orderDetailsMap", orderDetailsMap);
-		mv.addObject("currentOrderId", currentOrderId);
-		mv.addObject("currentOrderStatus", currentOrderStatus);
-		mv.addObject("productName", productName);*/
+		mv.addObject("poList", poList);
+
+		/*
+		 * List<PurchaseOrder> orderDetailsMap = orderService
+		 * .getAllOrdersWithStatus(userEmail); int currentOrderId =
+		 * orderDetailsMap.get(0).getOrderId(); String currentOrderStatus =
+		 * orderDetailsMap.get(0).getStatus() .getStatusName();
+		 * Set<ProductOrder> orderList =
+		 * orderDetailsMap.get(0).getProductOrders(); Iterator itr =
+		 * orderList.iterator(); StringBuilder productName = new
+		 * StringBuilder(); while (itr.hasNext()) { ProductOrder prodName =
+		 * (ProductOrder) itr.next();
+		 * productName.append(prodName.getProduct().getProductName()).append(
+		 * "\n"); } orderDetailsMap.remove(0);
+		 * orderDetailsMap.get(0).getProductOrders();
+		 * mv.addObject("orderDetailsMap", orderDetailsMap);
+		 * mv.addObject("currentOrderId", currentOrderId);
+		 * mv.addObject("currentOrderStatus", currentOrderStatus);
+		 * mv.addObject("productName", productName);
+		 */
 		return mv;
 	}
 }
