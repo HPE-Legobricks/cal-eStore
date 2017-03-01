@@ -17,8 +17,7 @@ cancel, track, and analyze their orders online as well. Additionally,
 authorized administrative users need to be able to publish product and service
 information, as well as track, analyze and view order data. 
 
-##Prototype- Definition,
-Goal and Tasks
+##Prototype- Definition, Goal and Tasks
 
 Our prototype, which we named Cal eStore, serves as
 an end to end application catering to authorized users and administrative
@@ -187,8 +186,7 @@ name, operating system, processor, memory, storage, warranty, connectivity
 type, HDD RPM, and RAM type so that we can enable the product comparison
 feature in the Cal eStore.
 
-##Architecture (See the
-HighLevelArch-cal-eStore.ppt.)
+##Architecture 
 
 High level [architecture](calestore/contributing documents/Technical Approach
 High Level Architecture) pertains to the architecture that would be used
