@@ -78,7 +78,7 @@ public class ProfileServiceImpl implements ProfileService{
         dao.saveUserProfile(profile);
         
         try{
-        	service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile pending for approval!", "Your username " +user.getEmailId()+ " is pending for an approval with the admin. Thanks." );
+        	service.sendMail("calestore@outlook.com", user.getEmailId(), "Profile registered", "Hi,\n\n Congratulations, your request to access Cal eStore has been submitted.\t\n\n For questions please reach out to ADPQ@state.ca.gov \t\n\n Regards,\t\n\n CaleStore Team");
         }
         catch(Exception ex){
         	logger.error("Error while sending email:",ex);
@@ -123,11 +123,25 @@ public class ProfileServiceImpl implements ProfileService{
 				try{
 					if(vote.equalsIgnoreCase("A"))
 					{
-						service.sendMail("nihar1213@gmail.com", user.getEmailId(), "You have been registered!", "Please use " +user.getEmailId()+ " and " + DecodeUtil.decodeWithBase64(user.getPassword()) +" as your credentials to login. Thanks." );
+						
+						service.sendMail("calestore@outlook.com", user.getEmailId(), "Profile Approved", "Hi,\n\n"+
+								"Congratulations,your request to access Cal eStore has been approved.\t\n\n"+
+								"Please use the below credentials to log in to the Cal eStore web application run by STATE OF CALIFORNIA Department of "+ 
+								"Technology Procurement Team.\t\n\n"+
+								"User ID: "+user.getEmailId()+" \t\nPassword: "+DecodeUtil.decodeWithBase64(user.getPassword())+
+								"\t\n\nhttp://13.64.248.119:8080/calestore/loginform\t\n\n"+
+								"For questions please reach out to ADPQ@state.ca.gov"+
+								"\n\n Regards,\n\n CaleStore Team"); 
+		
+						//service.sendMail("calestore@outlook.com", user.getEmailId(), "Profile Approved!", "Please use " +user.getEmailId()+ " and " + DecodeUtil.decodeWithBase64(user.getPassword()) +" as your credentials to login. Thanks." );
 					}
 					else{
 
-						service.sendMail("nihar1213@gmail.com", user.getEmailId(), "Profile Rejected!", "Your profile has been rejected by the administrator. Thanks." );
+						//service.sendMail("calestore@outlook.com", user.getEmailId(), "Profile Rejected!", "Your profile has been rejected by the administrator. Thanks." );
+						service.sendMail("calestore@outlook.com", user.getEmailId(), "Profile Rejected", "Hi,\n\n"+
+								"Your request to access Cal eStore has been rejected by the Administrator.\t\n\n"+
+								"For questions please reach out to ADPQ@state.ca.gov"+
+								"\n\n Regards,\n\n CaleStore Team"); 
 					}
 				}
 				catch(Exception ex){
@@ -182,7 +196,24 @@ public class ProfileServiceImpl implements ProfileService{
 		String defaultEncryptedPassword = DecodeUtil.encodedeWithBase64(RandomPasswordGeneratorUtil.randomPassword());
 		String message = dao.forgotPasswordSendemail(email, defaultEncryptedPassword);
 		if(message.equals("true")){
-			service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password "+DecodeUtil.decodeWithBase64(defaultEncryptedPassword)+" as your new password to login. Thanks.");
+			
+			/*Hi,
+
+			Congratulations, your request to reset the password for Cal eStore has been approved.
+
+			Please use the below credentials to log in to the Cal eStore web application run by STATE OF CALIFORNIA Department of Technology Procurement Team.
+
+		*/	
+			service.sendMail("calestore@outlook.com", email, "Forgot Password", "Hi,\n\n"+
+									"Congratulations, your request to reset the password for Cal eStore has been approved.\t\n\n"+
+									"Please use the below credentials to log in to the Cal eStore web application run by STATE OF CALIFORNIA Department of "+ 
+									"Technology Procurement Team.\t\n\n"+
+									"User ID: "+email+" \t\nPassword: "+DecodeUtil.decodeWithBase64(defaultEncryptedPassword)+
+									"\t\n\nhttp://13.64.248.119:8080/calestore/loginform\t\n\n"+
+									"For questions please reach out to ADPQ@state.ca.gov"+
+									"\n\n Regards,\n\n CaleStore Team"); 
+			
+			//service.sendMail("nihar1213@gmail.com", email, "Forgot Password", "Please use password "+DecodeUtil.decodeWithBase64(defaultEncryptedPassword)+" as your new password to login. Thanks.");
 		}
 		return message;
 	}
