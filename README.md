@@ -172,8 +172,7 @@ mock-ups
 * Performed
 usability testing
 
-##Extract, Transform and
-Load (ETL) process (See the Cal_eStore_ETL Process.docx.)
+##Extract, Transform and Load (ETL) process 
 
 In the [ETL process](calestore/contributing
 documents/Technical Approach ETL Process), we extracted data from
