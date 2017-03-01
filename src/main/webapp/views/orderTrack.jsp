@@ -97,8 +97,8 @@
 											<div class="tab-pane active" id="tab1">
 												<br>
 												<h4>Order Tracking</h4>
-												<div style="float: right">
-													<a href="cancelOrder?orderId=${latestOrder.orderId}"
+												<div style="">
+													<a class="button pull-right" href="cancelOrder?orderId=${latestOrder.orderId}"
 														class="btn btn-primary"> Cancel Order </a>
 												</div>
 											</div>
@@ -200,6 +200,14 @@
 										<c:when
 											test="${purchaseOrder.status.statusName =='Cancelled'}">
 											<td><a class="button disabled pull-right">Cancelled</a></td>
+										</c:when>
+										<c:when
+											test="${purchaseOrder.status.statusName =='Shipped'}">
+											<td><a class="button disabled pull-right">Cancel Order</a></td>
+										</c:when>
+										<c:when
+											test="${purchaseOrder.status.statusName =='Delivered'}">
+											<td><a class="button disabled pull-right">Cancel Order</a></td>
 										</c:when>
 										<c:otherwise>
 											<td><a class="button pull-right"

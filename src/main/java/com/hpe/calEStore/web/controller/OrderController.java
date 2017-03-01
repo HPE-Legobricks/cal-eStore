@@ -88,6 +88,7 @@ public class OrderController {
 		if (productId != null && !(productId.isEmpty())) {
 			List<Product> productsInfo = productService
 					.getDetailsByProductId(productId);
+			System.out.println("price value "+productsInfo.get(0).getMsrpPerUnit());
 			mv.addObject("productsInfo", productsInfo);
 		}
 		String userEmail = SecurityContextHolder.getContext()
@@ -102,17 +103,29 @@ public class OrderController {
 
 	@RequestMapping(value = "/oderTrack", method = RequestMethod.GET)
 	public ModelAndView trackOrders1() {
-		ModelAndView mv = new ModelAndView("order.detail");
+		
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
 		if (!(userEmail.equals(""))) {
 			List<PurchaseOrder> poList = orderService
 					.getAllOrdersWithStatus(userEmail);
-			mv.addObject("latestOrder", poList.get(0));
-			poList.remove(0);
-			mv.addObject("poList",poList);
+			System.out.println("size of order polist :" + poList.size());
+			if (poList.size() == 0) {
+				
+				ModelAndView mv1 = new ModelAndView("order.empty");
+				System.out.println("inside the polist size");
+				
+				return mv1;
+			} else {
+				ModelAndView mv = new ModelAndView("order.detail");
+				mv.addObject("latestOrder", poList.get(0));
+				poList.remove(0);
+				mv.addObject("poList", poList);
+				return mv;
+			}
 		}
-		return mv;
+
+		return null;
 	}
 
 	@RequestMapping(value = "/oderTrack2", method = RequestMethod.GET)

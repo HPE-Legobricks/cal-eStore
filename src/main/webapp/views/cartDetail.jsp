@@ -41,9 +41,7 @@
 		var dollarsymb = '$';
 		x = document.getElementById("mytable").rows[i].cells;//get all the contents of the row
 		currencyval = x[6].innerHTML.replace("$", "").replace("£","");//To get only the currency value excluding dollar($) symbol
-		alert(currencyval);
 		sumtotal1 = sumtotal1 - currencyval;//subtraction from the total amount
-		alert(parseFloat(sumtotal1).toFixed( 2 ));
 		sumtext = dollarsymb.concat(sumtotal1);//append the dollar symbol
 		document.getElementById("mytable").deleteRow(i);
 		document.getElementById("sumtotal").innerHTML = sumtext;
@@ -103,7 +101,7 @@
 										height="50" width="50"></a></td>
 								<td class="name"><a href="#">${product.productName}</a></td>
 								<td class="model">${product.brand.brandName}</td>
-								<td class="quantity"><input type="text"
+								<td class="quantity"><input type="number"
 									value=${cartItemsMap[product.productId] } name="quantity[40]"
 									class="span1" class="span1"
 									onkeyup="caltotal(this,this.value),totalcalculation();"></td>
@@ -129,8 +127,8 @@
 						<h2 class="heading2">SHip to</h2>
 						<div class="loginbox">
 							<div class="controls">
-								<textarea class="required" rows="6" cols="40" id="message"
-									name="messagee">${shipToAddress}</textarea>
+								<textarea class="required " rows="6" cols="40" id="message"
+									name="messagee" disabled >${shipToAddress}</textarea>
 							</div>
 						</div>
 					</section>
@@ -156,7 +154,7 @@
 								<table class="table table-striped table-bordered ">
 									<tr>
 										<td>Total:</span></td>
-										<td id="sumtotal" style="text-align:right; float:right"><script>totalcalculation();</script></td>
+										<td id="sumtotal" style="text-align:right;"><script>totalcalculation();</script></td>
 									</tr>
 								</table>
 							</span> <input type="button" id="proceedToCheckout" name="button"

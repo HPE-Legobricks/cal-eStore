@@ -1,5 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/> 
+
 <div id="maincontainer">
 	<div class="container">
 		<!--  breadcrumb -->
@@ -26,14 +27,14 @@
 									<label for="focusedInput" class="control-label">Department
 										Name</label>
 									<div class="controls">
-										<input type="text" disabled="" value=${userDepartmentName} id="focusedInput"
+										<input type="text" disabled="" value="${userDepartmentName}" id="focusedInput"
 											class="input-xlarge focused uneditable-input">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Order Date</label>
 									<div class="controls">
-										<span class="input-xlarge uneditable-input">${now}</span>
+										<span class="input-xlarge uneditable-input"><fmt:formatDate  value="${now}" dateStyle="long" pattern="dd-MM-yyyy "/></span>
 									</div>
 								</div>
 								<div class="control-group">

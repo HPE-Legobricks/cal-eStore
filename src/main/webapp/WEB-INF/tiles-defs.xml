@@ -25,7 +25,7 @@
 		<put-attribute name="nav" value="/tiles/adminNav.jsp" />
 		<put-attribute name="slider" value=" " />
 		<put-attribute name="body" value=" " />
-		<put-attribute name="footer" value="/tiles/footerPostSignIn.jsp" />
+		<put-attribute name="footer" value="/tiles/adminFooterPostSignIn.jsp" />
 	</definition>
 
 	<definition name="login.form" extends="preSignInLayout">
@@ -62,6 +62,11 @@
 	<definition name="order.thankyou" extends="postSignInLayout">
 		<put-attribute name="title" value="Cal-eStore -Thank You " />
 		<put-attribute name="body" value="/views/thankyou.jsp" />
+	</definition>
+	
+	<definition name="order.empty" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore -Thank You " />
+		<put-attribute name="body" value="/views/noOrders.jsp" />
 	</definition>
 
 	<definition name="order.detail" extends="postSignInLayout">

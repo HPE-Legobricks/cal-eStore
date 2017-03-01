@@ -12,7 +12,7 @@
 	function addToCompare(productId, categoryId) {
 		if (prodCompList.length == 3) {
 			$('body').scrollTop(0);
-			displayMsg('!!! Maximum three products allowed for comparison');
+			displayMsg('Maximum three products allowed for comparison');
 			return;
 		}
 		if (prodCompList.indexOf(productId) != -1) {
@@ -25,7 +25,7 @@
 		} else {
 			if (categoryId != catgForComp) {
 				$('body').scrollTop(0);
-				displayMsg('!!!! Only products of same category allowed for comparison');
+				displayMsg('Only products of same category allowed for comparison.');
 				return;
 			}
 		}
@@ -38,7 +38,7 @@
 					success : function(data) {
 						prodCompList.push(productId);
 						$('body').scrollTop(0);
-						displayMsg('*** Product marked for comparison ***');
+						displayMsg('Product marked for comparison');
 						console.log("success");
 						document.getElementById('prodCompListDiv').innerHTML = prodCompList.length;
 					},
@@ -53,10 +53,10 @@
 	}
 
 	function compareProducts() {
-		if (prodCompList.length < 2) {
-			$('body').scrollTop(0);
+		if (prodCompList.length < 1) {
+			 $('body').scrollTop(0);
 			displayMsg('A minimum of two products required for comparison.');
-			return;
+			return; 
 		}
 		window.location.href = "compareProducts";
 	}
@@ -66,7 +66,7 @@
 			cartItemsMap[productId] = 1;
 			/* alert('add to cart'); */
 		} else {
-			displayMsg('* Product already exist in your Cart *');
+			displayMsg('Product already exist in your Cart');
 			var qty = cartItemsMap[productId];
 			qty++;
 			cartItemsMap[productId] = qty;
@@ -78,7 +78,7 @@
 			cache : false,
 			success : function(data) {
 				 $('body').scrollTop(0);
-				displayMsg('*** Product added to cart ***');
+				displayMsg(' Product added to cart ');
 				console.log("success");
 				document.getElementById('cartItemsDiv').innerHTML = Object
 						.keys(cartItemsMap).length;
@@ -97,7 +97,7 @@
 	function proceedToCart() {
 		if (Object.keys(cartItemsMap).length < 1) {
 			displayMsg('A minimum of one product is required to view your Cart.');
-			return;
+			return; 
 		}
 		window.location.href = "cartDetail";
 	}
@@ -124,7 +124,7 @@
 			cache : false,
 			success : function(data) {
 				 $('body').scrollTop(0);
-				displayMsg('*** Product removed from the cart ***');
+				displayMsg(' Product removed from the cart ');
 				console.log("success");
 				/* alert(Object.keys(cartItemsMap).length); */
 				document.getElementById('cartItemsDiv').innerHTML = (Object
