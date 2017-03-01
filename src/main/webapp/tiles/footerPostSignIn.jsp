@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                                                                 <div class="col-sm-4 col-xs-4">
-                                                                                <img src="images/logo.png" alt=""/ class="img-responsive">
+                                                                                <img src="<%=request.getContextPath()%>/images/logo.png" alt=""/ class="img-responsive">
                                                                 </div> 
                                                                 <div class="col-sm-8 col-xs-8 text-right">
                                                                                 <ul class="list-inline social">
