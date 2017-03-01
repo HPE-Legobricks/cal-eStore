@@ -13,7 +13,7 @@ Our working prototype is located at:
 For our prototype, Enterprise Services needed to
 develop an application that allows California state employees to shop online
 for hardware, software, and related services. Users need to be able to place,
-cancel, track, and analyze their orders online as well. Additionally,
+cancel, track, and analyze their orders online. Additionally,
 authorized administrative users need to be able to publish product and service
 information, as well as track, analyze and view order data. 
 
@@ -21,7 +21,7 @@ information, as well as track, analyze and view order data.
 
 Our prototype, which we named Cal eStore, serves as
 an end to end application catering to authorized users and administrative
-users. The prototype features all computing hardware, software, and related
+users. The prototype features sample computing hardware, software, and related
 services from pre-established state contracts and allows users to compare and
 buy products, as well as track and review their orders. The prototype permits
 administrative users to publish and update hardware, software and service
@@ -62,7 +62,7 @@ The Demand Team members spend 25-30% of their time
 shortlisting features for the next sprint, elaborating the product backlog, and
 preparing the sprint backlog for the next sprint. This model not only helps in
 early resolution of dependencies, approvals, and impediments, but also enables
-a 3-in-a-box model (product owner, product expert, and test lead) that ensures
+a 3-in-a-box model (product manager, product expert, and test lead) that ensures
 continuous collaboration. The Demand Team works toward definition of clear user
 stories with acceptance criteria, resolving dependencies and/or impediments,
 seeking approvals, etc. The
