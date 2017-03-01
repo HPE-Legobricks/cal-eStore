@@ -76,22 +76,18 @@ the Technical Architect produces the HLD.
 **Roles of the Demand Team:** The roles of the
 demand team include the following:
 
-* Assist the larger team with definition of
-qualification criteria
+* Assist the larger team with definition of qualification criteria
 
-* Produce an HLD and impact assessment to feed into
-storyboards and Sprint scope planning during the Demand Funnel phase 
+* Produce an HLD and impact assessment to feed into storyboards and Sprint scope planning during the Demand Funnel phase 
 
-* Define minimum criteria for entry to the product
-backlog
+* Define minimum criteria for entry to the product backlog
 
 **Demand Planning:** The Cal eStore prototype
 development spanned three sprints in the scrum methodology. Each sprint was
 carefully compressed from a three week cycle to a crisp 5 days per sprint; thus
 adopting a time boxed sprint cycle of one week. The following are the highlights of each sprint:
 
-* **Poker Method for
-Estimating:** During each sprint, the scrum team began with a sprint planning
+* **Poker Method for Estimating:** During each sprint, the scrum team began with a sprint planning
 meeting where the sprint backlog is story pointed using the **planning poker method—a consensus based
 estimating technique.** This technique helps in estimating the relative
 effort or size of user stories. In planning poker, members of the scrum team,
@@ -102,8 +98,7 @@ have proposed high estimates and low estimates are offered to give
 justification for their estimation. The estimation is repeated till a
 consensus is reached on the estimation of story points. 
 
-* **Life
-cycle management tool (JIRA):** Scrum teams commit to sprint backlog features
+* **Life cycle management tool (JIRA):** Scrum teams commit to sprint backlog features
 based on their capacity and velocity. The Agile lifecycle management tool,
 JIRA, is updated with the planning information. 
 
@@ -153,23 +148,17 @@ used for developing the application.
 
 * Interviews
 
-* Built
-personas
+* Built personas
 
-* Created user
-stories
+* Created user stories
 
-* Developed
-wireframes
+* Developed wireframes
 
-* Performed
-role-play
+* Performed role-play
 
-* Created
-mock-ups
+* Created mock-ups
 
-* Performed
-usability testing
+* Performed usability testing
 
 ##Extract, Transform and Load (ETL) process 
 
@@ -187,8 +176,8 @@ feature in the Cal eStore.
 
 ##Architecture 
 
-High level [architecture](calestore/contributing documents/Technical Approach
-High Level Architecture) pertains to the architecture that would be used
+High level [architecture](./Contributing Documents/Technical Approach
+High Level Architecture.pdf) pertains to the architecture that would be used
 for developing the prototype. The architecture outlines the main components and
 their interfaces. 
 
