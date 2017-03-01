@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.hpe.calEStore.model.OrderReportDM;
 import com.hpe.calEStore.model.OrderStatisticsDM;
+import com.hpe.calEStore.model.OrderStatusDM;
 
 /**
  * @author sangaras
@@ -24,15 +25,15 @@ public interface OrderReportDAO {
 	int getOpenOrdersByLatestQuarter();
 
 	int costOfTotalOrdersByLatestQuarter();
-	
+
 	OrderStatisticsDM getOrderStatistics();
 
-	Map<String, Integer> getOrderCount();
+	OrderStatusDM getOrderCount();
 
 	Map<String, Map<String, Integer>> getWeeklyOrderCountPerDept();
 
 	Map<String, Map<String, Integer>> getCancelledOrdersByVendor();
 
-    Map<String, Map<String, Integer>> getDeliveredOrdersByVendor();
+	Map<String, Map<String, Integer>> getDeliveredOrdersByVendor();
 
 }

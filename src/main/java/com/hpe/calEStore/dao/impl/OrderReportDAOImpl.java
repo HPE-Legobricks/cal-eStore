@@ -27,6 +27,7 @@ import com.hpe.calEStore.dao.entity.TReportType1;
 import com.hpe.calEStore.dao.entity.TReportType2;
 import com.hpe.calEStore.model.OrderReportDM;
 import com.hpe.calEStore.model.OrderStatisticsDM;
+import com.hpe.calEStore.model.OrderStatusDM;
 import com.hpe.calEStore.model.StatusType;
 import com.mysql.jdbc.StringUtils;
 
@@ -270,9 +271,9 @@ public class OrderReportDAOImpl extends
 	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
-	public Map<String, Integer> getOrderCount() {
+	public OrderStatusDM getOrderCount() {
 
-		Map<String, Integer> orderMap = new HashMap<String, Integer>();
+		OrderStatusDM orderStatusDM = new OrderStatusDM();
 
 		// TODO Auto-generated method stub
 
@@ -281,12 +282,20 @@ public class OrderReportDAOImpl extends
 				.add(Restrictions.eq("kpiNumber", 201)).list();
 
 		for (TReportType2 tReportTypes : tReportType2) {
-			orderMap.put(tReportTypes.getStatusType(),
-					tReportTypes.getValueForKpi());
+
+			if (tReportTypes.getStatusType().equalsIgnoreCase("Ordered"))
+				orderStatusDM.setOrdersOrdered(tReportTypes.getValueForKpi());
+
+			if (tReportTypes.getStatusType().equalsIgnoreCase("Inprocess"))
+				orderStatusDM
+						.setOrdersInprogress(tReportTypes.getValueForKpi());
+
+			if (tReportTypes.getStatusType().equalsIgnoreCase("Shipped"))
+				orderStatusDM.setOrdersShipped(tReportTypes.getValueForKpi());
 
 		}
 
-		return orderMap;
+		return orderStatusDM;
 	}
 
 	@SuppressWarnings("unchecked")

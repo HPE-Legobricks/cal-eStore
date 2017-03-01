@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.hpe.calEStore.dao.OrderReportDAO;
 import com.hpe.calEStore.model.OrderReportDM;
 import com.hpe.calEStore.model.OrderStatisticsDM;
+import com.hpe.calEStore.model.OrderStatusDM;
 import com.hpe.calEStore.service.OrderReportService;
 
 /**
@@ -64,7 +65,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 	}
 
 	@Override
-	public Map<String, Integer> getOrderCount() {
+	public OrderStatusDM getOrderCount() {
 		// TODO Auto-generated method stub
 		return orderReportDAO.getOrderCount();
 	}
@@ -72,7 +73,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 	@Override
 	public Map<String, Map<String, Integer>> getWeeklyOrderCountPerDept() {
 		// TODO Auto-generated method stub
-		return orderReportDAO. getWeeklyOrderCountPerDept();
+		return orderReportDAO.getWeeklyOrderCountPerDept();
 	}
 
 	@Override
@@ -86,7 +87,5 @@ public class OrderReportServiceImpl implements OrderReportService {
 		// TODO Auto-generated method stub
 		return orderReportDAO.getDeliveredOrdersByVendor();
 	}
-
-
 
 }
