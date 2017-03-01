@@ -4,7 +4,7 @@
       <div > 
         <!-- widget content -->
         <p class="heading3"> <br>
-        <h5>There are no past orders in your account</h5><br>
+        <h4>There are no existing orders to display </h4><br>
          <h5></h5> 
          <br>
          <br>
