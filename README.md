@@ -304,44 +304,29 @@ We assembled a multidisciplinary,
 collaborative virtual team that included the following members in the roles
 indicated:
 
-* Derek - Product
-Manager - Final authority representing the customer's interest
+* Derek - Product Manager - Final authority representing the customer's interest
 
-* Vasu - Agile Coach -
-Coached and mentored the team in Agile best practices
+* Vasu - Agile Coach - Coached and mentored the team in Agile best practices
 
-* Lavanya - Scrum
-Master - Facilitator for the team and product owner
+* Lavanya - Scrum Master - Facilitator for the team and product owner
 
-* Satish - Technical
-Architect - Overall application design
+* Satish - Technical Architect - Overall application design
 
-* Dinesh - Business
-Analyst - Designed, built, tested, or ran the application
+* Dinesh - Business Analyst - Designed, built, tested, or ran the application
 
-* Ashvin - Visual
-Designer - Designed,
-built, tested, or ran the application
+* Ashvin - Visual Designer - Designed, built, tested, or ran the application
 
-* Nihar and Suresh - Front
-End Web Developers - Designed, built, tested, or ran the application
+* Nihar and Suresh - Front End Web Developers - Designed, built, tested, or ran the application
 
-* Suman - Backend Web
-Developer - Designed,
-built, tested, or ran the application
+* Suman - Backend Web Developer - Designed, built, tested, or ran the application
 
-* Utsav - DevOps
-Engineer - Designed,
-built, tested, or ran the application
+* Utsav - DevOps Engineer - Designed, built, tested, or ran the application
 
-* Amit and Lata - Quality
-Assurance Analysts - Ensured quality throughout the project
+* Amit and Lata - Quality Assurance Analysts - Ensured quality throughout the project
 
-* Sandy - Technical
-Writer/Content Designer - Developed the strategy and execution of content
+* Sandy - Technical Writer/Content Designer - Developed the strategy and execution of content
 
  
-
 ## Design and Development
 
 ### (c) Understanding users 
@@ -354,8 +339,7 @@ identified:
 
 * Different user roles
 
-* Needs of those users within the context of the
-service
+* Needs of those users within the context of the service
 
 * Ways the service will meet identified needs
 
@@ -409,14 +393,11 @@ The team also evaluated several
 public e-commerce sites to draw an understanding of the existing landscape in
 the online shopping community. Sites evaluated include the following:
 
-* Dell shopping
-http://www.dell.com/en-us
+* Dell shopping http://www.dell.com/en-us
 
-* Amazon shopping
-https://www.amazon.com/
+* Amazon shopping https://www.amazon.com/
 
-* eBay shopping
-http://www.ebay.com/ 
+* eBay shopping http://www.ebay.com/ 
 
 The design team was also
 inspired by the Enterprise Services Employees internal shopping website. This
@@ -473,7 +454,7 @@ stories](./Contributing Documents/D.4a_Cal eStore User Stories.pdf)and documenta
 
 As the starting point to
 represent the prototypes on layman’s terms, we developed wireframes. The team
-created the wireframes based on the user stories. The [initial user wireframes](calestore/contributing documents/ D.5a_User Initial Wireframe) and [initial administrator wireframes](calestore/contributing documents/ D.5b_Admin Initial Wireframe) are attached. 
+created the wireframes based on the user stories. The [initial user wireframes](./Contributing Documents/D.5a_User Initial Wireframe.pdf) and [initial administrator wireframes](./Contributing Documents/D.5b_Admin Initial Wireframe.pdf) are attached. 
 
 **Perform role-play** 
 
@@ -484,31 +465,21 @@ show-and-tell process for each user type where we collected feedback and
 challenges. The following points highlight the important feedback gathered from
 the users:
 
-* Quick intelligence search option for departments while user is
-creating their profile
+* Quick intelligence search option for departments while user is creating their profile
 
-* Sign off option accessible from all screens of
-the application
+* Sign off option accessible from all screens of the application
 
-* During the checkout, an option to utilize the
-user’s default address located on the user’s profile  
+* During the checkout, an option to utilize the user’s default address located on the user’s profile  
 
-* Ability to use the home page slider for non-promotional
-info for user, new product published, new vendor added, new category added, and
-important messages from the admin user
+* Ability to use the home page slider for non-promotional info for user, new product published, new vendor added, new category added, and important messages from the admin user
 
-* Remove the item Availability Status from the Shopping Cart as "we
-should assume all the products for the user are available for purchase."
+* Remove the item Availability Status from the Shopping Cart as "we should assume all the products for the user are available for purchase."
+
 Availability might be a feature for admin user
 
-* At Checkout, show the Payment option as under the
-Department Contract “XXXX-XXXX-0123.” For security reasons the contract id will
-not be visible to users. 
+* At Checkout, show the Payment option as under the Department Contract “XXXX-XXXX-0123.” For security reasons the contract id will not be visible to users. 
 
-Based on
-the feedback, the wireframes were updated as needed. The final [user](calestore/contributing documents/ D.6b_User Final
-Wireframe) and [admin](calestore/contributing documents/ D.6a_Admin Final
-Wireframe) wireframes are
+Based on the feedback, the wireframes were updated as needed. The final [user](./Contributing Documents/D.6b_User Final Wireframe.pdf) and [admin](./Contributing Documents/D.6a_Admin Final Wireframe.pdf) wireframes are
 attached.
 
 **Create mock-ups** 
@@ -530,18 +501,14 @@ the prototype.
 
 We used Swagger to document the Cal eStore RESTful
 API. Our link to Swagger API for Cal eStore is: http://13.64.248.119:8080/calestore/swagger-ui.html.
-Further detail of our [Swagger](calestore/contributing documents/F.2_Swagger Specifications) and [code
-flow updates](calestore/contributing
-documents/F.3_Swagger documentation) are attached. 
+Further detail of our [Swagger](./Contributing Documents/F.2_Swagger Specifications.pdf) and [code flow updates](./Contributing Documents/F.3_Swagger Documentation.pdf) are attached. 
 
 ### (g) ADA Section 508 and WCAG 2.0 compliance 
 
 To comply with WCAG, our team used HTML5 and CSS3
 technology during front end development. Once built, the code was tested
 against the W3 standard site. This methodology supports compliance with Section
-508 of the Americans with Disabilities Act. See our [WCAG and W3 Compliance
-Tables](calestore/contributing
-documents/G.1_ADA WCAG Compliance) for details.
+508 of the Americans with Disabilities Act. See our [WCAG and W3 Compliance Tables](./Contributing Documents/G.1_ADA WCAG Compliance.pdf) for details.
 
 ### (h) Design style guide and pattern library 
 
@@ -549,8 +516,7 @@ We used the US Web Design Standards UI component
 library and strictly followed brand guidelines to define color, typography,
 form fields, spacing and click-throughs. Use of U.S. Web Design Standards
 further ensured that selected standardize color palettes are visually
-appealing. See our [Design Document](calestore/contributing documents/H.1_Design Style Guide and Pattern
-Library) for details of how we have implemented these standards.
+appealing. See our [Design Document](./Contributing Documents/H.1_Design Style Guide and Pattern Library.pdf) for details of how we have implemented these standards.
 
 ### (i) Usability testing
 
@@ -563,7 +529,7 @@ initial interactions were intuitive. Our approach was to provide the wireframe
 to a user who was not involved in the design process and capture his or her
 thought process while going through the application wireframes. We also created
 a list of pre-defined questions to ask the users. More detail of our Usability
-Testing related to the [Wireframe](calestore/contributing documents/I.2_Usability Testing Wireframes)
+Testing related to the [Wireframe](./Contributing Documents/I.2_Usability Testing Wireframes.pdf)
 is attached.
 
 While designing our prototype, we invited prospective users to role play
@@ -572,8 +538,7 @@ design team and Business Analyst conducted a face-to-face interview with the
 users and asked many questions to simulate possible tasks the user would
 perform when using the real application. To ensure unbiased feedback, the users
 interviewed were unfamiliar with the project requirements for the prototype.
-More detail of our Usability Testing related to [Visual Design](calestore/contributing
-documents/I.1_Usability Testing Visual Design) is attached.
+More detail of our Usability Testing related to [Visual Design](./Contributing Documents/I.1_Usability Testing Visual Design.pdf) is attached.
 
 ### (j) Iterative Approach
 
@@ -582,16 +547,12 @@ Enterprise Services LLC (ES) Global Agile Software Delivery Model. We have
 developed and fine-tuned the Global Agile Software Delivery Model to guide our
 project teams’ delivery of projects using Agile delivery models. At its core
 our global Agile software delivery model is based on the Agile manifesto,
-principles, and the scrum delivery model. We have attached our [Agile Delivery
-Model](calestore/contributing
-documents/ A.1_Agile Scrum Process)
+principles, and the scrum delivery model. We have attached our [Agile Delivery Model](./Contributing Documents/A.1_Agile Scrum Process.pdf)
 
 ### (k) Multiple Device and Responsive Design
 
 Our design includes small-screen translation, in
-addition to larger desktop and tablet screen sizes as shown in [Screen Sizes
-example](calestore/contributing
-documents/K.1_Screen size examples). 
+addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing DocumentsK.1_Screen size examples.pdf). 
 
 A responsive philosophy directed our use of
 scalable and extendable elements. To support this the team used front end
@@ -611,44 +572,31 @@ We used the following open-source technologies in
 creating the Cal eStore application. The list includes product names and
 versions.
 
-* HTML5 - Used for structuring and presenting
-content on the World Wide Web
+* HTML5 - Used for structuring and presenting content on the World Wide Web
 
-* CSS3 - Used for describing the presentation of a
-document written in a markup language
+* CSS3 - Used for describing the presentation of a document written in a markup language
 
 * MySQL DB - Used for web application development
 
-* jQuery - Used to ease the client-side scripting
-of HTML
+* jQuery - Used to ease the client-side scripting of HTML
 
-* Bootstrap - Used to design templates for
-typography, forms, buttons, navigation and other interface components
+* Bootstrap - Used to design templates for typography, forms, buttons, navigation and other interface components
 
-* Spring MVC - Used for layered architecture to
-select component you want while others are ignored and it’s both comprehensive
-and modular
+* Spring MVC - Used for layered architecture to select component you want while others are ignored and it’s both comprehensive and modular
 
-* Hibernate - Used for mapping an object-oriented
-domain model to a relational database
+* Hibernate - Used for mapping an object-oriented domain model to a relational database
 
-* Ajax - Used for exchanging data with a server and
-updating parts of a web page without reloading the entire page
+* Ajax - Used for exchanging data with a server and updating parts of a web page without reloading the entire page
 
-* Jenkins (2.32.1) - Used for continuous
-integration and continuous delivery of projects
+* Jenkins (2.32.1) - Used for continuous integration and continuous delivery of projects
 
-* SonarQube (6.2) - Used for continuous inspection
-of code quality
+* SonarQube (6.2) - Used for continuous inspection of code quality
 
-* Selenium - Used to perform functional test cases
-on prototype
+* Selenium - Used to perform functional test cases on prototype
 
-* JMeter - Used to test performance both on static
-and dynamic resources
+* JMeter - Used to test performance both on static and dynamic resources
 
-* Nexus (3.2.0) - Used to store the prototype
-artifacts
+* Nexus (3.2.0) - Used to store the prototype artifacts
 
 ### (m) IaaS and PaaS
 
@@ -668,8 +616,7 @@ ensure they work correctly. The goal of automated unit testing is to
 demonstrate that each individual part of a larger software development project
 works as intended.
 
-Automated unit tests may also aid in documenting
-the software's functionality.
+Automated unit tests may also aid in documenting the software's functionality.
 
 The results of a unit test help gain insight into
 how the code interfaces with the systems on which they run. Developers may also
@@ -682,15 +629,12 @@ Code Coverage) to automate test cases in continuous integration.
 As part of the Cal
 eStore application quality check and validation process we have performed
 automated functional testing. Selenium was the primary tool of choice for
-implementing Test Automation. The detailed information is [attached.](calestore/contributing
-documents/N.2_Automated functional testing)
+implementing Test Automation. The detailed information is [attached.](./Contributing Documents/N.2_Automated functional testing.pdf)
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
 We have used the jMeter Graphical Server performance testing tool which is an
-Open Source testing software. More detail about the [performance testing](calestore/contributing documents/N.4
-Performance Testing) is attached. This testing was conducted on a
-minimum capacity server. 
+Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4 Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
 
 ### (o) Automated integration testing for IaaS or PaaS code deployment 
 
@@ -709,10 +653,9 @@ testing:
 
 * Nexus to store the prototype artifact
 
-* Selenium to perform functional test cases on
-prototype
+* Selenium to perform functional test cases on prototype
 
-Details of our automated [integration testing](calestore/contributing documents/Technical Approach DevOps Automation) are
+Details of our automated [integration testing](./Contributing Documents/Technical Approach DevOps Automation.pdf) are
 attached.
 
 ## Environment and Installation
@@ -723,18 +666,17 @@ For configuration management, we used Ansible. We
 also wrote playbooks to do incremental software releases to Dev, Staging, and
 Production environments. We used Jmeter for performance testing. A notification
 mechanism was also set to alert select team members of system failures. [ref](http://referenceurl)
-The details of our [configuration management](calestore/contributing documents/Technical Approach DevOps Automation)
+The details of our [configuration management](./Contributing Documents/Technical Approach DevOps Automation.pdf)
 approach are attached.
 
  
-
 ### (q) Continuous monitoring
 
 We used SiteScope to monitor application and system
 performance. Custom scripts were written based on certain condition for
 “self-healing” within the services. A notification mechanism was also set to
 alert select team members of system failures. [ref](http://referenceurl).
-Details of our [continuous monitoring](calestore/contributing documents/Technical Approach DevOps Automation)
+Details of our [continuous monitoring](./Contributing Documents/Technical Approach DevOps Automation.pdf)
 are attached.
 
 ### (r) Container based deployment
@@ -745,20 +687,15 @@ acts as a central repository for the artifacts. For deployment, Ansible is
 called to download the latest .war file from Nexus to build a docker image and
 upload that image to a docker registry—in this case Nexus. In the final step, Ansible
 retrieves the Docker image from Nexus, deploys it to the target nodes, starts
-the container, and keeps all of the environments consistent. See [DevOps
-Automation](calestore/contributing
-documents/Technical
-Approach DevOps Automation) for more details.
+the container, and keeps all of the environments consistent. See [DevOps Automation](./Contributing Documents/Technical Approach DevOps Automation.pdf) for more details.
 
 ### (s) Installation guide
 
-The following is our installation guide for our Cal
-eStore prototype:
+The following is our installation guide for our Cal eStore prototype:
 
 * Install Git: apt-get install git
 
-* Install Java: apt-get install
-oracle-java8-installer
+* Install Java: apt-get install oracle-java8-installer
 
 * Install Maven: apt-get install maven
 
@@ -766,21 +703,17 @@ oracle-java8-installer
 
 * Install MySQL: apt-get install mysql-server
 
-* Get source code: git clone
-https://github.com/EnterpriseServices/cal-eStore.git
+* Get source code: git clone https://github.com/EnterpriseServices/cal-eStore.git
 
-* Build project: mvn package (to be run at root of
-cloned project)
+* Build project: mvn package (to be run at root of cloned project)
 
 * Run DB scripts: https://github.com/EnterpriseServices/cal-eStore/tree/master/Documentation/DBScripts 
 
-* Deploy the code: cp \target\caleStore.war
-\tomcatpath\webapps\. (Copy the caleStore.war file into Tomcat webapps folder)
+* Deploy the code: cp \target\caleStore.war \tomcatpath\webapps\. (Copy the caleStore.war file into Tomcat webapps folder)
 
 ### (t) Prototype and underlying platforms
 
-The packages and platforms used to build and run
-the prototype are open-sources.
+The packages and platforms used to build and run the prototype are open-sources.
 
  
 
