@@ -446,12 +446,13 @@ Based on requirements for the prototype and insight
 from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
 backlog grooming session with the product owner. We have attached the [user
-stories](./Contributing Documents/D.4a_Cal eStore User Stories.pdf)and documentation of the [JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
+stories](./Contributing Documents/D.4a_Cal eStore User Stories.pdf)and documentation of the [JIRA tool](./Contributing  Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
+
 **Develop wireframes** 
 
 As the starting point to
 represent the prototypes on layman’s terms, we developed wireframes. The team
-created the wireframes based on the user stories. The [initial user wireframes](./Contributing Documents/D.5a_User Initial Wireframe.pdf) and [initial administrator wireframes](./Contributing Documents/D.5b_Admin Initial Wireframe.pdf) are attached. 
+created the wireframes based on the user stories. The [initial user wireframes](./Contributing Documents/D.5a_User Initial  Wireframe.pdf) and [initial administrator wireframes](./Contributing Documents/D.5b_Admin Initial Wireframe.pdf) are attached. 
 
 **Perform role-play** 
 
@@ -498,7 +499,7 @@ the prototype.
 
 We used Swagger to document the Cal eStore RESTful
 API. Our link to Swagger API for Cal eStore is: http://13.64.248.119:8080/calestore/swagger-ui.html.
-Further detail of our [Swagger](./Contributing Documents/F.2_Swagger Specifications.pdf) and [code flow updates](./Contributing Documents/F.3_Swagger Documentation.pdf) are attached. 
+Further detail of our [Swagger](./Contributing Documents/F.2_Swagger Specification.pdf) and [code flow updates](./Contributing  Documents/F.3_Swagger Documentation.pdf) are attached. 
 
 ### (g) ADA Section 508 and WCAG 2.0 compliance 
 
@@ -549,7 +550,7 @@ principles, and the scrum delivery model. We have attached our [Agile Delivery M
 ### (k) Multiple Device and Responsive Design
 
 Our design includes small-screen translation, in
-addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing DocumentsK.1_Screen size examples.pdf). 
+addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing Documents/K.1_Screen Size  Examples.pdf). 
 
 A responsive philosophy directed our use of
 scalable and extendable elements. To support this the team used front end
@@ -662,17 +663,16 @@ attached.
 For configuration management, we used Ansible. We
 also wrote playbooks to do incremental software releases to Dev, Staging, and
 Production environments. We used Jmeter for performance testing. A notification
-mechanism was also set to alert select team members of system failures. [ref](http://referenceurl)
+mechanism was also set to alert select team members of system failures. 
 The details of our [configuration management](./Contributing Documents/Technical Approach DevOps Automation.pdf)
 approach are attached.
-
  
 ### (q) Continuous monitoring
 
 We used SiteScope to monitor application and system
 performance. Custom scripts were written based on certain condition for
 “self-healing” within the services. A notification mechanism was also set to
-alert select team members of system failures. [ref](http://referenceurl).
+alert select team members of system failures. 
 Details of our [continuous monitoring](./Contributing Documents/Technical Approach DevOps Automation.pdf)
 are attached.
 
