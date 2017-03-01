@@ -113,8 +113,8 @@ public class UserValidator implements Validator {
 			errors.rejectValue("address.zipCode", "zip.notEmpty");
 		}
 		else{
-			if(userObject.getMobileNumber().length() < 10){
-				errors.rejectValue("mobileNumber", "mobile.wrongFormat");
+			if(userObject.getAddress().getZipCode().length() < 10){
+				errors.rejectValue("address.zipCode", "zip.wrongFormat");
 			}
 		}
 		
