@@ -24,6 +24,7 @@ import com.hpe.calEStore.dao.OrderReportDAO;
 import com.hpe.calEStore.dao.entity.ProductOrder;
 import com.hpe.calEStore.dao.entity.PurchaseOrder;
 import com.hpe.calEStore.dao.entity.TReportType1;
+import com.hpe.calEStore.dao.entity.TReportType2;
 import com.hpe.calEStore.model.OrderReportDM;
 import com.hpe.calEStore.model.OrderStatisticsDM;
 import com.hpe.calEStore.model.StatusType;
@@ -218,52 +219,55 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 	@Override
 	public OrderStatisticsDM getOrderStatistics() {
 
-		System.out.println("QueryNami");
+	
 		// TODO Auto-generated method stub
 
-		OrderStatisticsDM tReportType1 = new OrderStatisticsDM();
+		OrderStatisticsDM orderStatistics = new OrderStatisticsDM();
+		List<TReportType1> reports = getSession()
+				.createCriteria(TReportType1.class)
+				.add(Restrictions.eq("userType", "Admin")).list();
 
-		List<TReportType1> tReportTypes = getSession().createCriteria(
-				TReportType1.class).list();
-		for (TReportType1 reportType : tReportTypes) {
+		for (TReportType1 reportType1 : reports) {
 
-			if (reportType.getKpiId() == 1) {
-				tReportType1.setTotalOrders(Integer.parseInt(reportType
+			if ((reportType1.getKpiId()) == 1)
+				orderStatistics.setTotalOrders(Integer.parseInt(reportType1
 						.getValueForKpi().trim()));
-			}
-
-			if (reportType.getKpiId() == 2) {
-				tReportType1.setOpenOrders(Integer.parseInt(reportType
+			if ((reportType1.getKpiId()) == 2)
+				orderStatistics.setOpenOrders(Integer.parseInt(reportType1
 						.getValueForKpi().trim()));
-
-			}
-			if (reportType.getKpiId() == 3) {
-				tReportType1.setTotalOrderCost(Integer.parseInt(reportType
+			if ((reportType1.getKpiId()) == 3)
+				orderStatistics.setTotalOrderCost(Integer.parseInt(reportType1
 						.getValueForKpi().trim()));
-
-			}
-			if (reportType.getKpiId() == 4) {
-				tReportType1.setHighSpendingDeptName(reportType
+			if ((reportType1.getKpiId()) == 4)
+				orderStatistics.setHighSpendingDeptName(reportType1
 						.getValueForKpi().trim());
-
-			}
-			reportType.getValueForKpi();
-
 		}
-		return tReportType1;
+		
+		return orderStatistics;
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, Integer> getOrderCount() {
 
-		Map<String, Integer> processedOrderMap = new HashMap<String, Integer>();
+		Map<String, Integer> orderMap = new HashMap<String, Integer>();
 
 		// TODO Auto-generated method stub
-		processedOrderMap.put("processing", 2);
-		processedOrderMap.put("Shipped", 3);
-		return processedOrderMap;
+		
+		List<TReportType2> tReportType2 = getSession()
+				.createCriteria(TReportType2.class)
+				.add(Restrictions.eq("kpiNumber", 201)).list();
+
+		for (TReportType2 tReportTypes : tReportType2) {
+			orderMap.put(tReportTypes.getStatusType(),
+					tReportTypes.getValueForKpi());
+			
+		}
+
+		return orderMap;
 	}
+
 
 	@Override
 	public List<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept() {
