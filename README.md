@@ -273,10 +273,7 @@ and admins.
 #US Digital Services Playbook
 
 We complied with the US Digital Service: Digital
-Services Playbook in creation of our prototype. See the [Service Plays
-Table](calestore/contributing
-documents/J.1_US Digital Services Playbook) for details about our
-approach.
+Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing Documents/J.1_US Digital Services Playbook.pdf) for details about our approach.
  
 
 ## Team
