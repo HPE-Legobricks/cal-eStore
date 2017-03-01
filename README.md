@@ -17,7 +17,7 @@ cancel, track, and analyze their orders online. Additionally,
 authorized administrative users need to be able to publish product and service
 information, as well as track, analyze and view order data. 
 
-##Prototype- Definition, Goal and Tasks
+##Prototype - Definition, Goal and Tasks
 
 Our prototype, which we named Cal eStore, serves as
 an end to end application catering to authorized users and administrative
