@@ -2,6 +2,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+
+
+
 <style>
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
 .autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:20px; font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif}
@@ -9,8 +12,8 @@
 .autocomplete-suggestions strong { font-weight: bold; color: #3399FF; font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif}
 </style>
 
+<!-- <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script> -->
 
-<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="js/jquery.autocomplete.min.js" type="text/javascript"></script>
 
 <script>
@@ -69,7 +72,7 @@ $(document).ready(function() {
 	
 <div class = "previewprofile col-lg-4 col-centered">
 <!----------First Accordian------>
-<form:form id="profileform" modelAttribute="user" action="${pageContext.request.contextPath}/registernewuser" method="POST" cssClass="usa-form">
+<form:form id="profileform" modelAttribute="user" action="${pageContext.request.contextPath}/registernewuser" method="POST">
 <ul class="usa-accordion-bordered">
     <li>
       <button class="usa-accordion-button"

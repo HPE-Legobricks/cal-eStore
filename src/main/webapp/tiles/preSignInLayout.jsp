@@ -12,36 +12,6 @@
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/uswds.min.css">
 
-
-<style>
-
-html, body {
-    width: 100%;
-    height: 100%;
-    background-color: #0071bc;
-    overflow-x: hidden;
-    /*background-image: url(.images/background.jpg);*/
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-}
-.col-centered {
-    float: none;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-}
-.img-responsive.img-center {
-    margin: 0 auto;
-    padding-top: 0.45em;
-}
-.clear {
-    clear: both;
-    position: absolute
-}
-</style>
 <!-- Favicons
 ================================================== -->
 <!-- 128x128 -->
@@ -78,12 +48,11 @@ html, body {
 <!-- Logo image ends here --> 
     <div class="container"><img src="<%=request.getContextPath()%>/images/logo.png" class="img-responsive img-center" alt="Placeholder image"> </div>
 <!--Login Form strat-->
-<div class="container">
-  <div class="row">
+<!-- <div class="container"> -->
+<!--   <div class="row"> -->
     <tiles:insertAttribute name="body" />
-  </div>
+<!--   </div> -->
   <!-- </div>--> 
-</div>
 <br>
 <!--Form ends here-->
 <footer class="container-fluid text-center">

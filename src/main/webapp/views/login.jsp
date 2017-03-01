@@ -1,4 +1,6 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<div class="container">
+  <div class="row"> 
 <div class="col-lg-4 col-centered">
 	<!--Language Option-->
 	<!-- <div class="btn-group" style="margin-left: 20.0em">
@@ -64,3 +66,4 @@
 	</form>
 	
 </div>
+</div></div>
