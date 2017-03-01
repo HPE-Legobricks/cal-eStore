@@ -1,5 +1,3 @@
-# cal-eStore
-
 # RFI CDT-ADPQ-0117
 
 Our working prototype is located at:
