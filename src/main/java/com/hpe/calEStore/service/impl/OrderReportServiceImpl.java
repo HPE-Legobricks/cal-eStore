@@ -59,12 +59,34 @@ public class OrderReportServiceImpl implements OrderReportService {
 
 	@Override
 	public OrderStatisticsDM getOrderStatistics() {
-		OrderStatisticsDM dm = new OrderStatisticsDM();
-		dm.setTotalOrders(100);
-		dm.setOpenOrders(75);
-		dm.setTotalOrderCost(2275.45);
-		dm.setHighSpendingDeptName("Social Service");
-		return dm;
+		// TODO Auto-generated method stub
+		return orderReportDAO.getOrderStatistics();
 	}
+
+	@Override
+	public Map<String, Integer> getOrderCount() {
+		// TODO Auto-generated method stub
+		return orderReportDAO.getOrderCount();
+	}
+
+	@Override
+	public List<Map<String,Map<String,Integer>>> getWeeklyOrderCountPerDept() {
+		// TODO Auto-generated method stub
+		return orderReportDAO. getWeeklyOrderCountPerDept();
+	}
+
+	@Override
+	public List<Map<String,Map<String,Integer>>> getCancelledOrdersByVendor() {
+		// TODO Auto-generated method stub
+		return orderReportDAO.getCancelledOrdersByVendor();
+	}
+
+	@Override
+	public List<Map<String,Map<String,Integer>>> getDeliveredOrdersByVendor() {
+		// TODO Auto-generated method stub
+		return orderReportDAO.getDeliveredOrdersByVendor();
+	}
+
+
 
 }
