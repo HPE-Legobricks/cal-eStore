@@ -79,11 +79,9 @@
 											<option
 												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=&Order=&option=default">Default</option>
 											<option label="Price Low to High"
-												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=pricePerUnit&Order=asc&option=Price Low to High">Price
-												Low to High</option>
+												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=pricePerUnit&Order=asc&option=Price Low to High">Price Low to High</option>
 											<option label="Price High to Low"
-												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=pricePerUnit&Order=desc&option=Price High to Low">Price
-												High to Low</option>
+												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=pricePerUnit&Order=desc&option=Price High to Low">Price High to Low</option>
 											<option label="Rating"
 												value="productList?productTypeCode=<%= request.getParameter("productTypeCode") %>&OrderBy=rating&Order=desc&option=Rating">Rating</option>
 										</select>
