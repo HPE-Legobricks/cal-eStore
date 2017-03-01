@@ -371,9 +371,7 @@ public class OrderReportDAOImpl extends
 
 		// TODO Auto-generated method stub
 		Map<String, Map<String, Integer>> cancelledOrderMap = new HashMap<String, Map<String, Integer>>();
-		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
-		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
-				ordersMap);
+
 		List<TReportType2> reports = getSession()
 				.createCriteria(TReportType2.class)
 				.add(Restrictions.eq("statusType", "Cancelled"))
@@ -381,6 +379,7 @@ public class OrderReportDAOImpl extends
 						.eq("kpiDesc",
 								"Number of Cancelled  orders by Vendor over a time period"))
 				.add(Restrictions.eq("userType", "Admin")).list();
+		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
 
 		for (TReportType2 reportType2 : reports) {
 			List<Integer> orderValues = ordersMap.get(reportType2.getWeekId()
@@ -392,7 +391,8 @@ public class OrderReportDAOImpl extends
 			}
 			orderValues.add(reportType2.getKpiId());
 		}
-
+		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
+				ordersMap);
 		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
 				.entrySet()) {
 
@@ -406,10 +406,46 @@ public class OrderReportDAOImpl extends
 		return orderReportMap;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
 	@Override
 	public Map<String, Map<String, Integer>> getDeliveredOrdersByVendor() {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Map<String, Integer>> deliveredOrderMap = new HashMap<String, Map<String, Integer>>();
+		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
+
+		List<TReportType2> reports = getSession()
+				.createCriteria(TReportType2.class)
+				.add(Restrictions.eq("statusType", "Delivered"))
+				.add(Restrictions
+						.eq("kpiDesc",
+								"Number of Delivered  orders by Vendor over a time period"))
+				.add(Restrictions.eq("userType", "Admin")).list();
+
+		for (TReportType2 reportType2 : reports) {
+			List<Integer> orderValues = ordersMap.get(reportType2.getWeekId()
+					.substring(0, 10));
+			if (orderValues == null) {
+				orderValues = new ArrayList<Integer>();
+				ordersMap.put(reportType2.getWeekId().substring(0, 10),
+						orderValues);
+			}
+			orderValues.add(reportType2.getKpiId());
+		}
+		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
+				ordersMap);
+		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
+				.entrySet()) {
+
+			deliveredOrderMap.put(productIdMap.getKey(),
+					getOrdersforReport(productIdMap.getValue(), "Vendor"));
+		}
+
+		Map<String, Map<String, Integer>> orderMap = new TreeMap<String, Map<String, Integer>>(
+				deliveredOrderMap);
+
+		return orderMap;
+
 	}
 
 }
