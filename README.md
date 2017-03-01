@@ -262,7 +262,7 @@ identified across 5 Epics (Profile, Catalog, Checkout, Manage Product Inventory,
 stories were prioritized by the Product Manager and executed by the agile development
 team in three sprints. There are 11 user stories remaining in the backlog after
 end of Sprint 3. The documentation regarding the user stories is provided in
-the [JIRA presentation](./Contributing Documents/D.4b_JIRA Tool.pdf) attached. We used our Global Agile Software
+the [JIRA presentation](./Contributing Documents/D.4b_JIRA tool example.pdf) attached. We used our Global Agile Software
 Delivery Model to guide our project teams’ delivery, using a set of
 interrelated roles, practices, and work products that optimized the flow of
 business value delivery. Our project was a success, delivering on each goal we
@@ -447,7 +447,7 @@ from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
 backlog grooming session with the product owner. We have attached the 
 [user stories](./Contributing Documents/D.4a_User Stories.pdf) and documentation of the
-[JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
+[JIRA tool](./Contributing Documents/D.4b_JIRA tool example.pdf) where we capture the user stories. 
 
 **Develop wireframes** 
 
