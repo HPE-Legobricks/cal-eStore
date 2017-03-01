@@ -85,7 +85,7 @@ public class ProfileDAOImpl extends AbstractDAO<Serializable, UserProfile> imple
 	public void saveUserProfile(UserProfile user) throws ProfileNotSavedOrUpdatedException {
 		
 			Address address = user.getAddresses().iterator().next();
-			String queryString    = "insert into address(user_id, address_line1, address_line2, city, state, zip_code, is_dflt_ind) values("+user.getUserId()+","+"'"+address.getAddressLine1()+"'"+","+"'"+address.getAddressLine2()+"'"+","+"'"+address.getCity()+"'"+","+"'"+address.getState()+"'"+","+address.getZipCode()+","+"'"+address.getIsDfltInd()+"'"+")";
+			String queryString    = "insert into ADDRESS(user_id, address_line1, address_line2, city, state, zip_code, is_dflt_ind) values("+user.getUserId()+","+"'"+address.getAddressLine1()+"'"+","+"'"+address.getAddressLine2()+"'"+","+"'"+address.getCity()+"'"+","+"'"+address.getState()+"'"+","+address.getZipCode()+","+"'"+address.getIsDfltInd()+"'"+")";
 			getSession().createSQLQuery(queryString).executeUpdate();
 	}
 	
