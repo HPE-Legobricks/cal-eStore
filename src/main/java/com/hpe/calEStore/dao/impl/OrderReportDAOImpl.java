@@ -330,13 +330,14 @@ public class OrderReportDAOImpl extends
 				ordersMap);
 		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
 				.entrySet()) {
-			String date = productIdMap.getKey();
-			List<Integer> ids = productIdMap.getValue();
-			orderReportList.put(date, getOrdersforReport(ids, "Department"));
+			orderReportList.put(productIdMap.getKey(),
+					getOrdersforReport(productIdMap.getValue(), "Department"));
 
 		}
+		Map<String, Map<String, Integer>> orderReportMap = new TreeMap<String, Map<String, Integer>>(
+				orderReportList);
 
-		return orderReportList;
+		return orderReportMap;
 
 	}
 
@@ -364,10 +365,45 @@ public class OrderReportDAOImpl extends
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, Map<String, Integer>> getCancelledOrdersByVendor() {
+
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Map<String, Integer>> cancelledOrderMap = new HashMap<String, Map<String, Integer>>();
+		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
+		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
+				ordersMap);
+		List<TReportType2> reports = getSession()
+				.createCriteria(TReportType2.class)
+				.add(Restrictions.eq("statusType", "Cancelled"))
+				.add(Restrictions
+						.eq("kpiDesc",
+								"Number of Cancelled  orders by Vendor over a time period"))
+				.add(Restrictions.eq("userType", "Admin")).list();
+
+		for (TReportType2 reportType2 : reports) {
+			List<Integer> orderValues = ordersMap.get(reportType2.getWeekId()
+					.substring(0, 10));
+			if (orderValues == null) {
+				orderValues = new ArrayList<Integer>();
+				ordersMap.put(reportType2.getWeekId().substring(0, 10),
+						orderValues);
+			}
+			orderValues.add(reportType2.getKpiId());
+		}
+
+		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
+				.entrySet()) {
+
+			cancelledOrderMap.put(productIdMap.getKey(),
+					getOrdersforReport(productIdMap.getValue(), "Vendor"));
+		}
+
+		Map<String, Map<String, Integer>> orderReportMap = new TreeMap<String, Map<String, Integer>>(
+				cancelledOrderMap);
+
+		return orderReportMap;
 	}
 
 	@Override
