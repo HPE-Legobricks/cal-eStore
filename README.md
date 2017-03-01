@@ -497,6 +497,7 @@ documents/D.4a_Cal eStore User Stories) and documentation of the [JIRA tool](cal
 As the starting point to
 represent the prototypes on layman’s terms, we developed wireframes. The team
 created the wireframes based on the user stories. The [initial user wireframes](calestore/contributing documents/ D.5a_User Initial Wireframe) and [initial administrator wireframes](calestore/contributing documents/ D.5b_Admin Initial Wireframe) are attached. 
+
 **Perform role-play** 
 
 We identified potential users from our team. Member 1
