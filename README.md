@@ -446,13 +446,13 @@ Based on requirements for the prototype and insight
 from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
 backlog grooming session with the product owner. We have attached the [user
-stories](./Contributing Documents/D.4a_Cal eStore User Stories.pdf)and documentation of the [JIRA tool](./Contributing  Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
+stories](./Contributing Documents/D.4a_User Stories.pdf) and documentation of the [JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
 
 **Develop wireframes** 
 
 As the starting point to
 represent the prototypes on layman’s terms, we developed wireframes. The team
-created the wireframes based on the user stories. The [initial user wireframes](./Contributing Documents/D.5a_User Initial  Wireframe.pdf) and [initial administrator wireframes](./Contributing Documents/D.5b_Admin Initial Wireframe.pdf) are attached. 
+created the wireframes based on the user stories. The [initial user wireframes](./Contributing Documents/D.5a_User Initial Wireframe.pdf) and [initial administrator wireframes](./Contributing Documents/D.5b_Admin Initial Wireframe.pdf) are attached. 
 
 **Perform role-play** 
 
