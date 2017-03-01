@@ -55,11 +55,6 @@ public class UserValidator implements Validator {
 		if(StringUtils.isEmpty(userObject.getMobileNumber())){
 			errors.rejectValue("mobileNumber", "mobile.notEmpty");
 		}
-		else{
-			if(userObject.getMobileNumber().length() < 12){
-				errors.rejectValue("mobileNumber", "mobile.wrongFormat");
-			}
-		}
 		
 		
 		//E-mail ID validation
@@ -111,11 +106,6 @@ public class UserValidator implements Validator {
 		}
 		if(StringUtils.isEmpty(userObject.getAddress().getZipCode())){
 			errors.rejectValue("address.zipCode", "zip.notEmpty");
-		}
-		else{
-			if(userObject.getAddress().getZipCode().length() < 10){
-				errors.rejectValue("address.zipCode", "zip.wrongFormat");
-			}
 		}
 		
 		
