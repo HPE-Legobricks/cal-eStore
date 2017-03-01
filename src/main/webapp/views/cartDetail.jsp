@@ -6,8 +6,7 @@
 		var dsymb = "$";
 		rowind = s.parentNode.parentNode.rowIndex;
 		rowcont = document.getElementById("mytable").rows[rowind].cells;
-		unitprice = rowcont[5].innerHTML.replace("$", "");
-		unitprice = unitprice.replace("£","");
+		unitprice = rowcont[5].innerHTML.replace("$", "").replace("£","");
 		
 		rowtotal = Qtyval * unitprice;
 		rowtotal = dsymb.concat(rowtotal);
@@ -23,7 +22,7 @@
 		tableindex = tableindex - 1;
 		for (i = 1; i <= tableindex; ++i) {
 			z = document.getElementById("mytable").rows[i].cells;
-			tot = z[6].innerHTML.replace("$", "");
+			tot = z[6].innerHTML.replace("$", "").replace("£","");
 			rowsum = parseInt(tot) + parseInt(rowsum);
 
 		}
@@ -35,12 +34,12 @@
 	function myFunction(r) {
 
 		var sumtotal1 = document.getElementById("sumtotal").innerHTML.replace(
-				"$", "");
+				"$", "").replace("£","");
 		var i = r.parentNode.parentNode.rowIndex;
 		var x, currencyval, sumtext;
 		var dollarsymb = '$';
 		x = document.getElementById("mytable").rows[i].cells;//get all the contents of the row
-		currencyval = x[6].innerHTML.replace("$", "");//To get only the currency value excluding dollar($) symbol
+		currencyval = x[6].innerHTML.replace("$", "").replace("£","");//To get only the currency value excluding dollar($) symbol
 		alert(currencyval);
 		sumtotal1 = sumtotal1 - currencyval;//subtraction from the total amount
 		alert(parseFloat(sumtotal1).toFixed( 2 ));
