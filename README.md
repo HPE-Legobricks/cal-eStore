@@ -299,7 +299,7 @@ approach.
 
 ## Team
 
-### (a.) Leadership
+### (a) Leadership
 
 Derek was selected as
 the product owner with authority and responsibility for providing the business
@@ -320,7 +320,7 @@ prioritize the prototype feature backlog.
 
  
 
-### (b.) Collaboration team
+### (b) Collaboration team
 
 We assembled a multidisciplinary,
 collaborative virtual team that included the following members in the roles
