@@ -70,19 +70,19 @@ public class OrderReportServiceImpl implements OrderReportService {
 	}
 
 	@Override
-	public List<Map<String,Map<String,Integer>>> getWeeklyOrderCountPerDept() {
+	public Map<String, Map<String, Integer>> getWeeklyOrderCountPerDept() {
 		// TODO Auto-generated method stub
 		return orderReportDAO. getWeeklyOrderCountPerDept();
 	}
 
 	@Override
-	public List<Map<String,Map<String,Integer>>> getCancelledOrdersByVendor() {
+	public Map<String, Map<String, Integer>> getCancelledOrdersByVendor() {
 		// TODO Auto-generated method stub
 		return orderReportDAO.getCancelledOrdersByVendor();
 	}
 
 	@Override
-	public List<Map<String,Map<String,Integer>>> getDeliveredOrdersByVendor() {
+	public Map<String, Map<String, Integer>> getDeliveredOrdersByVendor() {
 		// TODO Auto-generated method stub
 		return orderReportDAO.getDeliveredOrdersByVendor();
 	}
