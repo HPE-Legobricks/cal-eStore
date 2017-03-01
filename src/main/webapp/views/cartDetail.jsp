@@ -8,6 +8,7 @@
 		rowcont = document.getElementById("mytable").rows[rowind].cells;
 		unitprice = rowcont[5].innerHTML.replace("$", "").replace("£","");
 		
+		
 		rowtotal = Qtyval * unitprice;
 		rowtotal = dsymb.concat(rowtotal);
 		rowcont[6].innerHTML = rowtotal;
