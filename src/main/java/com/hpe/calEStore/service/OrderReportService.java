@@ -22,10 +22,9 @@ public interface OrderReportService {
 
 	Map<String, Integer> getOrderCount();
 
-	List<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept();
+	Map<String, Map<String, Integer>> getWeeklyOrderCountPerDept();
 
-	List<Map<String, Map<String, Integer>>> getCancelledOrdersByVendor();
+	Map<String, Map<String, Integer>> getCancelledOrdersByVendor();
 
-	List<Map<String, Map<String, Integer>>> getDeliveredOrdersByVendor();
-
+    Map<String, Map<String, Integer>> getDeliveredOrdersByVendor();
 }

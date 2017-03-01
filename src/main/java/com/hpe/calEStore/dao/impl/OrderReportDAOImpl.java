@@ -36,7 +36,8 @@ import com.mysql.jdbc.StringUtils;
  */
 
 @Repository
-public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder> implements OrderReportDAO {
+public class OrderReportDAOImpl extends
+		AbstractDAO<Serializable, PurchaseOrder> implements OrderReportDAO {
 
 	@Transactional
 	@Override
@@ -66,7 +67,8 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 	@SuppressWarnings("unchecked")
 	private List<PurchaseOrder> getPurchaseOrder(int statusType) {
 
-		return createEntityCriteria().add(Restrictions.eq("status.statusId", statusType))
+		return createEntityCriteria()
+				.add(Restrictions.eq("status.statusId", statusType))
 				.addOrder(Order.desc("orderDate")).list();
 	}
 
@@ -79,14 +81,17 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		List<OrderReportDM> orderReportDMList = new ArrayList<OrderReportDM>();
 		if (!StringUtils.isNullOrEmpty(statusType)) {
 			if (statusType.equalsIgnoreCase("All")) {
-				totalOrders = createEntityCriteria().addOrder(Order.asc("orderDate")).list();
+				totalOrders = createEntityCriteria().addOrder(
+						Order.asc("orderDate")).list();
 			}
 			if (statusType.equalsIgnoreCase(StatusType.Cancelled.toString())) {
-				totalOrders = createEntityCriteria().add(Restrictions.eq("status.statusId", 5))
+				totalOrders = createEntityCriteria()
+						.add(Restrictions.eq("status.statusId", 5))
 						.addOrder(Order.asc("orderDate")).list();
 			}
 			if (statusType.equalsIgnoreCase(StatusType.Delivered.toString())) {
-				totalOrders = createEntityCriteria().add(Restrictions.eq("status.statusId", 4))
+				totalOrders = createEntityCriteria()
+						.add(Restrictions.eq("status.statusId", 4))
 						.addOrder(Order.asc("orderDate")).list();
 			}
 		}
@@ -94,23 +99,28 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
 
 		for (PurchaseOrder purchaseOrder : totalOrders) {
-			List<Integer> orderValues = ordersMap.get(purchaseOrder.getOrderDate().toString().substring(0, 10));
+			List<Integer> orderValues = ordersMap.get(purchaseOrder
+					.getOrderDate().toString().substring(0, 10));
 
 			if (orderValues == null) {
 				orderValues = new ArrayList<Integer>();
-				ordersMap.put(purchaseOrder.getOrderDate().toString().substring(0, 10), orderValues);
+				ordersMap.put(purchaseOrder.getOrderDate().toString()
+						.substring(0, 10), orderValues);
 			}
 			orderValues.add(purchaseOrder.getOrderId());
 		}
 
-		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(ordersMap);
+		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
+				ordersMap);
 
-		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap.entrySet()) {
+		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
+				.entrySet()) {
 			String date = productIdMap.getKey();
 			List<Integer> orderIds = productIdMap.getValue();
 			OrderReportDM orderReportDM = new OrderReportDM();
 			orderReportDM.setDate(date);
-			orderReportDM.setDepartmentMap(getTotalOrdersByDepartment(orderIds));
+			orderReportDM
+					.setDepartmentMap(getTotalOrdersByDepartment(orderIds));
 			orderReportDMList.add(orderReportDM);
 		}
 
@@ -119,22 +129,28 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	private Map<String, Integer> getTotalOrdersByDepartment(List<Integer> orderIds) {
+	private Map<String, Integer> getTotalOrdersByDepartment(
+			List<Integer> orderIds) {
 		// TODO Auto-generated method stub
-		List<PurchaseOrder> purchaseOrders = createEntityCriteria().add(Restrictions.in("orderId", orderIds))
+		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
+				.add(Restrictions.in("orderId", orderIds))
 				.addOrder(Order.desc("orderDate")).list();
 
 		Map<String, Integer> orderMap = new HashMap<String, Integer>();
 		for (PurchaseOrder purchaseOrder : purchaseOrders) {
 
-			Integer orderCount = orderMap.get((purchaseOrder.getUserProfile().getDepartment().getDepartmentName()));
+			Integer orderCount = orderMap.get((purchaseOrder.getUserProfile()
+					.getDepartment().getDepartmentName()));
 			if (orderCount == null) {
 				orderCount = 1;
-				orderMap.put(purchaseOrder.getUserProfile().getDepartment().getDepartmentName(), 1);
+				orderMap.put(purchaseOrder.getUserProfile().getDepartment()
+						.getDepartmentName(), 1);
 			} else {
 
-				orderMap.remove(purchaseOrder.getUserProfile().getDepartment().getDepartmentName());
-				orderMap.put(purchaseOrder.getUserProfile().getDepartment().getDepartmentName(), ++orderCount);
+				orderMap.remove(purchaseOrder.getUserProfile().getDepartment()
+						.getDepartmentName());
+				orderMap.put(purchaseOrder.getUserProfile().getDepartment()
+						.getDepartmentName(), ++orderCount);
 			}
 		}
 
@@ -152,8 +168,9 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		cal.add(Calendar.DAY_OF_YEAR, -90);
 		Date nightyDaysAgo = cal.getTime();
 
-		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
-				.add(Restrictions.between("orderDate", nightyDaysAgo, new Date())).list();
+		List<PurchaseOrder> purchaseOrders = createEntityCriteria().add(
+				Restrictions.between("orderDate", nightyDaysAgo, new Date()))
+				.list();
 
 		return purchaseOrders.size();
 	}
@@ -173,7 +190,8 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 
 		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
 				.add(Restrictions.in("status.statusId", listOfProducts))
-				.add(Restrictions.between("orderDate", nightyDaysAgo, new Date())).list();
+				.add(Restrictions.between("orderDate", nightyDaysAgo,
+						new Date())).list();
 
 		return purchaseOrders.size();
 
@@ -196,11 +214,13 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		listOfProducts.add(4);
 		List<PurchaseOrder> purchaseOrders = createEntityCriteria()
 				.add(Restrictions.in("status.statusId", listOfProducts))
-				.add(Restrictions.between("orderDate", nightyDaysAgo, new Date())).list();
+				.add(Restrictions.between("orderDate", nightyDaysAgo,
+						new Date())).list();
 		int amount = 0;
 		for (PurchaseOrder purchaseOrder : purchaseOrders) {
 
-			Iterator productOrders = purchaseOrder.getProductOrders().iterator();
+			Iterator productOrders = purchaseOrder.getProductOrders()
+					.iterator();
 
 			while (productOrders.hasNext()) {
 
@@ -214,12 +234,12 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		}
 		return amount;
 	}
+
 	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public OrderStatisticsDM getOrderStatistics() {
 
-	
 		// TODO Auto-generated method stub
 
 		OrderStatisticsDM orderStatistics = new OrderStatisticsDM();
@@ -242,19 +262,20 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 				orderStatistics.setHighSpendingDeptName(reportType1
 						.getValueForKpi().trim());
 		}
-		
+
 		return orderStatistics;
 
 	}
 
 	@SuppressWarnings("unchecked")
+	@Transactional
 	@Override
 	public Map<String, Integer> getOrderCount() {
 
 		Map<String, Integer> orderMap = new HashMap<String, Integer>();
 
 		// TODO Auto-generated method stub
-		
+
 		List<TReportType2> tReportType2 = getSession()
 				.createCriteria(TReportType2.class)
 				.add(Restrictions.eq("kpiNumber", 201)).list();
@@ -262,27 +283,86 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 		for (TReportType2 tReportTypes : tReportType2) {
 			orderMap.put(tReportTypes.getStatusType(),
 					tReportTypes.getValueForKpi());
-			
+
 		}
 
 		return orderMap;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public Map<String, Map<String, Integer>> getWeeklyOrderCountPerDept() {
+		// TODO Auto-generated method stub
+
+		Map<String, Map<String, Integer>> orderReportList = new HashMap<String, Map<String, Integer>>();
+
+		List<TReportType2> reports = getSession()
+				.createCriteria(TReportType2.class)
+				.add(Restrictions.eq("statusType", "Ordered"))
+				.add(Restrictions
+						.eq("kpiDesc",
+								"Number of placed orders by Department over a time period"))
+				.add(Restrictions.eq("userType", "Admin")).list();
+
+		Map<String, List<Integer>> ordersMap = new HashMap<String, List<Integer>>();
+		for (TReportType2 reportType2 : reports) {
+			List<Integer> orderValues = ordersMap.get(reportType2.getWeekId()
+					.substring(0, 10));
+
+			if (orderValues == null) {
+				orderValues = new ArrayList<Integer>();
+				ordersMap.put(reportType2.getWeekId().substring(0, 10),
+						orderValues);
+			}
+			orderValues.add(reportType2.getKpiId());
+		}
+		Map<String, List<Integer>> ascSortedMap = new TreeMap<String, List<Integer>>(
+				ordersMap);
+		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
+				.entrySet()) {
+			String date = productIdMap.getKey();
+			List<Integer> ids = productIdMap.getValue();
+			orderReportList.put(date, getOrdersforReport(ids, "Department"));
+
+		}
+
+		return orderReportList;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	private Map<String, Integer> getOrdersforReport(List<Integer> ids,
+			String type) {
+		// TODO Auto-generated method stub
+		List<TReportType2> reports = getSession()
+				.createCriteria(TReportType2.class)
+				.add(Restrictions.in("kpiId", ids)).list();
+
+		Map<String, Integer> orderMap = new HashMap<String, Integer>();
+		for (TReportType2 tReportType2 : reports) {
+			if (type.equalsIgnoreCase("Department"))
+				orderMap.put(tReportType2.getDepartmentName(),
+						tReportType2.getValueForKpi());
+			if (type.equalsIgnoreCase("Vendor")) {
+				orderMap.put(tReportType2.getVendorName(),
+						tReportType2.getValueForKpi());
+			}
+		}
+
+		return orderMap;
+
+	}
 
 	@Override
-	public List<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept() {
+	public Map<String, Map<String, Integer>> getCancelledOrdersByVendor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Map<String, Map<String, Integer>>> getCancelledOrdersByVendor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Map<String, Map<String, Integer>>> getDeliveredOrdersByVendor() {
+	public Map<String, Map<String, Integer>> getDeliveredOrdersByVendor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
