@@ -330,4 +330,14 @@ public class ProductDaoImpl extends AbstractDAO<Serializable, Product>
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public List<Product> getAllPublishedProducts() {
+		List<Product> products = createEntityCriteria()
+				.add(Restrictions.eq("isPublishedInd", "Y"))
+				.addOrder(Order.desc("publishedDate")).list();
+
+		return products;
+	}
 }

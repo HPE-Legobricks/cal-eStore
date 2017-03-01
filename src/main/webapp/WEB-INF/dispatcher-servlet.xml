@@ -102,6 +102,8 @@
 				<value>com.hpe.calEStore.dao.entity.Product</value>
 				<value>com.hpe.calEStore.dao.entity.ProductAspect</value>
 				<value>com.hpe.calEStore.dao.entity.Aspect</value>
+				<value>com.hpe.calEStore.dao.entity.TReportType1</value>
+				<value>com.hpe.calEStore.dao.entity.TReportType2</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

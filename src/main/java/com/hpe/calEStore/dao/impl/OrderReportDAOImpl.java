@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import java.util.TreeMap;
 
 import org.hibernate.criterion.Order;
@@ -24,7 +23,9 @@ import com.hpe.calEStore.dao.AbstractDAO;
 import com.hpe.calEStore.dao.OrderReportDAO;
 import com.hpe.calEStore.dao.entity.ProductOrder;
 import com.hpe.calEStore.dao.entity.PurchaseOrder;
+import com.hpe.calEStore.dao.entity.TReportType1;
 import com.hpe.calEStore.model.OrderReportDM;
+import com.hpe.calEStore.model.OrderStatisticsDM;
 import com.hpe.calEStore.model.StatusType;
 import com.mysql.jdbc.StringUtils;
 
@@ -211,6 +212,75 @@ public class OrderReportDAOImpl extends AbstractDAO<Serializable, PurchaseOrder>
 
 		}
 		return amount;
+	}
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public OrderStatisticsDM getOrderStatistics() {
+
+		System.out.println("QueryNami");
+		// TODO Auto-generated method stub
+
+		OrderStatisticsDM tReportType1 = new OrderStatisticsDM();
+
+		List<TReportType1> tReportTypes = getSession().createCriteria(
+				TReportType1.class).list();
+		for (TReportType1 reportType : tReportTypes) {
+
+			if (reportType.getKpiId() == 1) {
+				tReportType1.setTotalOrders(Integer.parseInt(reportType
+						.getValueForKpi().trim()));
+			}
+
+			if (reportType.getKpiId() == 2) {
+				tReportType1.setOpenOrders(Integer.parseInt(reportType
+						.getValueForKpi().trim()));
+
+			}
+			if (reportType.getKpiId() == 3) {
+				tReportType1.setTotalOrderCost(Integer.parseInt(reportType
+						.getValueForKpi().trim()));
+
+			}
+			if (reportType.getKpiId() == 4) {
+				tReportType1.setHighSpendingDeptName(reportType
+						.getValueForKpi().trim());
+
+			}
+			reportType.getValueForKpi();
+
+		}
+		return tReportType1;
+
+	}
+
+	@Override
+	public Map<String, Integer> getOrderCount() {
+
+		Map<String, Integer> processedOrderMap = new HashMap<String, Integer>();
+
+		// TODO Auto-generated method stub
+		processedOrderMap.put("processing", 2);
+		processedOrderMap.put("Shipped", 3);
+		return processedOrderMap;
+	}
+
+	@Override
+	public List<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Map<String, Integer>>> getCancelledOrdersByVendor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Map<String, Integer>>> getDeliveredOrdersByVendor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

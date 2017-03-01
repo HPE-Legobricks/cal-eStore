@@ -52,11 +52,13 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.getAllProductsByCategory(category);
 	}
 
-	public List<Product> getAllProducts(String productTypeCode,String orderBy,String order) {
-		return prodDao.getAllProducts(productTypeCode,orderBy,order);
-	}	
-		@Override
-	public HashMap getCategoryByProduct(String productTypeCode,String OrderBy){
+	public List<Product> getAllProducts(String productTypeCode, String orderBy,
+			String order) {
+		return prodDao.getAllProducts(productTypeCode, orderBy, order);
+	}
+
+	@Override
+	public HashMap getCategoryByProduct(String productTypeCode, String OrderBy) {
 		return prodDao.getCategoryByProduct(productTypeCode, OrderBy);
 	}
 
@@ -79,6 +81,12 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getDetailsByProductId(List<Integer> productIds) {
 		// TODO Auto-generated method stub
 		return prodDao.getDetailsByProductId(productIds);
+	}
+
+	@Override
+	public List<Product> getAllPublishedProducts() {
+		// TODO Auto-generated method stub
+		return prodDao.getAllPublishedProducts();
 	}
 
 }

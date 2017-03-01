@@ -41,4 +41,6 @@ public interface ProductService {
 	HashMap getCategoryByProduct(String productTypeCode,String OrderBy);
 	
 	List<Product> getDetailsByProductId(List<Integer> productIds);
+	
+	List<Product> getAllPublishedProducts();
 }

@@ -35,11 +35,15 @@ public interface ProductDao {
 
 	ProductCompareDM compareProducts(Integer[] productIds);
 	
+	List<Product> getAllPublishedProducts();
+	
 	void  publishProducts(List<Integer> productIds);
 
 	List<Product> getUnpublishedProductsByProductType(String productType);
 	
 	List<Product> getDetailsByProductId(List<Integer> productIds);
+	
+
 	
 
 }

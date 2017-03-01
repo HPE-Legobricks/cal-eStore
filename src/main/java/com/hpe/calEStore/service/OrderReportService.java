@@ -11,12 +11,21 @@ public interface OrderReportService {
 	Map<String, Integer> getActiveOrdersByStatus();
 
 	List<OrderReportDM> getTotalOrdersByDepartment(String statusType);
-	
+
 	int getTotalOrdersByLatestQuarter();
-	
+
 	int getOpenOrdersByLatestQuarter();
-	
+
 	int costOfTotalOrdersByLatestQuarter();
 
-	public OrderStatisticsDM getOrderStatistics();
+	OrderStatisticsDM getOrderStatistics();
+
+	Map<String, Integer> getOrderCount();
+
+	List<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept();
+
+	List<Map<String, Map<String, Integer>>> getCancelledOrdersByVendor();
+
+	List<Map<String, Map<String, Integer>>> getDeliveredOrdersByVendor();
+
 }
