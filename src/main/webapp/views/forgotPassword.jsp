@@ -39,7 +39,7 @@
        <div class="usa-alert usa-alert-error" role="alert">
     		<div class="usa-alert-body">
       		<h3 class="usa-alert-heading">Error</h3>
-      		<p class="usa-alert-text">Email address that you entered is invalid.</p>
+      		<p class="usa-alert-text">Email id that you entered is invalid.</p>
     	</div>
     	</div>
     </c:if>
