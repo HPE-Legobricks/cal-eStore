@@ -445,8 +445,9 @@ services vendors.
 Based on requirements for the prototype and insight
 from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
-backlog grooming session with the product owner. We have attached the [user
-stories](./Contributing Documents/D.4a_User Stories.pdf) and documentation of the [JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
+backlog grooming session with the product owner. We have attached the 
+[user stories](./Contributing Documents/D.4a_User Stories.pdf) and documentation of the
+[JIRA tool](./Contributing Documents/D.4b_JIRA Tool.pdf) where we capture the user stories. 
 
 **Develop wireframes** 
 
@@ -499,7 +500,7 @@ the prototype.
 
 We used Swagger to document the Cal eStore RESTful
 API. Our link to Swagger API for Cal eStore is: http://13.64.248.119:8080/calestore/swagger-ui.html.
-Further detail of our [Swagger](./Contributing Documents/F.2_Swagger Specification.pdf) and [code flow updates](./Contributing  Documents/F.3_Swagger Documentation.pdf) are attached. 
+Further detail of our [Swagger](./Contributing Documents/F.2_Swagger Specification.pdf) and [code flow updates](./Contributing Documents/F.3_Swagger Documentation.pdf) are attached. 
 
 ### (g) ADA Section 508 and WCAG 2.0 compliance 
 
@@ -527,7 +528,7 @@ initial interactions were intuitive. Our approach was to provide the wireframe
 to a user who was not involved in the design process and capture his or her
 thought process while going through the application wireframes. We also created
 a list of pre-defined questions to ask the users. More detail of our Usability
-Testing related to the [Wireframe](./Contributing Documents/I.2_Usability Testing Wireframes.pdf)
+Testing related to the [wireframe](./Contributing Documents/I.2_Usability Testing Wireframes.pdf)
 is attached.
 
 While designing our prototype, we invited prospective users to role play
@@ -550,7 +551,7 @@ principles, and the scrum delivery model. We have attached our [Agile Delivery M
 ### (k) Multiple Device and Responsive Design
 
 Our design includes small-screen translation, in
-addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing Documents/K.1_Screen Size  Examples.pdf). 
+addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing Documents/K.1_Screen Size Examples.pdf). 
 
 A responsive philosophy directed our use of
 scalable and extendable elements. To support this the team used front end
@@ -632,7 +633,7 @@ implementing Test Automation. The detailed information is [attached.](./Contribu
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
 We have used the jMeter Graphical Server performance testing tool which is an
-Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4 Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
+Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4_Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
 
 ### (o) Automated integration testing for IaaS or PaaS code deployment 
 
