@@ -322,7 +322,8 @@ indicated:
 
 * Sandy - Technical Writer/Content Designer - Developed the strategy and execution of content
  
-## Design and Development
+
+## Design and Develpment
 
 ### (c) Understanding users 
 
@@ -597,11 +598,7 @@ versions.
 
 ### (m) IaaS and PaaS
 
-Our team deployed the prototype on an
-Infrastructure as a Platform as a Service (PaaS) provider. The prototype is
-deployed on PaaS – Azure Cloud Infrastructure created by Microsoft for
-building, deploying, and managing applications and services through a global
-network of Microsoft-managed data centers.
+Our team used Microsoft Azure’s global network of managed data centers for both IaaS and PaaS.  For IaaS, we managed our own operating system, runtimes, Virtual Machines (VMs) and container based deployments using Docker.   For PaaS, we controlled the application and data.   
 
 ## Testing
 
