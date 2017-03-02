@@ -15,15 +15,15 @@ cancel, track, and analyze their orders online. Additionally,
 authorized administrative users need to be able to publish product and service
 information, as well as track, analyze and view order data. 
 
-##Prototype - Definition, Goal and Tasks
+##Prototype - Definition, Goal, and Tasks
 
 Our prototype, which we named Cal eStore, serves as
 an end to end application catering to authorized users and administrative
 users. The prototype features sample computing hardware, software, and related
 services from pre-established state contracts and allows users to compare and
 buy products, as well as track and review their orders. The prototype permits
-administrative users to publish and update hardware, software and service
-information on the platform along with the capabilities to analyze and view
+administrative users to publish and update hardware, software, and service
+information on the platform, along with the capabilities to analyze and view
 order data.
 
 ##Approach
@@ -39,7 +39,7 @@ process are as follows:
 
 **Creation of a cross-functional Demand Team:** Our
 cross functional team was made up of groups of people with different functional
-expertise working towards a common goal. Cross functionality in scrum means a
+expertise working toward a common goal. Cross functionality in scrum means a
 team composed of specialized generalists—individuals with breadth in a number
 of areas and disciplines. 
 
@@ -69,7 +69,7 @@ about the requirements to enable creation of storyboards and high level design
 (HLD) documents; these form the basis of Knowledge Transfer (KT) for scrum
 delivery teams. Prior to a sprint kick off, all candidate themes and stories
 are presented to the team. The product expert focuses on analysis tasks while
-the Technical Architect produces the HLD.
+the technical architect produces the HLD.
 
 **Roles of the Demand Team:** The roles of the
 demand team include the following:
@@ -92,8 +92,8 @@ effort or size of user stories. In planning poker, members of the scrum team,
 except the scrum master, make estimates by picking cards that are numbered
 based on Fibonacci sequence. Planning poker forces members to think
 autonomously and put forward their own estimates simultaneously. People who
-have proposed high estimates and low estimates are offered to give
-justification for their estimation. The estimation is repeated till a
+have proposed high estimates and low estimates are asked to give
+justification for their estimation. The estimation is repeated until a
 consensus is reached on the estimation of story points. 
 
 * **Life cycle management tool (JIRA):** Scrum teams commit to sprint backlog features
@@ -123,10 +123,10 @@ prototype.
 The success of any human end user application is
 based on how well the application is designed to allow users to navigate
 through features in a simple, intuitive way. We wanted the users to have a
-pleasant journey even though they may have no prior experience in using a web
+pleasant journey even though they may have no prior experience using a web
 application for purchasing electronics goods and services for their office. We
 also wanted the application to be intuitive without the need for providing
-users a training session on how to use the application. When we decided to
+a user training session on how to use the application. When we decided to
 develop Cal eStore, we knew user centric design was applicable to an online
 store for purchasing electronic goods and services. 
 
@@ -138,13 +138,13 @@ The UX Design team was responsible for employing
 user centric design, which includes conducting research for the user
 experience, persona development, Simple UX, and usability tests for wireframes
 to translate the product features into product designs. The UX design team
-consists of the Visual Designer, Business Analyst, Front End Web Developer, and
-Writer/Content Designer,
+consists of the visual designer, business analyst, front end web developer, and
+writer/content designer.
 
 Following are the user-centric design techniques
 used for developing the application.
 
-* Interviews
+* Conducted interviews
 
 * Built personas
 
@@ -158,11 +158,11 @@ used for developing the application.
 
 * Performed usability testing
 
-##Extract, Transform and Load (ETL) process 
+##Extract, Transform, and Load (ETL) process 
 
 In the [ETL process](./Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
-resource.pdf file which was provided in the RFI, loaded in to the staging
-database and based on visual scans and data profiling reviews, we developed
+the resource.pdf file which was provided in the RFI, loaded it in to the staging
+database and, based on visual scans and data profiling reviews, we developed
 custom business rules to transform the data. The transformed and cleaned data
 was loaded into the final fact and dimension tables.
 
@@ -179,7 +179,7 @@ for developing the prototype. The architecture outlines the main components and
 their interfaces. 
 
 **Modular Design:** The team modularized (a design
-approach which subdivides system into smaller parts known as module) the framework
+approach which subdivides a system into smaller parts known as module) the framework
 so that the product could be assembled at a later point of time. The approach
 used was to unglue the dependency of user interface, business logic, and
 backend services. This approach vision gives the team more flexibility and also
@@ -218,8 +218,7 @@ employs the modus operandi to establish a process chain between development,
 deployment, testing and monitoring teams. It helps streamline the entire
 process efficiently. 
 
-**Continuous Integration (CI):** Continuous
-Integration is used to communicate issues, such a potential bugs related to
+**Continuous Integration (CI):** CI is used to communicate issues, such a potential bugs related to
 software, to the development team. The development team in turn acts quickly to
 resolve the issues associated to the software before it gets promoted to a higher
 environment. By using this method production failures can be reduced. Hence
@@ -227,8 +226,7 @@ quality gateways are set in the CI pipeline, where builds will fail if software
 code does not meet actual quality standards. For example, bugs and
 vulnerabilities are categorized as Blocker, Critical, Major, Minor and Info. We
 set the quality gateway so that no “Blocker” or “Critical” issues are
-acceptable for promotion into higher environments. It is strongly believed that
-failing code in the early stages is superior to failing later in the production
+acceptable for promotion into higher environments. Failing code in the early stages is superior to failing later in the production
 stages. Additionally, security tools are introduced so that a strong wall
 against security attacks like SQL injections and cross-site scripting (XSS) is
 established. HPE Fortify is used for security scans to identify the vulnerabilities
@@ -256,16 +254,16 @@ services, and restarts the services on the VM(s) if it fails.
 This Technical Approach has described our process
 and methodology in creating the prototype. We had 27 functional user stories
 identified across 5 Epics (Profile, Catalog, Checkout, Manage Product Inventory,
-& Reports) during the Sprint 0 back log grooming session. Sixteen user
+and Reports) during the Sprint 0 back log grooming session. Sixteen user
 stories were prioritized by the Product Manager and executed by the agile development
 team in three sprints. There are 11 user stories remaining in the backlog after
 end of Sprint 3. The documentation regarding the user stories is provided in
-the [JIRA presentation](./Contributing Documents/D.4b_JIRA tool example.pdf) attached. We used our Global Agile Software
+the [JIRA presentation](./Contributing Documents/D.4b_JIRA tool example.pdf). We used our Global Agile Software
 Delivery Model to guide our project teams’ delivery, using a set of
 interrelated roles, practices, and work products that optimized the flow of
 business value delivery. Our project was a success, delivering on each goal we
 set for our prototype. Our prototype meets the needs of the prospective users
-and admins. 
+and administrators. 
 
  
 #US Digital Services Playbook
@@ -371,8 +369,8 @@ design techniques.
 
 **Research**
 
-The product owner and team
-researched current tool features to identify pros and cons and apply learnings
+The product manager and team
+researched current tool features, identified pros and cons, and applied what was learned
 to the prototype design. The team also collaborated with the product team at HP
 Inc.—associates of Enterprise Services—to shape the content of the prototype,
 including how the products should be displayed, the specific product
@@ -531,7 +529,7 @@ is attached.
 
 While designing our prototype, we invited prospective users to role play
 and provide feedback on visual designs by interacting with HTML mock-ups. Our
-design team and Business Analyst conducted a face-to-face interview with the
+design team and business analyst conducted a face-to-face interview with the
 users and asked many questions to simulate possible tasks the user would
 perform when using the real application. To ensure unbiased feedback, the users
 interviewed were unfamiliar with the project requirements for the prototype.
@@ -552,7 +550,7 @@ Our design includes small-screen translation, in
 addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing Documents/K.1_Screen Size Examples.pdf). 
 
 A responsive philosophy directed our use of
-scalable and extendable elements. To support this the team used front end
+scalable and extendable elements. To support this the team used frontend
 frameworks such as Bootstrap, HTML5, CSS3 and jQuery; proven aids for personal
 and professional responsive design frameworks.
 
