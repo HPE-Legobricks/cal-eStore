@@ -11,34 +11,7 @@
 <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/uswds.min.css">
-<style>
-html, body {
-    width: 100%;
-    height: 100%;
-    background-color: #0071bc;
-    overflow-x: hidden;
-    /*background-image: url(.images/background.jpg);*/
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-}
-.col-centered {
-    float: none;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-}
-.img-responsive.img-center {
-    margin: 0 auto;
-    padding-top: 0.45em;
-}
-.clear {
-    clear: both;
-    position: absolute
-}
-</style>
+
 <!-- Favicons
 ================================================== -->
 <!-- 128x128 -->
@@ -73,19 +46,18 @@ html, body {
 <div class="clear"></div>
 <!-- Logo image place --> 
 <!-- Logo image ends here --> 
-    <div class="container"><img src="images/logo.png" class="img-responsive img-center" alt="Placeholder image"> </div>
+    <div class="container"><img src="<%=request.getContextPath()%>/images/logo.png" class="img-responsive img-center" alt="Placeholder image"> </div>
 <!--Login Form strat-->
-<div class="container">
-  <div class="row">
+<!-- <div class="container"> -->
+<!--   <div class="row"> -->
     <tiles:insertAttribute name="body" />
-  </div>
+<!--   </div> -->
   <!-- </div>--> 
-</div>
 <br>
 <!--Form ends here-->
 <footer class="container-fluid text-center">
-  <p>(800) CALL-GOVT | <a href="javascript:void(0);">info@agency.gov</a></p>
+  <p>(800) CALL-GOVT | <a href="mailto:ADPQ@state.ca.gov">ADPQ@state.ca.gov</a></p>
 </footer>
-<script src="js/uswds.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/uswds.min.js"></script>
 </body>
 </html>

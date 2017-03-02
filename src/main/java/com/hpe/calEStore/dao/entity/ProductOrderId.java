@@ -1,8 +1,5 @@
 package com.hpe.calEStore.dao.entity;
 
-// default package
-// Generated Feb 15, 2017 5:41:54 PM by Hibernate Tools 3.4.0.CR1
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -14,12 +11,14 @@ public class ProductOrderId implements java.io.Serializable {
 
 	private int orderId;
 	private int productId;
-	private int qty;
 
-	public ProductOrderId(int orderId, int productId, int qty) {
+	public ProductOrderId() {
+		// Do nothing... Hibernate needs this mandatory
+	}
+
+	public ProductOrderId(int orderId, int productId) {
 		this.orderId = orderId;
 		this.productId = productId;
-		this.qty = qty;
 	}
 
 	@Column(name = "ORDER_ID", nullable = false)
@@ -40,15 +39,6 @@ public class ProductOrderId implements java.io.Serializable {
 		this.productId = productId;
 	}
 
-	@Column(name = "QTY", nullable = false)
-	public int getQty() {
-		return this.qty;
-	}
-
-	public void setQty(int qty) {
-		this.qty = qty;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -59,8 +49,7 @@ public class ProductOrderId implements java.io.Serializable {
 		ProductOrderId castOther = (ProductOrderId) other;
 
 		return (this.getOrderId() == castOther.getOrderId())
-				&& (this.getProductId() == castOther.getProductId())
-				&& (this.getQty() == castOther.getQty());
+				&& (this.getProductId() == castOther.getProductId());
 	}
 
 	public int hashCode() {
@@ -68,7 +57,6 @@ public class ProductOrderId implements java.io.Serializable {
 
 		result = 37 * result + this.getOrderId();
 		result = 37 * result + this.getProductId();
-		result = 37 * result + this.getQty();
 		return result;
 	}
 

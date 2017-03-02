@@ -44,16 +44,16 @@ public class ProfileDAOImplTest {
 
 		UserProfile up = new UserProfile();
 		up.setCreatedDate(new Date());
-		up.setEmailId("suresh@s.com");
+		up.setEmailId("suresh1@s.com");
 		up.setEndDate(new Date());
 		up.setFirstName("d");
 		up.setGender("M");
 		up.setLastName("mishra");
-		up.setMobileNumber("99991");
+		up.setMobileNumber("99992");
 		up.setStatusInd("A");
 		up.setEmailPrefInd("Y");
-		up.setPassword("nihar$$");
-		up.setProfileileInd("A");
+		up.setPassword("test123");
+		up.setProfileInd("A");
 		up.setSmsPrefInd("Y");
 
 		Set<Address> sa = new HashSet<Address>();

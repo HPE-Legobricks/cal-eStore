@@ -16,12 +16,16 @@
 	<!-- Spring Security Configuration -->
 	<import resource="spring-security.xml" />
 
+	<!-- Spring e-Mail Configuration -->
+	<import resource="spring-mail.xml" />
+
 	<!-- Enable annotation driven controllers, validation etc... -->
 	<mvc:annotation-driven />
 
 	<context:component-scan base-package="com.hpe.calEStore" />
 
 	<context:property-placeholder location="classpath:calEStore.properties" />
+	<context:property-placeholder location="classpath:swagger.properties" />
 
 	<context:annotation-config />
 
@@ -40,6 +44,11 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/"
 		cache-period="31556926" />
+
+	<mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
+
+	<mvc:resources mapping="/webjars/**"
+		location="classpath:/META-INF/resources/webjars/" />
 
 	<!-- Configure the multipart resolver -->
 	<bean id="multipartResolver"
@@ -93,6 +102,8 @@
 				<value>com.hpe.calEStore.dao.entity.Product</value>
 				<value>com.hpe.calEStore.dao.entity.ProductAspect</value>
 				<value>com.hpe.calEStore.dao.entity.Aspect</value>
+				<value>com.hpe.calEStore.dao.entity.TReportType1</value>
+				<value>com.hpe.calEStore.dao.entity.TReportType2</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -100,6 +111,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
 				</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
 			</props>
 		</property>
 	</bean>

@@ -3,17 +3,116 @@
 
 <tiles-definitions>
 
-    <definition name="preSignInLayout" template="/tiles/preSignInLayout.jsp">
-        <put-attribute name="title" value="CALeStore" />
-        <put-attribute name="header" value="/tiles/header.jsp" />
-        <put-attribute name="menu" value=" " />
-        <put-attribute name="body" value=" " />
-        <put-attribute name="footer" value="/tiles/footer.jsp" />
-    </definition>
+	<definition name="preSignInLayout" template="/tiles/preSignInLayout.jsp">
+		<put-attribute name="title" value="CALeStore" />
+		<put-attribute name="header" value="/tiles/header.jsp" />
+		<put-attribute name="body" value=" " />
+		<put-attribute name="footer" value="/tiles/footer.jsp" />
+	</definition>
 
-    <definition name="login.form" extends="preSignInLayout">
-        <put-attribute name="title" value="Sign In" />
-        <put-attribute name="body" value="/views/login.jsp" />
-    </definition>
+	<definition name="postSignInLayout" template="/tiles/postSignInLayout.jsp">
+		<put-attribute name="title" value="CALeStore - Home" />
+		<put-attribute name="header" value="/tiles/headerPostSignIn.jsp" />
+		<put-attribute name="nav" value="/tiles/nav.jsp" />
+		<put-attribute name="slider" value=" " />
+		<put-attribute name="body" value=" " />
+		<put-attribute name="footer" value="/tiles/footerPostSignIn.jsp" />
+	</definition>
+
+	<definition name="adminLayout" template="/tiles/adminLayout.jsp">
+		<put-attribute name="title" value="CALeStore - Admin Home" />
+		<put-attribute name="header" value="/tiles/adminHeader.jsp" />
+		<put-attribute name="nav" value="/tiles/adminNav.jsp" />
+		<put-attribute name="slider" value=" " />
+		<put-attribute name="body" value=" " />
+		<put-attribute name="footer" value="/tiles/adminFooterPostSignIn.jsp" />
+	</definition>
+
+	<definition name="login.form" extends="preSignInLayout">
+		<put-attribute name="title" value="Sign In" />
+		<put-attribute name="body" value="/views/login.jsp" />
+	</definition>
+
+	<definition name="login.success" extends="preSignInLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/views/loginsuccess.jsp" />
+	</definition>
+
+	<definition name="user.home" extends="postSignInLayout">
+		<put-attribute name="title" value="Welcome - Product Catalogue" />
+		<put-attribute name="slider" value="/tiles/slider.jsp" />
+		<put-attribute name="body" value="/views/productCatalogue.jsp" />
+	</definition>
+
+	<definition name="product.detail" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Product Detail" />
+		<put-attribute name="body" value="/views/productDetail.jsp" />
+	</definition>
+
+	<definition name="cart.detail" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Cart Detail" />
+		<put-attribute name="body" value="/views/cartDetail.jsp" />
+	</definition>
+
+	<definition name="cart.confirm" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Cart Confirmation" />
+		<put-attribute name="body" value="/views/cartConfirmation.jsp" />
+	</definition>
+
+	<definition name="order.thankyou" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore -Thank You " />
+		<put-attribute name="body" value="/views/thankyou.jsp" />
+	</definition>
+	
+	<definition name="order.empty" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore -Thank You " />
+		<put-attribute name="body" value="/views/noOrders.jsp" />
+	</definition>
+
+	<definition name="order.detail" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Cart Detail" />
+		<put-attribute name="body" value="/views/orderTrack.jsp" />
+	</definition>
+
+	<definition name="new.profile" extends="preSignInLayout">
+		<put-attribute name="title" value="Welcome - Product Catalogue" />
+		<put-attribute name="body" value="/views/newprofile.jsp" />
+	</definition>
+
+	<!-- This is temporary page for admin audit. Please remove it after UI integration. -->
+	<definition name="admin.audit" extends="preSignInLayout">
+		<put-attribute name="title" value="Manage users" />
+		<put-attribute name="body" value="/views/manageUserProfile.jsp" />
+	</definition>
+
+	<definition name="product.list" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Product List" />
+		<put-attribute name="body" value="/views/productList.jsp" />
+	</definition>
+
+	<definition name="product.comparision" extends="postSignInLayout">
+		<put-attribute name="title" value="Cal-eStore - Product Comparision" />
+		<put-attribute name="body" value="/views/productComparision.jsp" />
+	</definition>
+
+	<!-- new UI -->
+	<definition name="manage.user" extends="adminLayout">
+		<put-attribute name="title" value="Welcome Admin - Manage users" />
+		<put-attribute name="body" value="/views/manageUsers.jsp" />
+	</definition>
+	<definition name="manage.products" extends="adminLayout">
+		<put-attribute name="title" value="Welcome Admin - Manage Unpublish products" />
+		<put-attribute name="body" value="/views/manageProducts.jsp" />
+	</definition>
+
+	<definition name="forgotPassword.form" extends="preSignInLayout">
+		<put-attribute name="title" value="Sign In" />
+		<put-attribute name="body" value="/views/forgotPassword.jsp" />
+	</definition>
+
+	<definition name="admin.dashboard" extends="adminLayout">
+		<put-attribute name="title" value="Admin - Dashboard" />
+		<put-attribute name="body" value="/views/adminDashboard.jsp" />
+	</definition>
 
 </tiles-definitions>

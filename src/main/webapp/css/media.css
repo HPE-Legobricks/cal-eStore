@@ -1,0 +1,14 @@
+@media(max-width:767px){
+	.std-table 									{border:none;margin-top:0}
+	.pagination									{margin-top:15px}
+	#footer .info h3							{font-size:18px}
+	#footer .footerlinks						{}
+}
+
+@media(min-width:768px){
+	
+}
+
+
+@media(min-width:768px) and (max-width:992px)	{ 
+}
