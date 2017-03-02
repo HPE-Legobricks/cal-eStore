@@ -78,7 +78,7 @@
 			cache : false,
 			success : function(data) {
 				 $('body').scrollTop(0);
-				displayMsg(' Product added to cart ');
+				displayMsg('Product added to cart');
 				console.log("success");
 				document.getElementById('cartItemsDiv').innerHTML = Object
 						.keys(cartItemsMap).length;
@@ -108,28 +108,38 @@
 	    x.className = "show";
 	    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 	}
-	
-	function removeFromCart(productId){
-		/* alert('removing'); */
-		if ((productId in cartItemsMap)) {
-			delete cartItemsMap.productId;
-			/* alert((cartItemsMap).length); */
-		} else {
-			/* alert('eles part'); */
+
+	function removeFromCart(productId) {
+		/* alert((Object
+				.keys(cartItemsMap).length)); */
+		for ( var obj in cartItemsMap) {
+			if (cartItemsMap.hasOwnProperty(productId)) {
+				delete cartItemsMap[productId];
+			}
 		}
+		/* }
+			} 
+			
+			Object.keys(cartItemsMap)
+			 if ((productId in cartItemsMap)) {
+				delete cartItemsMap.productId;
+				alert((cartItemsMap).length); 
+			} else { 
+				 alert('eles part'); 
+			} */
 
 		$.ajax({
 			type : "GET",
 			url : "removeFromCart?productId=" + productId,
 			cache : false,
 			success : function(data) {
-				 $('body').scrollTop(0);
+				$('body').scrollTop(0);
 				displayMsg(' Product removed from the cart ');
 				console.log("success");
 				/* alert(Object.keys(cartItemsMap).length); */
 				document.getElementById('cartItemsDiv').innerHTML = (Object
-						.keys(cartItemsMap).length)-1;
-				window.location.href = "cartDetail";
+						.keys(cartItemsMap).length)
+				/* window.location.href = "cartDetail"; */
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
 				alert(xhr.status);
@@ -141,7 +151,6 @@
 		});
 
 	}
-	
 </script>
 
 <div id="snackbar"></div>
@@ -159,11 +168,11 @@
 						<li><a class="home active" href="productCatalogue"><i
 								class="icon-home"></i> Home </a></li>
 						<li><a class="Track Order" href="oderTrack"><i
-								class="icon-user"></i> Track Order </a></li>
+								class="icon-ok-circle"></i> Track Order </a></li>
 						<!-- <li><a class="shoppingcart" href="cartDetail"><i
 								class="icon-shopping-cart"></i> Cart </a></li> -->
-						<!-- <li><a class="checkout" href="#"><i
-								class="icon-ok-circle"></i> My Account </a></li>  -->
+						<li><a class="checkout" href="#"><i
+								class=" icon-user"></i><%= request.getUserPrincipal().getName() %></a></li> 
 						<li><a class="checkout" href="loginform/signout"><i
 								class="icon-minus-sign"></i> Logout </a></li>
 					</ul>

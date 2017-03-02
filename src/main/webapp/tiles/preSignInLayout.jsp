@@ -56,7 +56,7 @@
 <br>
 <!--Form ends here-->
 <footer class="container-fluid text-center">
-  <p>(800) CALL-GOVT | <a href="javascript:void(0);">info@agency.gov</a></p>
+  <p>(800) CALL-GOVT | <a href="mailto:ADPQ@state.ca.gov">ADPQ@state.ca.gov</a></p>
 </footer>
 <script src="<%=request.getContextPath()%>/js/uswds.min.js"></script>
 </body>
