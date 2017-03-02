@@ -624,7 +624,8 @@ We used JUnit (Java Unit test) to develop test cases and JaCoCo (Java
 Code Coverage) to automate test cases in continuous integration.
 
 As part of the Cal eStore application quality check and validation process we have performed
-automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing Documents/N.1_Automated Testing.pdf)We also provide a [short video](./Contributing Documents/N.2_Automated Functional Testing.ppsx) explanation.
+automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing Documents/N.1_Automated Testing.pdf) We also provide a
+[short video](./Contributing Documents/N.2_Automated Functional Testing.ppsx) explanation.
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
