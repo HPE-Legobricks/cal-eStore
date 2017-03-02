@@ -621,15 +621,14 @@ other units that are part of the same software package.
 We used JUnit (Java Unit test) to develop test cases and JaCoCo (Java
 Code Coverage) to automate test cases in continuous integration.
 
-As part of the Cal
-eStore application quality check and validation process we have performed
-automated functional testing. Selenium was the primary tool of choice for
-implementing Test Automation. The detailed information is [attached.](./Contributing Documents/N.2_Automated functional testing.pdf)
+As part of the Cal eStore application quality check and validation process we have performed
+automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing Documents/N.1_Automated Testing.pdf)
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
 We have used the jMeter Graphical Server performance testing tool which is an
 Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4_Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
+
 
 ### (o) Automated integration testing for IaaS or PaaS code deployment 
 
