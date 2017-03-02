@@ -4,8 +4,8 @@
       <div > 
         <!-- widget content -->
         <p class="heading3"> <br>
-        <h5>Thank you for your order with us.</h5><br>
-         <h5>Confirmation mail will be sent to your registered Email ID </h5> 
+        <h5>Your order has been submitted.</h5><br>
+         <h5> Thank you for shopping with Cal eStore. </h5> 
          <br>
          <br>
          </p>
