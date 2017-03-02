@@ -16,7 +16,7 @@
 					</ul>
 					<div class="info">
 						<h2>Department of Technology</h2>
-						<p>Po Box 1810, Rancho Cordova, CA 9541</p>
+						<p>PO Box 1810, Rancho Cordova, CA 95741</p>
 						<a href="mailto:ADPQ@state.ca.gov"> <i class="fa fa-envelope"></i> ADPQ@state.ca.gov
 						</a>
 					</div>
