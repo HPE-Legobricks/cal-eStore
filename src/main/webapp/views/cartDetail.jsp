@@ -84,7 +84,7 @@
 							<th class="image">Image</th>
 							<th class="name">Product Name</th>
 							<th class="model">Model</th>
-							<th class="quantity">Qty</th>
+							<th class="quantity">Quantity</th>
 							<th class="total">Action</th>
 							<th class="price">Unit Price</th>
 							<th class="total">Total</th>
