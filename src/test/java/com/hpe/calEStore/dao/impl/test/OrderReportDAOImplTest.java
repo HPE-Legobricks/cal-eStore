@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2017 HPE, All rights reserved.
  */
@@ -18,6 +17,8 @@ import org.springframework.util.Assert;
 
 import com.hpe.calEStore.dao.OrderReportDAO;
 import com.hpe.calEStore.model.OrderReportDM;
+import com.hpe.calEStore.model.OrderStatisticsDM;
+import com.hpe.calEStore.model.OrderStatusDM;
 
 /**
  * Test class for ProductCompareDAO
@@ -43,7 +44,8 @@ public class OrderReportDAOImplTest {
 			// Map<String, Integer> userProfile =
 			// orderReportDAO.getActiveOrdersByStatus();
 
-			List<OrderReportDM> orderReportDM = orderReportDAO.getTotalOrdersByDepartment("Delivered");
+			List<OrderReportDM> orderReportDM = orderReportDAO
+					.getTotalOrdersByDepartment("Delivered");
 			if (!(orderReportDM == null)) {
 				Assert.isTrue(true);
 			} else {
@@ -59,7 +61,8 @@ public class OrderReportDAOImplTest {
 	public void getActiveOrdersByStatusTest() {
 		try {
 
-			Map<String, Integer> ordersByStatus = orderReportDAO.getActiveOrdersByStatus();
+			Map<String, Integer> ordersByStatus = orderReportDAO
+					.getActiveOrdersByStatus();
 
 			if (!(ordersByStatus == null)) {
 				Assert.isTrue(true);
@@ -113,6 +116,85 @@ public class OrderReportDAOImplTest {
 			int count = orderReportDAO.getTotalOrdersByLatestQuarter();
 
 			if (!(count == 0)) {
+				Assert.isTrue(true);
+			} else {
+				Assert.isTrue(false);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void getOrderStatisticsTest() {
+		try {
+			OrderStatisticsDM orderStatistics = orderReportDAO
+					.getOrderStatistics();
+			if (!(orderStatistics == null)) {
+				Assert.isTrue(true);
+			} else {
+				Assert.isTrue(false);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void getOrderCountTest() {
+		try {
+			OrderStatusDM orderCount = orderReportDAO.getOrderCount();
+			if (!(orderCount == null)) {
+				Assert.isTrue(true);
+			} else {
+				Assert.isTrue(false);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void getWeeklyOrderCountPerDeptTest() {
+		try {
+			Map<String, Map<String, Integer>> orderCountPerDept = orderReportDAO
+					.getWeeklyOrderCountPerDept();
+			if (!(orderCountPerDept == null)) {
+				Assert.isTrue(true);
+			} else {
+				Assert.isTrue(false);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void getCancelledOrdersByVendorTest() {
+		try {
+			Map<String, Map<String, Integer>> cancelledOrdersBVendor = orderReportDAO
+					.getCancelledOrdersByVendor();
+			if (!(cancelledOrdersBVendor == null)) {
+				Assert.isTrue(true);
+			} else {
+				Assert.isTrue(false);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void getDeliveredOrdersByVendorTest() {
+		try {
+			Map<String, Map<String, Integer>> deliveredOrdersByVendor = orderReportDAO
+					.getDeliveredOrdersByVendor();
+			if (!(deliveredOrdersByVendor == null)) {
 				Assert.isTrue(true);
 			} else {
 				Assert.isTrue(false);

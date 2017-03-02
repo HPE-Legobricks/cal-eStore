@@ -330,7 +330,7 @@ public class OrderReportDAOImpl extends
 				ordersMap);
 		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
 				.entrySet()) {
-			orderReportList.put(productIdMap.getKey(),
+			orderReportList.put(productIdMap.getKey().substring(5, 10),
 					getOrdersforReport(productIdMap.getValue(), "Department"));
 
 		}
@@ -396,7 +396,7 @@ public class OrderReportDAOImpl extends
 		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
 				.entrySet()) {
 
-			cancelledOrderMap.put(productIdMap.getKey(),
+			cancelledOrderMap.put(productIdMap.getKey().substring(5, 10),
 					getOrdersforReport(productIdMap.getValue(), "Vendor"));
 		}
 
@@ -437,7 +437,7 @@ public class OrderReportDAOImpl extends
 		for (Map.Entry<String, List<Integer>> productIdMap : ascSortedMap
 				.entrySet()) {
 
-			deliveredOrderMap.put(productIdMap.getKey(),
+			deliveredOrderMap.put(productIdMap.getKey().substring(5, 10),
 					getOrdersforReport(productIdMap.getValue(), "Vendor"));
 		}
 
