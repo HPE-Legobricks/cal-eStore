@@ -323,7 +323,7 @@ indicated:
 * Sandy - Technical Writer/Content Designer - Developed the strategy and execution of content
  
 
-## Design and Develpment
+## Design and Development
 
 ### (c) Understanding users 
 
