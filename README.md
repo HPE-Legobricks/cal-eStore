@@ -650,7 +650,7 @@ testing:
 
 * Selenium to perform functional test cases on prototype
 
-Details of our automated [integration testing](./Contributing Documents/Technical Approach DevOps Automation.pdf) are
+Details of our automated [integration testing](./Contributing Documents/Technical Approach DevOps Automation.pdf#page=4) are
 attached.
 
 ## Environment and Installation
