@@ -273,7 +273,7 @@ and admins.
 We complied with the US Digital Service: Digital
 Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing Documents/J.1_US Digital Services Playbook.pdf) for details about our approach.
  
-
+#RFI Requirements (a) through (t)
 ## Team
 
 ### (a) Leadership
