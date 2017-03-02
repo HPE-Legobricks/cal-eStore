@@ -7,10 +7,8 @@
 		rowind = s.parentNode.parentNode.rowIndex;
 		rowcont = document.getElementById("mytable").rows[rowind].cells;
 		unitprice = rowcont[5].innerHTML.replace("$", "").replace("£","");
-		
-		
 		rowtotal = Qtyval * unitprice;
-		rowtotal = dsymb.concat(rowtotal);
+		rowtotal = dsymb.concat(parseFloat(rowtotal).toFixed(2));
 		rowcont[6].innerHTML = rowtotal;
 	}
 
@@ -24,11 +22,11 @@
 		for (i = 1; i <= tableindex; ++i) {
 			z = document.getElementById("mytable").rows[i].cells;
 			tot = z[6].innerHTML.replace("$", "").replace("£","");
-			rowsum = parseInt(tot) + parseInt(rowsum);
-
+			rowsum = parseFloat(tot) + parseFloat(rowsum);
+			var rowsum =parseFloat(rowsum).toFixed(2);// handled row sum to 2 precison decimal point
 		}
 		totval = rowsum;
-		rowsum = dolsym.concat(rowsum);
+		rowsum = dolsym.concat(parseFloat(rowsum).toFixed(2));
 		document.getElementById("sumtotal").innerHTML = rowsum;
 	}
 
@@ -42,13 +40,15 @@
 		x = document.getElementById("mytable").rows[i].cells;//get all the contents of the row
 		currencyval = x[6].innerHTML.replace("$", "").replace("£","");//To get only the currency value excluding dollar($) symbol
 		sumtotal1 = sumtotal1 - currencyval;//subtraction from the total amount
-		sumtext = dollarsymb.concat(sumtotal1);//append the dollar symbol
+		var x=parseFloat(sumtotal1).toFixed(2);
+		sumtext = dollarsymb.concat(parseFloat(sumtotal1).toFixed(2));//append the dollar symbol// handled the total sum by converting to floating point
 		document.getElementById("mytable").deleteRow(i);
 		document.getElementById("sumtotal").innerHTML = sumtext;
 		var rowscount = document.getElementById('mytable').rows.length;
 		if (rowscount <= 1) {
 			document.getElementById("proceedToCheckout").style.visibility = 'hidden';
-			document.getElementById("sumtotal").innerHTML = 0.00;
+			
+			document.getElementById("sumtotal").innerHTML =dollarsymb.concat(0.00);
 		}
 	}
 	
@@ -62,10 +62,6 @@
 		}
 	}
 	
-	/* function removeFromCart(productId){
-		alert('in cart');
-	}
-	 */
 </script>
 <body onload='checkForTables()'>
 	<div id="maincontainer">
@@ -101,7 +97,7 @@
 										height="50" width="50"></a></td>
 								<td class="name"><a href="#">${product.productName}</a></td>
 								<td class="model">${product.brand.brandName}</td>
-								<td class="quantity"><input type="number"
+								<td class="quantity"><input type="text" min="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 									value=${cartItemsMap[product.productId] } name="quantity[40]"
 									class="span1" class="span1"
 									onkeyup="caltotal(this,this.value),totalcalculation();"></td>
