@@ -2,7 +2,6 @@ package com.hpe.calEStore.web.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +18,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hpe.calEStore.config.AppConfig;
 import com.hpe.calEStore.model.OrderStatisticsDM;
 import com.hpe.calEStore.service.ProductService;
 
@@ -27,8 +27,12 @@ import com.hpe.calEStore.service.ProductService;
 public class DashboardController {
 
 	@Autowired
+	private AppConfig appConfig;
+
+	@Autowired
 	private ProductService productService;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/adminDashboard", method = RequestMethod.GET)
 	public ModelAndView showDashboard(HttpServletRequest request)
 			throws JSONException, JsonParseException, JsonMappingException,
@@ -39,16 +43,14 @@ public class DashboardController {
 		ObjectMapper mapper = new ObjectMapper();
 
 		OrderStatisticsDM orderStatisticsDm = mapper.readValue(new URL(
-				"http://localhost:8080/calestore/getOrderStatistics"),
+				appConfig.getRestApiUrl() + "/getOrderStatistics"),
 				OrderStatisticsDM.class);
 
 		mv.addObject("orderStatistics", orderStatisticsDm);
 
 		Map<String, Map<String, Integer>> weeklyOrderPerDeptMap = mapper
-				.readValue(
-						new URL(
-								"http://localhost:8080/calestore/getWeeklyOrderCountPerDept"),
-						Map.class);
+				.readValue(new URL(appConfig.getRestApiUrl()
+						+ "/getWeeklyOrderCountPerDept"), Map.class);
 		mv.addObject("weeklyOrderPerDeptMap", weeklyOrderPerDeptMap);
 
 		Map<String, Integer> orderDataMap = (Map<String, Integer>) weeklyOrderPerDeptMap
