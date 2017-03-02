@@ -632,13 +632,15 @@ application by simulating the surges in traffic to identify performance bottlene
 We have used the jMeter Graphical Server performance testing tool which is an
 Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4_Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
 
+## DevOps Automation
 
-### (o) Automated integration testing for IaaS or PaaS code deployment 
+The details of our Continuous Integration architecture are found in our [Technical Approach to DevOps Automation](./Contributing Documents/Technical Approach DevOps Automation.pdf) attachment. In this document you will find the details for items o, p, q, and r.
 
-We used the following tools to automate integration
-testing:
+### (o) Continuous Integration pipeline for IaaS or PaaS code deployment 
 
-* Jenkins to orchestrate continuous integration
+We used the following tools for our Continuous Integration pipeline:
+
+* Jenkins to orchestrate Continuous Integration
 
 * GitHub to retrieve source code
 
@@ -652,21 +654,15 @@ testing:
 
 * Selenium to perform functional test cases on prototype
 
-Details of our automated [integration testing](./Contributing Documents/Technical Approach DevOps Automation.pdf) are
-in the attached document, on page 7.
-
-## Environment and Installation
-
-The details of our environment and installation are found in our [Technical Approach to DevOps Automation](./Contributing Documents/Technical Approach DevOps Automation.pdf) attachment. In this document you will find the details for items p, q, and r.
+See page 4 of the Technical Approach to DevOps Automation document. 
 
 ### (p) Configuration management
 
 For configuration management, we used Ansible. We
 also wrote playbooks to do incremental software releases to Dev, Staging, and
 Production environments. We used Jmeter for performance testing. A notification
-mechanism was also set to alert select team members of system failures. 
-The details of our configuration management
-approach are found in the attachment.
+mechanism was also set to alert select team members of system failures.
+See page 12 of the Technical Approach to DevOps Automation document.
  
 ### (q) Continuous monitoring
 
@@ -674,8 +670,7 @@ We used SiteScope to monitor application and system
 performance. Custom scripts were written based on certain condition for
 “self-healing” within the services. A notification mechanism was also set to
 alert select team members of system failures. 
-Details of our continuous monitoring
-are found in the attachment.
+See page 14 of the Technical Approach to DevOps Automation document.
 
 ### (r) Container based deployment
 
@@ -685,8 +680,8 @@ acts as a central repository for the artifacts. For deployment, Ansible is
 called to download the latest .war file from Nexus to build a docker image and
 upload that image to a docker registry—in this case Nexus. In the final step, Ansible
 retrieves the Docker image from Nexus, deploys it to the target nodes, starts
-the container, and keeps all of the environments consistent. Details of our container based deployment
-are found in the attachment.
+the container, and keeps all of the environments consistent.
+See page 15 of the Technical Approach to DevOps Automation document.
 
 ### (s) Installation guide
 
@@ -712,22 +707,17 @@ The following is our installation guide for our Cal eStore prototype:
 
 The personas and their credentials that could be used to log in to the Cal eStore Application (Prototype A) are as follows.
 
-######Authorized User
-
-Profile: Florinda Sanchez has worked for the California Department of Education for over 9 years and is currently assigned the role of office manager for a team of 23 professional staff. The duties of office manager include timely ordering of desktop computer equipment and software for newly hired staff to ensure new employees are productive upon hiring.
+######Authorized User:  
 
 Log in Email Id: florinda.calestore@gmail.com
 
 Password: User$123456
 
-######Authorized Administrator
-
-Profile: Emma Mercier has worked for the State of California Procurement Division for 12 year and is currently responsible for overseeing all IT services purchased by several state agencies. Emma must ensure state agencies use existing state contracts for purchasing IT services and also helps to evaluate user feedback on services delivered to help negotiate future vendor contracts. 
+######Authorized Administrator:
 
 Log in Email Id: emma.calestore@gmail.com
 
 Password: Admin$123456
-
 
 ### (t) Prototype and underlying platforms
 
