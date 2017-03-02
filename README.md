@@ -272,6 +272,7 @@ and admins.
 
 We complied with the US Digital Service: Digital
 Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing Documents/J.1_US Digital Services Playbook.pdf) for details about our approach.
+
  
 #RFI Requirements (a) through (t)
 ## Team
@@ -544,7 +545,7 @@ Enterprise Services LLC (ES) Global Agile Software Delivery Model. We have
 developed and fine-tuned the Global Agile Software Delivery Model to guide our
 project teams’ delivery of projects using Agile delivery models. At its core
 our global Agile software delivery model is based on the Agile manifesto,
-principles, and the scrum delivery model. We have attached our [Agile Delivery Model](./Contributing Documents/A.1_Agile Scrum Process.pdf)
+principles, and the scrum delivery model. We have attached our [Agile Delivery Model](./Contributing Documents/A.1_Agile Scrum Process.pdf).
 
 ### (k) Multiple Device and Responsive Design
 
