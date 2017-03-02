@@ -76,7 +76,7 @@ demand team include the following:
 
 * Assist the larger team with definition of qualification criteria
 
-* Produce an HLD and impact assessment to feed into storyboards and Sprint scope planning during the Demand Funnel phase 
+* Produce an HLD and impact assessment to feed into storyboards and sprint scope planning during the Demand Funnel phase 
 
 * Define minimum criteria for entry to the product backlog
 
@@ -174,7 +174,7 @@ feature in the Cal eStore.
 
 ##Architecture 
 
-High level [architecture](./Contributing Documents/Technical Approach High Level Architecture.pdf) pertains to the architecture that would be used
+The high level [architecture](./Contributing Documents/Technical Approach High Level Architecture.pdf) pertains to the architecture that we used
 for developing the prototype. The architecture outlines the main components and
 their interfaces. 
 
@@ -247,7 +247,7 @@ applications, so businesses leverage continuous monitoring of applications,
 system performance and network, and apply self-healing techniques with custom
 scripts. We used SiteScope for monitoring the Cal eStore application at the
 system level. The tool continuously monitors the available application and
-services, and restarts the services on the VM(s) if it fails. 
+services, and restarts the services on the VM if it fails. 
 
 ##Summary
 
@@ -298,13 +298,13 @@ We assembled a multidisciplinary,
 collaborative virtual team that included the following members in the roles
 indicated:
 
-* Derek - Product Manager - Final authority representing the customer's interest
+* Derek - Product Manager - Provided final authority representing the customer's interest
 
 * Vasu - Agile Coach - Coached and mentored the team in Agile best practices
 
-* Lavanya - Scrum Master - Facilitator for the team and product owner
+* Lavanya - Scrum Master - Facilitated for the team and product owner
 
-* Satish - Technical Architect - Overall application design
+* Satish - Technical Architect - Owned the overall application design
 
 * Dinesh - Business Analyst - Designed, built, tested, or ran the application
 
@@ -538,7 +538,7 @@ More detail of our Usability Testing related to [Visual Design](./Contributing D
 ### (j) Iterative Approach
 
 We used an iterative design approach following the
-Enterprise Services LLC (ES) Global Agile Software Delivery Model. We have
+Enterprise Services Global Agile Software Delivery Model. We have
 developed and fine-tuned the Global Agile Software Delivery Model to guide our
 project teams’ delivery of projects using Agile delivery models. At its core
 our global Agile software delivery model is based on the Agile manifesto,
