@@ -653,9 +653,11 @@ testing:
 * Selenium to perform functional test cases on prototype
 
 Details of our automated [integration testing](./Contributing Documents/Technical Approach DevOps Automation.pdf) are
-attached.
+in the attached document, on page 7.
 
 ## Environment and Installation
+
+The details of our environment and installation are found in our [Technical Approach to DevOps Automation](./Contributing Documents/Technical Approach DevOps Automation.pdf) attachment. In this document you will find the details for items p, q, and r.
 
 ### (p) Configuration management
 
@@ -663,8 +665,8 @@ For configuration management, we used Ansible. We
 also wrote playbooks to do incremental software releases to Dev, Staging, and
 Production environments. We used Jmeter for performance testing. A notification
 mechanism was also set to alert select team members of system failures. 
-The details of our [configuration management](./Contributing Documents/Technical Approach DevOps Automation.pdf)
-approach are attached.
+The details of our configuration management
+approach are found in the attachment.
  
 ### (q) Continuous monitoring
 
@@ -672,8 +674,8 @@ We used SiteScope to monitor application and system
 performance. Custom scripts were written based on certain condition for
 “self-healing” within the services. A notification mechanism was also set to
 alert select team members of system failures. 
-Details of our [continuous monitoring](./Contributing Documents/Technical Approach DevOps Automation.pdf)
-are attached.
+Details of our continuous monitoring
+are found in the attachment.
 
 ### (r) Container based deployment
 
@@ -683,7 +685,8 @@ acts as a central repository for the artifacts. For deployment, Ansible is
 called to download the latest .war file from Nexus to build a docker image and
 upload that image to a docker registry—in this case Nexus. In the final step, Ansible
 retrieves the Docker image from Nexus, deploys it to the target nodes, starts
-the container, and keeps all of the environments consistent. See [DevOps Automation](./Contributing Documents/Technical Approach DevOps Automation.pdf) for more details.
+the container, and keeps all of the environments consistent. Details of our container based deployment
+are found in the attachment.
 
 ### (s) Installation guide
 
