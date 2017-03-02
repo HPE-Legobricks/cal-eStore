@@ -552,7 +552,7 @@ Our design includes small-screen translation, in
 addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing Documents/K.1_Screen Size Examples.pdf). 
 
 A responsive philosophy directed our use of
-scalable and extendable elements. To support this the team used frontend
+scalable and extendable elements. To support this, the team used frontend
 frameworks such as Bootstrap, HTML5, CSS3 and jQuery; proven aids for personal
 and professional responsive design frameworks.
 
