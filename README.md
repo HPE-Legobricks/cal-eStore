@@ -326,8 +326,8 @@ indicated:
 
 ### (c) Understanding users 
 
-Utilizing both the US Digital Service: Digital
-Services Playbook: Play 1: Understanding What People Need as well as
+Utilizing both the Digital
+Services Playbook: Play 1 - Understanding What People Need and our
 Enterprise Services Design methodology, user needs were explored, captured, and
 documented early in the design and development process. The team quickly
 identified:
