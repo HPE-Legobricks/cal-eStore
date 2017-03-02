@@ -704,6 +704,23 @@ The following is our installation guide for our Cal eStore prototype:
 
 * Deploy the code: cp \target\caleStore.war \tomcatpath\webapps\. (Copy the caleStore.war file into Tomcat webapps folder)
 
+The personas and their credentials that could be used to log in to the Cal eStore Application (Prototype A) are as follows.
+
+######Authorized User
+
+Profile: Florinda Sanchez has worked for the California Department of Education for over 9 years and is currently assigned the role of office manager for a team of 23 professional staff. The duties of office manager include timely ordering of desktop computer equipment and software for newly hired staff to ensure new employees are productive upon hiring.
+
+Log in Email Id: florinda.calestore@gmail.com
+Password: User$123456
+
+######Authorized Administrator
+
+Profile: Emma Mercier has worked for the State of California Procurement Division for 12 year and is currently responsible for overseeing all IT services purchased by several state agencies. Emma must ensure state agencies use existing state contracts for purchasing IT services and also helps to evaluate user feedback on services delivered to help negotiate future vendor contracts. 
+
+Log in Email Id: emma.calestore@gmail.com
+Password: Admin$123456
+
+
 ### (t) Prototype and underlying platforms
 
 The packages and platforms used to build and run the prototype are open-sources.
