@@ -36,22 +36,18 @@
 	//chart-1
 
 	function drawChart1() {
-		var data = google.visualization.arrayToDataTable([
-				[ 'Week', 'VendorA', 'VendorB' ], [ 'Week1', 1000, 400 ],
-				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
-				[ 'Week4', 1030, 540 ] ]);
 
-		var data1 = google.visualization.arrayToDataTable(weeklyReportData);
+		var data = google.visualization.arrayToDataTable(weeklyReportData);
 
 		var options = {
 			hAxis : {
-				title : ''
+				title : 'Weekly'
 			}
 		};
 
 		var chart = new google.visualization.ColumnChart(document
 				.getElementById('chart_div1'));
-		chart.draw(data1, options);
+		chart.draw(data, options);
 	}
 
 	//chart-2
@@ -64,7 +60,7 @@
 
 		var options = {
 			hAxis : {
-				title : ''
+				title : 'Weekly'
 			},
 			vAxis : {
 				minValue : 0
@@ -105,7 +101,7 @@
 
 		var options = {
 			hAxis : {
-				title : ''
+				title : 'Weekly'
 			},
 			vAxis : {
 				minValue : 0
