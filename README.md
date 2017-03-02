@@ -45,7 +45,7 @@ of areas and disciplines.
 
 The Demand Team consists of the following:
 
-* Product Manager—delivery manager
+* Product manager—delivery manager
 
 * Product expert—proxy product manager
 
