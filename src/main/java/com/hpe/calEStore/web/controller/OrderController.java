@@ -34,6 +34,7 @@ import com.hpe.calEStore.dao.entity.PurchaseOrder;
 import com.hpe.calEStore.dao.entity.UserProfile;
 import com.hpe.calEStore.service.OrderService;
 import com.hpe.calEStore.service.ProductService;
+import com.hpe.calEStore.service.ProfileService;
 
 /**
  * @author Noothan Y V
@@ -50,6 +51,8 @@ public class OrderController {
 	private OrderService orderService;
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ProfileService profileService;
 
 	@RequestMapping(value = "/addForCart")
 	@ResponseStatus(value = HttpStatus.OK)
@@ -97,9 +100,16 @@ public class OrderController {
 		}
 		String userEmail = SecurityContextHolder.getContext()
 				.getAuthentication().getName();
+		String userDepartmentName = orderService
+				.getUserDepartmentName(userEmail);
+		mv.addObject("userDepartmentName", userDepartmentName);
 		UserProfile usrAdd = orderService.getAddressByUser(userEmail);
 		Set<Address> userAddresses = usrAdd.getAddresses();
-		StringBuilder shipToAddress = getAddress(userAddresses);
+		String firstName=usrAdd.getFirstName();
+		String lastName= usrAdd.getLastName();
+		StringBuilder shipToAddr = getAddress(userAddresses);
+		StringBuilder shipToAddress= new StringBuilder();
+		shipToAddress.append(firstName).append(" ").append(lastName).append("\n").append(userDepartmentName).append("\n").append(shipToAddr);
 		mv.addObject("shipToAddress", shipToAddress);
 		mv.addObject("cartItemsMap", cartItemsMap);
 		return mv;
@@ -120,7 +130,15 @@ public class OrderController {
 				System.out.println("inside the polist size");
 
 				return mv1;
-			} else {
+			}else if(poList.size() == 1){
+				System.out.println("inside the elseif polist size");
+				ModelAndView mv = new ModelAndView("order.detail");
+				mv.addObject("latestOrder", poList.get(0));
+				poList.remove(0);
+				mv.addObject("poList", poList);
+				return mv;
+			}else {
+			
 				ModelAndView mv = new ModelAndView("order.detail");
 				mv.addObject("latestOrder", poList.get(0));
 				poList.remove(0);
@@ -221,17 +239,24 @@ public class OrderController {
 		if (!(userEmail.equals(""))) {
 			try {
 				UserProfile usrAdd = orderService.getAddressByUser(userEmail);
+				String firstName=usrAdd.getFirstName();
+				String lastName= usrAdd.getLastName();
 				Set<Address> userAddresses = usrAdd.getAddresses();
-				StringBuilder shipToAddress = getAddress(userAddresses);
+				String userDepartmentName = orderService
+						.getUserDepartmentName(userEmail);
+				mv.addObject("userDepartmentName", userDepartmentName);
+
+				
+				StringBuilder shipToAddr = getAddress(userAddresses);
+				StringBuilder shipToAddress= new StringBuilder();
+						shipToAddress.append(firstName).append(" ").append(lastName).append("\n").append(userDepartmentName).append("\n").append(shipToAddr);
 				mv.addObject("shipToAddress", shipToAddress);
+				System.out.println("++++++++++++++++++++++++++++++++++++++++"+shipToAddress);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				logger.info("" + e);
 			}
-			String userDepartmentName = orderService
-					.getUserDepartmentName(userEmail);
-			mv.addObject("userDepartmentName", userDepartmentName);
-
+			
 		}
 		return mv;
 	}
@@ -240,13 +265,12 @@ public class OrderController {
 		Address address;
 		Iterator<Address> iter = userAddresses.iterator();
 		StringBuilder shipToAddress = new StringBuilder();
+		System.out.println("+++++++++++++"+SecurityContextHolder.getContext()
+		.getAuthentication().getPrincipal().toString());
 		while (iter.hasNext()) {
 			address = (Address) iter.next();
-			shipToAddress.append(address.getAddressLine1()).append("\n");
-			shipToAddress.append(address.getAddressLine2()).append("\n");
-			shipToAddress.append(address.getCity()).append("\n");
-			shipToAddress.append(address.getState()).append("\n");
-			shipToAddress.append(address.getZipCode());
+			shipToAddress.append(address.getAddressLine1()).append(address.getAddressLine2()).append("\n");
+			shipToAddress.append(address.getCity()).append(", ").append(address.getState()).append(address.getZipCode());
 		}
 		return shipToAddress;
 	}

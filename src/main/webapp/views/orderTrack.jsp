@@ -151,11 +151,6 @@
 									<c:choose>
 										<c:when test="${latestOrder.status.statusName =='Delivered'}">
 											<h3>Order cant be cancelled</h3>
-
-											<div>
-												<br>
-												<h3>Order can't be cancelled</h3>
-											</div>
 										</c:when>
 										<c:otherwise>
 

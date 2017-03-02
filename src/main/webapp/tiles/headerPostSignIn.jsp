@@ -171,7 +171,7 @@
 								class="icon-ok-circle"></i> Track Order </a></li>
 						<!-- <li><a class="shoppingcart" href="cartDetail"><i
 								class="icon-shopping-cart"></i> Cart </a></li> -->
-						<li><a class="checkout" href="#"><i
+						<li><a class="checkout" ><i
 								class=" icon-user"></i><%= request.getUserPrincipal().getName() %></a></li> 
 						<li><a class="checkout" href="loginform/signout"><i
 								class="icon-minus-sign"></i> Logout </a></li>

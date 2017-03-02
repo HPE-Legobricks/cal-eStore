@@ -317,7 +317,7 @@ li.dropdown {
 #categorymenu {
 	padding: 7px 0 7px 0;
 	background: #fff;
-	border-top: 1px double #aeb0b5;
+	/* border-top: 1px double #aeb0b5; */
 	border-bottom: 4px double #aeb0b5
 }
 #categorymenu:after {

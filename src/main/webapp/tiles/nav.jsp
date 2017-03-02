@@ -1,5 +1,5 @@
-<!-- <div id="categorymenu">
-	<nav class="subnav">
+<div id="categorymenu">
+	<!-- <nav class="subnav">
 		<ul class="nav-pills categorymenu container">
 			<li><a class="active home" href="productCatalogue"><i
 					class="icon-home icon-white font18"></i> <span> Home</span></a></li>
@@ -44,6 +44,5 @@
 					</ul>
 				</div></li>
 		</ul>
-	</nav>
+	</nav> -->
 </div>
- -->

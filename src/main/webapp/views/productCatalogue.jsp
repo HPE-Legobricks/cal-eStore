@@ -26,11 +26,11 @@
 										alt=""
 										src="<%=request.getContextPath()%>/images/product-base/catalogue/${product.imgPath}"></a>
 								</p>
-								<div class="shortlinks">
-									<button data-original-title="Product Detail"
+								<div class="">
+									<!-- <button data-original-title="Product Detail">
 										class="btn btn-orange btn-small tooltip-test">
 										<i class="icon-list icon-white"></i>
-									</button>
+									</button> -->
 								</div>
 								<div class="price">
 									<div class="pricenew">
