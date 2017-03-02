@@ -321,7 +321,6 @@ indicated:
 * Amit and Lata - Quality Assurance Analysts - Ensured quality throughout the project
 
 * Sandy - Technical Writer/Content Designer - Developed the strategy and execution of content
-
  
 ## Design and Development
 
