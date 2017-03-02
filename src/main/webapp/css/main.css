@@ -69,6 +69,9 @@ header .header-info .input-group input:focus	{box-shadow:none;border-color:#ddd}
 #footer .footerlinks 							{padding: 10px;background: #3A3A3A;color: #999;}
 #footer .footerlinks .info a 					{border-right:1px solid #AEB0B5;padding:0 10px;padding-right:15px}
 #footer .footerlinks .info a:last-child			{border:none}
+#footer h2 {
+ font-family: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+} 
 
 #footer .social a								{font-size:18px}
 #footer .info p									{margin-bottom:5px} 

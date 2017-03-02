@@ -29,7 +29,7 @@
 					<div class="info">
                     	<h3>Agency Contact Center</h3>
 						<p> <i class="fa fa-phone"></i> (800) CALL-GOVT</p>
-						<a href="mailto:info@agency.gov"> <i class="fa fa-envelope"></i> info@agency.gov</a>
+						<a href="mailto:ADPQ@state.ca.gov"> <i class="fa fa-envelope"></i>ADPQ@state.ca.gov</a>
                     </div>
 				</div>
 				</div>

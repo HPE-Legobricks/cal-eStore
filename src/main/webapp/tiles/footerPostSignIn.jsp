@@ -30,7 +30,7 @@
 						</div>
 						<div class="span5 social">
 							<h3>Department of Technology</h3>
-							PO Box 1810, Rancho Cordova, CA 95741</br> <a href="mailto:info@agency.gov">ADPQ@state.ca.gov</a>
+							PO Box 1810, Rancho Cordova, CA 95741</br> <a href="mailto:ADPQ@state.ca.gov">ADPQ@state.ca.gov</a>
 						</div>
 					</div>
 				</div>

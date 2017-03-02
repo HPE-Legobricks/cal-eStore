@@ -34,7 +34,7 @@
 								<div class="control-group">
 									<label class="control-label">Order Date</label>
 									<div class="controls">
-										<span class="input-xlarge uneditable-input"><fmt:formatDate  value="${now}" dateStyle="long" pattern="dd-MM-yyyy "/></span>
+										<span class="input-xlarge uneditable-input"><fmt:formatDate  value="${now}" dateStyle="long" pattern="MM-dd-yyyy "/></span>
 									</div>
 								</div>
 								<div class="control-group">
