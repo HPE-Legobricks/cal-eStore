@@ -21,6 +21,38 @@
 	</c:forEach>
 	];
 
+	var cancelledReportData = [['Week'
+	                     	
+	                     	<c:forEach var="orderData" items="${cancelledDataMap}">
+	                     	,'${orderData.key}'
+	                     	</c:forEach>
+	                     	]
+
+	                     	<c:forEach var="cancelledOrderPerVendor" items="${cancelledOrdersPerVendorMap}">
+	                     		,['${cancelledOrderPerVendor.key}'
+	                     		<c:forEach var="orderPerVendor" items="${cancelledOrderPerVendor.value}">
+	                     			,${orderPerVendor.value}
+	                     		</c:forEach>
+	                     		]
+	                     	</c:forEach>
+	                     	];
+
+	var deliveredReportData = [['Week'
+		                     	
+		                     	<c:forEach var="orderData" items="${deliveredDataMap}">
+		                     	,'${orderData.key}'
+		                     	</c:forEach>
+		                     	]
+
+		                     	<c:forEach var="deliveredOrderPerVendor" items="${deliveredOrdersPerVendorMap}">
+		                     		,['${deliveredOrderPerVendor.key}'
+		                     		<c:forEach var="orderPerVendor" items="${deliveredOrderPerVendor.value}">
+		                     			,${orderPerVendor.value}
+		                     		</c:forEach>
+		                     		]
+		                     	</c:forEach>
+		                     	];
+
 </script>
 
 
@@ -53,10 +85,8 @@
 	//chart-2
 
 	function drawChart2() {
-		var data = google.visualization.arrayToDataTable([
-				[ 'Week', 'DEP HR', 'DEP COD' ], [ 'Week1', 1000, 400 ],
-				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
-				[ 'Week4', 1030, 540 ] ]);
+
+		var data = google.visualization.arrayToDataTable(cancelledReportData);
 
 		var options = {
 			hAxis : {
@@ -77,8 +107,8 @@
 	function drawChart3() {
 
 		var data = google.visualization.arrayToDataTable([
-				[ 'Inprocess', 'Shipped' ], [ 'Inprocess', 11 ],
-				[ 'Shipped', 7 ] ]);
+				[ 'Inprocess', 'Shipped' ], [ 'Inprocess', ${orderStatusDm.ordersInprogress} ],
+				[ 'Shipped', ${orderStatusDm.ordersShipped} ] ]);
 
 		var options = {
 			title : ''
@@ -94,10 +124,7 @@
 
 	function drawChart4() {
 
-		var data = google.visualization.arrayToDataTable([
-				[ 'Week', 'DEP HR', 'DEP COD' ], [ 'Week1', 1000, 400 ],
-				[ 'Week2', 1170, 460 ], [ 'Week3', 660, 1120 ],
-				[ 'Week4', 1030, 540 ] ]);
+		var data = google.visualization.arrayToDataTable(deliveredReportData);
 
 		var options = {
 			hAxis : {
@@ -146,8 +173,7 @@
 						class="info-box-number"><fmt:formatNumber
 							var="totalOrderCost" type="currency" minFractionDigits="2"
 							maxFractionDigits="2" value="${orderStatistics.totalOrderCost}" />
-						${totalOrderCost}
-					</span>
+						${totalOrderCost} </span>
 				</div>
 			</div>
 		</div>

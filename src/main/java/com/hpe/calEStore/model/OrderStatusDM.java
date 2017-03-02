@@ -1,92 +1,57 @@
 package com.hpe.calEStore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author nagampun
  *
  */
 public class OrderStatusDM {
 
-	private int ordersOrdered;
+	private int ordersInitiated;
 	private int ordersInprogress;
 	private int ordersShipped;
 	private int ordersDelivered;
 	private int ordersCancelled;
 
-	public OrderStatusDM() {
-		// TODO Auto-generated constructor stub
+	public int getOrdersInitiated() {
+		return ordersInitiated;
 	}
 
-	/**
-	 * @return the ordersOrdered
-	 */
-	public int getOrdersOrdered() {
-		return ordersOrdered;
+	public void setOrdersInitiated(int ordersInitiated) {
+		this.ordersInitiated = ordersInitiated;
 	}
 
-	/**
-	 * @param ordersOrdered
-	 *            the ordersOrdered to set
-	 */
-	public void setOrdersOrdered(int ordersOrdered) {
-		this.ordersOrdered = ordersOrdered;
-	}
-
-	/**
-	 * @return the ordersInprogress
-	 */
 	public int getOrdersInprogress() {
 		return ordersInprogress;
 	}
 
-	/**
-	 * @param ordersInprogress
-	 *            the ordersInprogress to set
-	 */
 	public void setOrdersInprogress(int ordersInprogress) {
 		this.ordersInprogress = ordersInprogress;
 	}
 
-	/**
-	 * @return the ordersShipped
-	 */
 	public int getOrdersShipped() {
 		return ordersShipped;
 	}
 
-	/**
-	 * @param ordersShipped
-	 *            the ordersShipped to set
-	 */
 	public void setOrdersShipped(int ordersShipped) {
 		this.ordersShipped = ordersShipped;
 	}
 
-	/**
-	 * @return the ordersDelivered
-	 */
+	@JsonIgnore
 	public int getOrdersDelivered() {
 		return ordersDelivered;
 	}
 
-	/**
-	 * @param ordersDelivered
-	 *            the ordersDelivered to set
-	 */
 	public void setOrdersDelivered(int ordersDelivered) {
 		this.ordersDelivered = ordersDelivered;
 	}
 
-	/**
-	 * @return the ordersCancelled
-	 */
+	@JsonIgnore
 	public int getOrdersCancelled() {
 		return ordersCancelled;
 	}
 
-	/**
-	 * @param ordersCancelled
-	 *            the ordersCancelled to set
-	 */
 	public void setOrdersCancelled(int ordersCancelled) {
 		this.ordersCancelled = ordersCancelled;
 	}

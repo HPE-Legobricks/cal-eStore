@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hpe.calEStore.model.OrderStatisticsDM;
+import com.hpe.calEStore.model.OrderStatusDM;
 import com.hpe.calEStore.service.OrderReportService;
 
 @Api(value = "Order Statistics")
@@ -32,11 +33,10 @@ public class ReportsController {
 
 	@ApiOperation(value = "Fetch Count of Orders per each order status")
 	@RequestMapping(value = "/getOrderCountPerStatus", method = RequestMethod.GET)
-	public ResponseEntity<Map<String, Integer>> getOrderCountPerStatus() {
+	public ResponseEntity<OrderStatusDM> getOrderCountPerStatus() {
 
-		Map<String, Integer> orderCountMap = null;//orderReportService.getOrderCount();
-		return new ResponseEntity<Map<String, Integer>>(orderCountMap,
-				HttpStatus.OK);
+		OrderStatusDM orderStatusDm = orderReportService.getOrderCount();
+		return new ResponseEntity<OrderStatusDM>(orderStatusDm, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Fetch Count of Orders per each dept on a weekly basis")
@@ -44,6 +44,24 @@ public class ReportsController {
 	public ResponseEntity<Map<String, Map<String, Integer>>> getWeeklyOrderCountPerDept() {
 		Map<String, Map<String, Integer>> map = orderReportService
 				.getWeeklyOrderCountPerDept();
+		return new ResponseEntity<Map<String, Map<String, Integer>>>(map,
+				HttpStatus.OK);
+	}
+
+	@ApiOperation(value = "Fetch Count of Cancelled Orders per each vendor on a weekly basis")
+	@RequestMapping(value = "/getWeeklyCancelledOrdersPerVendor", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Map<String, Integer>>> getWeeklyCancelledOrdersPerVendor() {
+		Map<String, Map<String, Integer>> map = orderReportService
+				.getCancelledOrdersByVendor();
+		return new ResponseEntity<Map<String, Map<String, Integer>>>(map,
+				HttpStatus.OK);
+	}
+
+	@ApiOperation(value = "Fetch Count of delivered Orders per each vendor on a weekly basis")
+	@RequestMapping(value = "/getWeeklyDeliveredOrdersPerVendor", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Map<String, Integer>>> getWeeklyDeliveredOrdersPerVendor() {
+		Map<String, Map<String, Integer>> map = orderReportService
+				.getDeliveredOrdersByVendor();
 		return new ResponseEntity<Map<String, Map<String, Integer>>>(map,
 				HttpStatus.OK);
 	}

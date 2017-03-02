@@ -284,7 +284,7 @@ public class OrderReportDAOImpl extends
 		for (TReportType2 tReportTypes : tReportType2) {
 
 			if (tReportTypes.getStatusType().equalsIgnoreCase("Ordered"))
-				orderStatusDM.setOrdersOrdered(tReportTypes.getValueForKpi());
+				orderStatusDM.setOrdersInitiated(tReportTypes.getValueForKpi());
 
 			if (tReportTypes.getStatusType().equalsIgnoreCase("Inprocess"))
 				orderStatusDM
