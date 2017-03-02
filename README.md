@@ -144,6 +144,8 @@ writer/content designer.
 Following are the user-centric design techniques
 used for developing the application.
 
+* Research
+
 * Conducted interviews
 
 * Built personas
