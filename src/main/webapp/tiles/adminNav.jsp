@@ -12,7 +12,7 @@
 		</div>
 		<div class="navbar-collapse collapse" id="navbar">
 			<ul class="nav navbar-nav">
-				<li><a href="adminDashboard"><i class="fa fa-tachometer"></i>
+				<li><a href="${pageContext.request.contextPath}/adminDashboard"><i class="fa fa-tachometer"></i>
 						Dashboard</a></li>
 				<!--  <li><a href="index.html"><i class="fa fa-desktop"></i>
 						Products</a></li> -->
