@@ -41,7 +41,7 @@
 
 		var options = {
 			hAxis : {
-				title : 'Weekly'
+				title : 'Week'
 			}
 		};
 
@@ -60,7 +60,7 @@
 
 		var options = {
 			hAxis : {
-				title : 'Weekly'
+				title : 'Week'
 			},
 			vAxis : {
 				minValue : 0
@@ -101,7 +101,7 @@
 
 		var options = {
 			hAxis : {
-				title : 'Weekly'
+				title : 'Week'
 			},
 			vAxis : {
 				minValue : 0
