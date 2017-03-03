@@ -634,7 +634,7 @@ Code Coverage) to automate test cases in continuous integration.
 
 As part of the Cal eStore application quality check and validation process we have performed
 automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing Documents/N.1_Automated testing.pdf) We also provide a
-[short video](./Contributing Documents/N.2_Automated functional testing.ppsx) explanation.
+[short video](./Contributing Documents/N.2_Automated functional testing.mp4) explanation.
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
