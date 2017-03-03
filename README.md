@@ -3,6 +3,19 @@
 Our working prototype is located at:
 
 [Working prototype](http://13.64.248.119:8080/calestore/loginform)
+The personas and their credentials that could be used to log in to the Cal eStore Application (Prototype A) are as follows.
+
+######Authorized User:  
+
+Log in Email Id: florinda.calestore@gmail.com
+
+Password: User$123456
+
+######Authorized Administrator:
+
+Log in Email Id: emma.calestore@gmail.com
+
+Password: Admin$123456
 
 # Technical Approach
 
