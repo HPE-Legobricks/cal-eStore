@@ -2,7 +2,7 @@
 
 Please visit our [Working Prototype](http://13.64.248.119:8080/calestore/loginform)
 
-The personas and their credentials that could be used to log in to the Cal eStore Application (Prototype A) are as follows.
+The personas and their credentials that could be used to sign in to the Cal eStore Application (Prototype A) are as follows.
 
 ######Authorized User:  
 
