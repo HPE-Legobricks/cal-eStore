@@ -6,13 +6,13 @@ The personas and their credentials that could be used to log in to the Cal eStor
 
 ######Authorized User:  
 
-Log in Email Id: florinda.calestore@gmail.com
+Sign in Email Id: florinda.calestore@gmail.com
 
 Password: User$123456
 
 ######Authorized Administrator:
 
-Log in Email Id: emma.calestore@gmail.com
+Sign in Email Id: emma.calestore@gmail.com
 
 Password: Admin$123456
 
