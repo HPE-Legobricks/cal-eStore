@@ -6,7 +6,7 @@ Our working prototype is located at:
 
 # Technical Approach
 
-##Problem Statement
+## Problem Statement
 
 For our prototype, Enterprise Services needed to
 develop an application that allows California state employees to shop online
