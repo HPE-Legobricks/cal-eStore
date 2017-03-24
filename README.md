@@ -160,7 +160,7 @@ used for developing the application.
 
 ## Extract, Transform, and Load (ETL) process 
 
-In the [ETL process](/Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
+In the [ETL process] (./Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
 the resource.pdf file which was provided in the RFI, loaded it in to the staging
 database and, based on visual scans and data profiling reviews, we developed
 custom business rules to transform the data. The transformed and cleaned data
@@ -622,12 +622,12 @@ We used JUnit (Java Unit test) to develop test cases and JaCoCo (Java
 Code Coverage) to automate test cases in continuous integration.
 
 As part of the Cal eStore application quality check and validation process we have performed
-automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing Documents/N.1_Automated Testing.pdf)
+automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios] (./Contributing Documents/N.3_Test Cases.pdf) that will help to create automated testing. The detailed information is [attached.] (./Contributing Documents/N.1_Automated Testing.pdf)
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
 We have used the jMeter Graphical Server performance testing tool which is an
-Open Source testing software. More detail about the [performance testing](./Contributing Documents/N.4_Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
+Open Source testing software. More detail about the [performance testing] (./Contributing Documents/N.4_Performance Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
 
 
 ### (o) Automated integration testing for IaaS or PaaS code deployment 
