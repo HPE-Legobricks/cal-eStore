@@ -160,7 +160,7 @@ used for developing the application.
 
 ## Extract, Transform, and Load (ETL) process 
 
-In the [ETL process](./Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
+In the [ETL process](Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
 the resource.pdf file which was provided in the RFI, loaded it in to the staging
 database and, based on visual scans and data profiling reviews, we developed
 custom business rules to transform the data. The transformed and cleaned data
