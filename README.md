@@ -4,13 +4,13 @@ Please visit our [Working Prototype](http://13.64.248.119:8080/calestore/loginfo
 
 The personas and their credentials that could be used to sign in to the Cal eStore Application (Prototype A) are as follows.
 
-######Authorized User:  
+###### Authorized User:  
 
 Sign in Email Id: florinda.calestore@gmail.com
 
 Password: User$123456
 
-######Authorized Administrator:
+###### Authorized Administrator:
 
 Sign in Email Id: emma.calestore@gmail.com
 
@@ -18,7 +18,7 @@ Password: Admin$123456
 
 # Technical Approach
 
-##Problem Statement
+## Problem Statement
 
 For our prototype, Enterprise Services needed to
 develop an application that allows California state employees to shop online
@@ -27,7 +27,7 @@ cancel, track, and analyze their orders online. Additionally,
 authorized administrative users need to be able to publish product and service
 information, as well as track, analyze and view order data. 
 
-##Prototype - Definition, Goal, and Tasks
+## Prototype - Definition, Goal, and Tasks
 
 Our prototype, which we named Cal eStore, serves as
 an end to end application catering to authorized users and administrative
@@ -38,7 +38,7 @@ administrative users to publish and update hardware, software, and service
 information on the platform, along with the capabilities to analyze and view
 order data.
 
-##Approach
+## Approach
 
 Agile methodology served as the foundation for the
 prototype development. The Agile
@@ -130,7 +130,7 @@ release planning and management activities. Our Agile development processes
 support all of these aforementioned methods and were used for the Cal eStore
 prototype. 
 
-##User Centric Design
+## User Centric Design
 
 The success of any human end user application is
 based on how well the application is designed to allow users to navigate
@@ -172,7 +172,7 @@ used for developing the application.
 
 * Performed usability testing
 
-##Extract, Transform, and Load (ETL) process 
+## Extract, Transform, and Load (ETL) process 
 
 In the [ETL process](./Contributing Documents/Technical Approach ETL Process.pdf), we extracted data from
 the resource.pdf file which was provided in the RFI, loaded it in to the staging
@@ -186,7 +186,7 @@ name, operating system, processor, memory, storage, warranty, connectivity
 type, HDD RPM, and RAM type so that we can enable the product comparison
 feature in the Cal eStore.
 
-##Architecture 
+## Architecture 
 
 The high level [architecture](./Contributing Documents/Technical Approach High Level Architecture.pdf) pertains to the architecture that we used
 for developing the prototype. The architecture outlines the main components and
@@ -214,7 +214,7 @@ data access model and web services.
 **Database:** MySQL relational database was used to
 load the prototype’s data source.
 
-##DevOps Automation 
+## DevOps Automation 
 
 Continuous integration, delivery, and deployment is
 key to automating the delivery process. In order to successfully implement the
@@ -263,7 +263,7 @@ scripts. We used SiteScope for monitoring the Cal eStore application at the
 system level. The tool continuously monitors the available application and
 services, and restarts the services on the VM if it fails. 
 
-##Summary
+## Summary
 
 This Technical Approach has described our process
 and methodology in creating the prototype. We had 27 functional user stories
@@ -280,13 +280,13 @@ set for our prototype. Our prototype meets the needs of the prospective users
 and administrators. 
 
  
-#US Digital Services Playbook
+# US Digital Services Playbook
 
 We complied with the US Digital Service: Digital
 Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing Documents/J.1_US Digital Services Playbook.pdf) for details about our approach.
 
  
-#RFI Requirements (a) through (t)
+# RFI Requirements (a) through (t)
 ## Team
 
 ### (a) Leadership
@@ -716,13 +716,13 @@ The following is our installation guide for our Cal eStore prototype:
 
 The personas and their credentials that could be used to log in to the Cal eStore Application (Prototype A) are as follows.
 
-######Authorized User:  
+###### Authorized User:  
 
 Log in Email Id: florinda.calestore@gmail.com
 
 Password: User$123456
 
-######Authorized Administrator:
+###### Authorized Administrator:
 
 Log in Email Id: emma.calestore@gmail.com
 
