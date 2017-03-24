@@ -219,7 +219,7 @@ load the prototype’s data source.
 Continuous integration, delivery, and deployment is
 key to automating the delivery process. In order to successfully implement the
 concept of agile and continuous delivery it is highly important that
-collaboration and communication exist between various work groups. [DevOps](./Contributing20%Documents/Technical20%Approach20%DevOpsv20%Automation.pdf) is a set of processes
+collaboration and communication exist between various work groups. [DevOps](./Contributing%20Documents/Technical%20Approach%20DevOpsv%20Automation.pdf) is a set of processes
 and methods for this communication and collaboration of both software and
 information technology while automating the processes of software delivery and
 infrastructure changes.
@@ -272,7 +272,7 @@ and Reports) during the Sprint 0 back log grooming session. Sixteen user
 stories were prioritized by the Product Manager and executed by the agile development
 team in three sprints. There are 11 user stories remaining in the backlog after
 end of Sprint 3. The documentation regarding the user stories is provided in
-the [JIRA presentation](./Contributing20%Documents/D.4b_JIRA20%tool20%example.pdf). We used our Global Agile Software
+the [JIRA presentation](./Contributing%20Documents/D.4b_JIRA%20tool%20example.pdf). We used our Global Agile Software
 Delivery Model to guide our project teams’ delivery, using a set of
 interrelated roles, practices, and work products that optimized the flow of
 business value delivery. Our project was a success, delivering on each goal we
@@ -283,7 +283,7 @@ and administrators.
 # US Digital Services Playbook
 
 We complied with the US Digital Service: Digital
-Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing20%Documents/J.1_US20%Digital20%Services20%Playbook.pdf) for details about our approach.
+Services Playbook in creation of our prototype. See the [Service Plays Table](./Contributing%20Documents/J.1_US%20Digital%20Services%20Playbook.pdf) for details about our approach.
 
  
 # RFI Requirements (a) through (t)
@@ -372,7 +372,7 @@ insights on the user orders.
 within minutes. I want the same experience for my official equipment ordering
 system.
 
-More detail about our [understanding of users](./Contributing20%Documents/C.1_User20%Centric20%Design.pdf) is attached.
+More detail about our [understanding of users](./Contributing%20Documents/C.1_User%20Centric%20Design.pdf) is attached.
 
 ### (d) User-centric design tools and/or techniques 
 
@@ -457,14 +457,14 @@ Based on requirements for the prototype and insight
 from potential users gathered via interviews, we created user stories to guide
 our development. This information was then refined and prioritized in a product
 backlog grooming session with the product owner. We have attached the 
-[user stories](./Contributing20%Documents/D.4a_User20%Stories.pdf) and documentation of the
-[JIRA tool](./Contributing20%Documents/D.4b_JIRA20%tool20%example.pdf) where we capture the user stories. 
+[user stories](./Contributing%20Documents/D.4a_User%20Stories.pdf) and documentation of the
+[JIRA tool](./Contributing%20Documents/D.4b_JIRA%20tool%20example.pdf) where we capture the user stories. 
 
 **Develop wireframes** 
 
 As the starting point to
 represent the prototypes on layman’s terms, we developed wireframes. The team
-created the wireframes based on the user stories. The [initial user wireframes](./Contributing20%Documents/D.5a_User20%Initial20%Wireframe.pdf) and [initial administrator wireframes](./Contributing20%Documents/D.5b_Admin20%Initial20%Wireframe.pdf) are attached. 
+created the wireframes based on the user stories. The [initial user wireframes](./Contributing%20Documents/D.5a_User%20Initial%20Wireframe.pdf) and [initial administrator wireframes](./Contributing%20Documents/D.5b_Admin%20Initial%20Wireframe.pdf) are attached. 
 
 **Perform role-play** 
 
@@ -489,7 +489,7 @@ Availability might be a feature for admin user
 
 * At Checkout, show the Payment option as under the Department Contract “XXXX-XXXX-0123.” For security reasons the contract id will not be visible to users. 
 
-Based on the feedback, the wireframes were updated as needed. The final [user](./Contributing20%Documents/D.6b_User20%Final20%Wireframe.pdf) and [admin](./Contributing20%Documents/D.6a_Admin20%Final20%Wireframe.pdf) wireframes are
+Based on the feedback, the wireframes were updated as needed. The final [user](./Contributing%20Documents/D.6b_User%20Final%20Wireframe.pdf) and [admin](./Contributing%20Documents/D.6a_Admin%20Final%20Wireframe.pdf) wireframes are
 attached.
 
 **Create mock-ups** 
@@ -511,14 +511,14 @@ the prototype.
 
 We used Swagger to document the Cal eStore RESTful
 API. Our link to Swagger API for Cal eStore is: http://13.64.248.119:8080/calestore/swagger-ui.html.
-Further detail of our [Swagger](./Contributing20%Documents/F.2_Swagger20%Specification.pdf) and [code flow updates](./Contributing20%Documents/F.3_Swagger20%documentation.pdf) are attached. 
+SFurther detail of our [Swagger](./Contributing%20Documents/F.2_Swagger%20pecification.pdf) and [code flow updates](./Contributing%20Documents/F.3_Swagger%20documentation.pdf) are attached. 
 
 ### (g) ADA Section 508 and WCAG 2.0 compliance 
 
 To comply with WCAG, our team used HTML5 and CSS3
 technology during front end development. Once built, the code was tested
 against the W3 standard site. This methodology supports compliance with Section
-508 of the Americans with Disabilities Act. See our [WCAG and W3 Compliance Tables](./Contributing20%Documents/G.1_ADA20%WCAG20%Compliance.pdf) for details.
+508 of the Americans with Disabilities Act. See our [WCAG and W3 Compliance Tables](./Contributing%20Documents/G.1_ADA%20WCAG%20Compliance.pdf) for details.
 
 ### (h) Design style guide and pattern library 
 
@@ -526,7 +526,7 @@ We used the US Web Design Standards UI component
 library and strictly followed brand guidelines to define color, typography,
 form fields, spacing and click-throughs. Use of U.S. Web Design Standards
 further ensured that selected standardize color palettes are visually
-appealing. See our [Design Document](./Contributing Documents/H.1_Design20%Style20%Guide20%and20%Pattern20%Library.pdf) for details of how we have implemented these standards.
+appealing. See our [Design Document](./Contributing Documents/H.1_Design%20Style%20Guide%20and%20Pattern%20Library.pdf) for details of how we have implemented these standards.
 
 ### (i) Usability testing
 
@@ -539,7 +539,7 @@ initial interactions were intuitive. Our approach was to provide the wireframe
 to a user who was not involved in the design process and capture his or her
 thought process while going through the application wireframes. We also created
 a list of pre-defined questions to ask the users. More detail of our Usability
-Testing related to the [wireframe](./Contributing20%Documents/I.2_Usability20%Testing20%Wireframes.pdf)
+Testing related to the [wireframe](./Contributing%20Documents/I.2_Usability%20Testing%20Wireframes.pdf)
 is attached.
 
 While designing our prototype, we invited prospective users to role play
@@ -548,7 +548,7 @@ design team and business analyst conducted a face-to-face interview with the
 users and asked many questions to simulate possible tasks the user would
 perform when using the real application. To ensure unbiased feedback, the users
 interviewed were unfamiliar with the project requirements for the prototype.
-More detail of our Usability Testing related to [Visual Design](./Contributing20%Documents/I.1_Usability20%Testing20%Visual20%Design.pdf) is attached.
+More detail of our Usability Testing related to [Visual Design](./Contributing%20Documents/I.1_Usability%20Testing%20Visual%20Design.pdf) is attached.
 
 ### (j) Iterative Approach
 
@@ -557,12 +557,12 @@ Enterprise Services Global Agile Software Delivery Model. We have
 developed and fine-tuned the Global Agile Software Delivery Model to guide our
 project teams’ delivery of projects using Agile delivery models. At its core
 our global Agile software delivery model is based on the Agile manifesto,
-principles, and the scrum delivery model. We have attached our [Agile Delivery Model](./Contributing Documents/A.1_Agile Scrum Process.pdf).
+principles, and the scrum delivery model. We have attached our [Agile Delivery Model](./Contributing%20Documents/A.1_Agile%20Scrum%20Process.pdf).
 
 ### (k) Multiple Device and Responsive Design
 
 Our design includes small-screen translation, in
-addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing20%Documents/K.1_Screen20%Size20%Examples.pdf). 
+addition to larger desktop and tablet screen sizes as shown in [Screen Sizes example](./Contributing%20Documents/K.1_Screen%20Size%20Examples.pdf). 
 
 A responsive philosophy directed our use of
 scalable and extendable elements. To support this, the team used frontend
@@ -633,17 +633,17 @@ We used JUnit (Java Unit test) to develop test cases and JaCoCo (Java
 Code Coverage) to automate test cases in continuous integration.
 
 As part of the Cal eStore application quality check and validation process we have performed
-automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing20%Documents/N.3_Test20%Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing20%Documents/N.1_Automated20%testing.pdf) We also provide a
-[short video](./Contributing20%Documents/N.2_Automated20%functional20%testing.mp4) explanation which can be downloaded for viewing.
+automated functional testing. Selenium was the primary tool of choice for implementing Test Automation. We have created [testing scenarios](./Contributing%20Documents/N.3_Test%20Cases.pdf) that will help to create automated testing. The detailed information is [attached.](./Contributing%20Documents/N.1_Automated%20testing.pdf) We also provide a
+[short video](./Contributing%20Documents/N.2_Automated%20functional%20testing.mp4) explanation which can be downloaded for viewing.
 
 We have also performed performance testing for the
 application by simulating the surges in traffic to identify performance bottlenecks.
 We have used the jMeter Graphical Server performance testing tool which is an
-Open Source testing software. More detail about the [performance testing](./Contributing20%Documents/N.4_Performance20%Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
+Open Source testing software. More detail about the [performance testing](./Contributing%20Documents/N.4_Performance%20Testing.pdf) is attached. This testing was conducted on a minimum capacity server. 
 
 ## DevOps Automation
 
-The details of our Continuous Integration architecture are found in our [Technical Approach to DevOps Automation](./Contributing20%Documents/Technical20%Approach20%DevOps20%Automation.pdf) attachment. In this document you will find the details for items o, p, q, and r.
+The details of our Continuous Integration architecture are found in our [Technical Approach to DevOps Automation](./Contributing%20Documents/Technical%20Approach%20DevOps%20Automation.pdf) attachment. In this document you will find the details for items o, p, q, and r.
 
 ### (o) Continuous Integration pipeline for IaaS or PaaS code deployment 
 
