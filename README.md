@@ -188,7 +188,7 @@ feature in the Cal eStore.
 
 ## Architecture 
 
-The high level [architecture](./Contributing20%Documents/Technical20%Approach20%High20%Level20%Architecture.pdf) pertains to the architecture that we used
+The high level [architecture](./Contributing%20Documents/Technical%20Approach%20High%20Level%20Architecture.pdf) pertains to the architecture that we used
 for developing the prototype. The architecture outlines the main components and
 their interfaces. 
 
