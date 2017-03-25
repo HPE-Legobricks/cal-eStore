@@ -511,7 +511,7 @@ the prototype.
 
 We used Swagger to document the Cal eStore RESTful
 API. Our link to Swagger API for Cal eStore is: http://13.64.248.119:8080/calestore/swagger-ui.html.
-SFurther detail of our [Swagger](./Contributing%20Documents/F.2_Swagger%20pecification.pdf) and [code flow updates](./Contributing%20Documents/F.3_Swagger%20documentation.pdf) are attached. 
+SFurther detail of our [Swagger](./Contributing%20Documents/F.2_Swagger%20Specification.pdf) and [code flow updates](./Contributing%20Documents/F.3_Swagger%20documentation.pdf) are attached. 
 
 ### (g) ADA Section 508 and WCAG 2.0 compliance 
 
