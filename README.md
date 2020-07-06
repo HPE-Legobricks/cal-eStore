@@ -29,7 +29,7 @@ information, as well as track, analyze and view order data.
 
 ## Prototype - Definition, Goal, and Tasks
 
-Our prototype, which we named Cal eStore, serves as
+Our prototype, which we named Cal eStore, serves  as
 an end to end application catering to authorized users and administrative
 users. The prototype features sample computing hardware, software, and related
 services from pre-established state contracts and allows users to compare and
