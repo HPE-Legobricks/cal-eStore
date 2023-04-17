@@ -109,7 +109,7 @@
 
 	<properties>
 		<spring.version>4.2.4.RELEASE</spring.version>
-		<springsecurity.version>4.0.4.RELEASE</springsecurity.version>
+		<springsecurity.version>5.7.8</springsecurity.version>
 		<jackson.version>2.6.0</jackson.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<apachetiles.version>3.0.5</apachetiles.version>
@@ -422,7 +422,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
