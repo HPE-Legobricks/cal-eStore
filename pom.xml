@@ -124,7 +124,7 @@
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
-		    <version>20090211</version>
+		    <version>20231013</version>
 		</dependency>
 				
 		<!-- Spring dependencies -->
@@ -422,7 +422,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
